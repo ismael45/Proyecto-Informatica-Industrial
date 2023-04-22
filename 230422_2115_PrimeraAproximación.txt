@@ -49,6 +49,8 @@ Modo de juego con temporizadores
 
 Modo Juego a 3  alturas (experimental, se detallará presencialmente)
 
+Modo de Juego contra la IA
+
 Pantalla de Victoria
 
 Pantalla de Tablas
