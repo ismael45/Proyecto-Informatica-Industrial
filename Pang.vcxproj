@@ -19,14 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Casilla.cpp" />
+    <ClCompile Include="src\Casilla.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Ajedrez.cpp" />
     <ClCompile Include="src\Tablero.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Casilla.h" />
+    <ClInclude Include="src\Casilla.h" />
     <ClInclude Include="src\ColorRGB.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Tablero.h" />
