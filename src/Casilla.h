@@ -12,7 +12,7 @@ public:
 private: 
 	ColorRGB color_tab;
 	Vector2D posicion;
-	float tamaño;
+	float tamaño;//Ejemplo
 
 public:
 	void setColor(Byte r, Byte g, Byte b);
