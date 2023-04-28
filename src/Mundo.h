@@ -1,9 +1,16 @@
+#include "Tablero.h"
 #include "Casilla.h"
+
 
 class Mundo
 {
-	Casilla casilla;
-public: 
+public:
+	Mundo();
+	virtual~Mundo();
+private:
+	Tablero tablero;
+
+public:
 	void tecla(unsigned char key);
 	void inicializa();
 	void rotarOjo();
@@ -13,4 +20,8 @@ public:
 	float x_ojo;
 	float y_ojo;
 	float z_ojo;
+
+	
+
+
 };
