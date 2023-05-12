@@ -24,6 +24,7 @@
     <ClCompile Include="src\Ajedrez.cpp" />
     <ClCompile Include="src\Tablero.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
+    <ClCompile Include="Texto.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Casilla.h" />
@@ -31,6 +32,7 @@
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Tablero.h" />
     <ClInclude Include="src\Vector2D.h" />
+    <ClInclude Include="Texto.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

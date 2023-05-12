@@ -2,6 +2,9 @@
 #include "freeglut.h"
 #include <math.h>
 
+Mundo::Mundo() {};
+Mundo::~Mundo() {};
+
 void Mundo::rotarOjo()
 {
 	float dist=sqrt(x_ojo*x_ojo+z_ojo*z_ojo);
@@ -12,12 +15,19 @@ void Mundo::rotarOjo()
 }
 void Mundo::dibuja()
 {
-	gluLookAt(x_ojo, y_ojo, z_ojo,  // posicion del ojo
-			0.0, 0, 0.0,      // hacia que punto mira  (0,0,0) 
-			0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
+    
+    gluLookAt(0.0, 0.0, 40,  // posicion del ojo
+        0.0, 0, 0.0,      // hacia que punto mira  (0,0,0) 
+        0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
-	//aqui es donde hay que poner el codigo de dibujo
-	casilla.dibuja();
+    //aqui es donde hay que poner el codigo de dibujo
+	tablero.dibujaTab();
+	tablero.dibujaMarco();
+	texto.dibujar();
+
+
+    /*glFlush();
+    glutSwapBuffers();*/
 }
 
 void Mundo::mueve()

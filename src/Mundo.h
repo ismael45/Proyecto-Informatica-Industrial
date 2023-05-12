@@ -1,8 +1,15 @@
+#include "Tablero.h"
 #include "Casilla.h"
+#include "Texto.h"
 
 class Mundo
 {
-	Casilla casilla;
+public:
+	Mundo();
+	virtual~Mundo();
+private:
+	Tablero tablero;
+
 public: 
 	void tecla(unsigned char key);
 	void inicializa();
@@ -13,4 +20,8 @@ public:
 	float x_ojo;
 	float y_ojo;
 	float z_ojo;
+
+	Texto texto(); // Crear un objeto Texto con las coordenadas (0, 0) del tablero
+
+
 };
