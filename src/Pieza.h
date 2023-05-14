@@ -11,8 +11,8 @@ public:
 
     void setColor(Byte r, Byte g, Byte b);
     void setPos(float x, float y);
-    //void dibuja();
-
+    void dibuja();
+    Vector2D getPos() const;
 
 
 protected:

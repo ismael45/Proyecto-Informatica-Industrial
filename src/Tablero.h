@@ -16,7 +16,7 @@ public:
 private:
 	Casilla casilla[8][8];
 	ColorRGB color;
-
+	Pieza pieza;
 
 	Peon peones_blancos[8];
 	Peon peones_negros[8];
@@ -42,6 +42,6 @@ public:
 	void dibujaTab();
 	void dibujaMarco();
 	void dibujaPiezas();
-
+	bool estaDentroTablero(float x, float y);
 
 };
