@@ -43,9 +43,27 @@ void Mundo::inicializa()
 	y_ojo = 30;
 	z_ojo = 0;
 
+	//movimiento.setTablero(&tablero);
+
 }
 
 void Mundo::tecla(unsigned char key)
 {
-
+	/*switch (key)
+	{
+	case GLUT_KEY_LEFT:
+		movimiento.moverIzquierda();
+		break;
+	case GLUT_KEY_RIGHT:
+		movimiento.moverDerecha();
+		break;
+	case GLUT_KEY_UP:
+		movimiento.moverArriba();
+		break;
+	case GLUT_KEY_DOWN:
+		movimiento.moverAbajo();
+		break;
+	default:
+		break;
+	}*/
 }

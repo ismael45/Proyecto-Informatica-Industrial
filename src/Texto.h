@@ -28,7 +28,7 @@ public:
         glDisable(GL_LIGHTING);
         glDisable(GL_DEPTH_TEST);
 
-        glColor3f(1.0f, 1.0f, 1.0f); // Color blanco para el texto
+        glColor3f(0.0f, 0.0f, 0.0f); // Color blanco para el texto
         glRasterPos2i(posX, posY);
         for (std::string::iterator i = texto.begin(); i != texto.end(); ++i) {
             char c = *i;

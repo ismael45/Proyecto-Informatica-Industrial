@@ -1,6 +1,7 @@
 #include "Tablero.h"
 #include "Casilla.h"
 #include "Texto.h"
+#include "Movimiento.h"
 
 class Mundo
 {
@@ -10,6 +11,7 @@ public:
 private:
 	Tablero tablero;
 	Texto texto{ 0,0 }; // Crear un objeto Texto con las coordenadas (0, 0) del tablero
+	//Movimiento movimiento;
 
 public:
 	void tecla(unsigned char key);

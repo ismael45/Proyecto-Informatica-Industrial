@@ -17,11 +17,22 @@ void Tablero::dibujaTab() {
 		}
 	}
 
+	// Establecer el color de fondo
+	glClearColor(1, 1, 0, 1.0);
+	
+
+
 }
 
 
 
 void Tablero::dibujaPiezas() {
+
+	pieza.dibuja();
+	pieza.setPos(-14, -6),
+	pieza.setColor(255, 0, 0);
+
+
 
 	///////////////////////////BLANCAS//////////////////////////////
 		//Dibuja los peones de los blancos
@@ -62,13 +73,13 @@ void Tablero::dibujaPiezas() {
 	//Dibuja el rey blanco
 	rey_blanco.dibuja_rey();
 	rey_blanco.setPos(2, -14),
-		rey_blanco.setColor(255, 0, 0);
+	rey_blanco.setColor(255, 0, 0);
 
 
 	//Dibuja la reina blanca
 	reina_blanca.dibuja_reina();
 	reina_blanca.setPos(-2, -14),
-		reina_blanca.setColor(255, 0, 0);
+	reina_blanca.setColor(255, 0, 0);
 
 	///////////////////////////NEGRAS//////////////////////////////
 
@@ -113,13 +124,13 @@ void Tablero::dibujaPiezas() {
 	//Dibuja el rey negro
 	rey_negro.dibuja_rey();
 	rey_negro.setPos(2, 14),
-		rey_negro.setColor(0, 255, 0);
+	rey_negro.setColor(0, 255, 0);
 
 
 	//Dibuja la reina negra
 	reina_negra.dibuja_reina();
 	reina_negra.setPos(-2, 14),
-		reina_negra.setColor(0, 255, 0);
+	reina_negra.setColor(0, 255, 0);
 }
 
 
@@ -136,3 +147,9 @@ void Tablero::dibujaMarco() {
 }
 
 
+bool Tablero::estaDentroTablero(float x, float y) {
+	if (x > -15.0f && x < 15.0f && y > -15.0f && y < 15.0f) {
+		return true;
+	}
+	return false;
+}
