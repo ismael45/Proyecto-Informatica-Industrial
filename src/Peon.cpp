@@ -1,14 +1,10 @@
 #include "Peon.h"
 
-void Peon::dibuja()
-{
-    if (color)
-        sprite = { "bin/imagenes/peon_negras.png", pos.x + 0.05f, pos.y + 0.075f , 11, 3.5 };
-    else
-        sprite = { "bin/imagenes/peon_blancas.png", pos.x + 0.05f, pos.y + 0.12f , 11, 3.5 };
-
+void Peon::dibuja_peon() {
     glPushMatrix();
-    glTranslatef(0, 0, 0.002);
-    sprite.draw();
+    glTranslatef(posicion.x, posicion.y, 0.5);
+    glColor3f(color.r, color.g, color.b);
+    glutSolidSphere(tamaño, 20, 20);
     glPopMatrix();
 }
+

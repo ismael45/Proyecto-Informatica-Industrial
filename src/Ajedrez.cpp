@@ -1,6 +1,6 @@
 #include "Mundo.h"
 #include "freeglut.h"
-//#include "SOIL.h"
+
 Mundo mundo;
 
 void OnDraw(void); //esta funcion sera llamada para dibujar
