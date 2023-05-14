@@ -27,3 +27,18 @@ void Tablero::dibujaMarco() {
 	glEnd();
 	glEnable(GL_LIGHTING);
 }
+
+void Tablero::dibujaPiezas()
+{
+	conjuntoPiezas.dibuja();
+}
+
+void Tablero::inicializar()
+{
+	for (int i = 0; i < 16; i++)
+	{
+		Peon* auxp = new Peon{};
+		conjuntoPiezas.agregar(auxp);
+	}
+
+}
