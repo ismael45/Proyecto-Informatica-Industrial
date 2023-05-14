@@ -9,8 +9,9 @@ public:
 	virtual~Mundo();
 private:
 	Tablero tablero;
+	Texto texto{ 0,0 }; // Crear un objeto Texto con las coordenadas (0, 0) del tablero
 
-public: 
+public:
 	void tecla(unsigned char key);
 	void inicializa();
 	void rotarOjo();
@@ -21,7 +22,7 @@ public:
 	float y_ojo;
 	float z_ojo;
 
-	Texto texto(); // Crear un objeto Texto con las coordenadas (0, 0) del tablero
+
 
 
 };

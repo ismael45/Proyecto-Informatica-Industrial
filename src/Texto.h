@@ -11,10 +11,10 @@ private:
 
 public:
     Texto(int tableroPosX, int tableroPosY) {
-        posX = tableroPosX - 40; // Ajustamos la posición x para que el texto esté centrado
-        posY = tableroPosY + 60; // Ajustamos la posición y para que el texto esté encima del tablero
+        posX = tableroPosX + 350; // Ajustamos la posición x para que el texto esté centrado
+        posY = tableroPosY + 550; // Ajustamos la posición y para que el texto esté encima del tablero
         texto = "AJEDREZ";
-        font = GLUT_BITMAP_HELVETICA_18;
+        font = GLUT_BITMAP_TIMES_ROMAN_24;
     }
 
     void dibujar() {

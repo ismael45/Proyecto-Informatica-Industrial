@@ -1,5 +1,5 @@
 #include "Casilla.h"
-#include "freeglut.h"
+
 
 Casilla::Casilla() {
 	color_tab.r = 255;
@@ -7,9 +7,12 @@ Casilla::Casilla() {
 	color_tab.b = 250;
 	tamaño = 4.0f;
 	posicion = { 0.0f, 0.0f };
+
 }
 
-Casilla::~Casilla() {};
+Casilla::~Casilla() {
+
+};
 
 void Casilla::setColor(Byte r, Byte g, Byte b) {
 	color_tab.r = r;
@@ -31,4 +34,3 @@ void Casilla::dibuja() {
 		glPopMatrix();
 	}
 }
-
