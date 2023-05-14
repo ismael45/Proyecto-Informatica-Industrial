@@ -1,23 +1,23 @@
 #pragma once
 #include "ColorRGB.h"
 #include "Vector2D.h"
+
 typedef unsigned char Byte;
 
-class Casilla
-{
+class Casilla {
 public:
-	Casilla();
-	virtual~Casilla();
+    Casilla();
+    virtual ~Casilla();
 
-private: 
-	ColorRGB color_tab;
-	Vector2D posicion;
-	float tamaño;
+    void setColor(Byte r, Byte g, Byte b);
+    void setPos(float x, float y);
+    void dibuja();
 
-public:
-	void setColor(Byte r, Byte g, Byte b);
-	void setPos(float x, float y);
-	void dibuja();
-
+private:
+    ColorRGB color_tab;
+    Vector2D posicion;
+    float tamaño;
+   
 };
+
 
