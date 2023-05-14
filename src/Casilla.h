@@ -16,8 +16,9 @@ public:
 private:
     ColorRGB color_tab;
     Vector2D posicion;
-    float tamaño;
-   
+    float tamano;
+
 };
+
 
 

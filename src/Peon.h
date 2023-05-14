@@ -1,10 +1,12 @@
 #pragma once
 #include "Pieza.h"
+#include"freeglut.h"
+#include <math.h>
 
-class Peon : public Pieza
+class Peon: public Pieza
 {
 public:
-    Peon() : Pieza() {}
-    void dibuja_peon();
-
+	void dibuja();
+	
 };
+
