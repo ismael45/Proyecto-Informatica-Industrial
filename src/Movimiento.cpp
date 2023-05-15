@@ -10,13 +10,22 @@ void Movimiento::setPieza(Pieza* p) {
 }
 
 bool Movimiento::validarMovimiento(float x, float y) {
-	return tablero->estaDentroTablero(pieza->getPos().x, pieza->getPos().y);
+	if (mover(x, y) == true)
+		return true;
+	else
+		return false;
 }
 
 
-/*bool Movimiento::mover(float x, float y) {
-
-}*/
+bool Movimiento::mover(float x, float y) {
+	if (tablero->estaDentroTablero(x, y) == true)
+	{
+		pieza->setPos(x, y);
+		return true;
+	}
+	else
+		return false;
+}
 
 void Movimiento::setTablero(Tablero* tablero) {
 	tablero->dibujaTab();
