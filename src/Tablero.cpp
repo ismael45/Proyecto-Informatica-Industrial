@@ -26,11 +26,14 @@ void Tablero::dibujaTab() {
 
 void Tablero::dibujaPiezas() {
 
+	/*
 	pieza.dibuja();
 	pieza.setPos(-14, -6),
 	pieza.setColor(255, 0, 0);
+	*/
 
 
+	/* MOVIDO A LISTA PIEZA EN INICIALIZAR
 
 	///////////////////////////BLANCAS//////////////////////////////
 		//Dibuja los peones de los blancos
@@ -40,6 +43,8 @@ void Tablero::dibujaPiezas() {
 		peones_blancos[i].setColor(255, 0, 0);
 	}
 
+
+	
 	//Dibuja las torres de los blancos
 	torres_blancas[0].dibuja_torre();
 	torres_blancas[0].setPos(-14, -14);
@@ -129,6 +134,7 @@ void Tablero::dibujaPiezas() {
 	reina_negra.dibuja_reina();
 	reina_negra.setPos(-2, 14),
 	reina_negra.setColor(0, 255, 0);
+	*/
 }
 
 

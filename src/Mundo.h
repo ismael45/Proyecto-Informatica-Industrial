@@ -2,6 +2,7 @@
 #include "Casilla.h"
 #include "Texto.h"
 #include "Movimiento.h"
+#include "ListaPiezas.h"
 
 class Mundo
 {
@@ -10,6 +11,7 @@ public:
 	virtual~Mundo();
 private:
 	Tablero tablero;
+	ListaPiezas listapiezas;
 	Texto texto{ 0,0 }; // Crear un objeto Texto con las coordenadas (0, 0) del tablero
 	//Movimiento movimiento;
 

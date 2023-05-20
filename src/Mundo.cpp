@@ -25,7 +25,7 @@ void Mundo::dibuja()
 	tablero.dibujaMarco();
 	tablero.dibujaPiezas();
 	texto.dibujar();
-
+	listapiezas.inicializar();
 
 
 	glFlush();

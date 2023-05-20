@@ -16,6 +16,8 @@ public:
 private:
 	Casilla casilla[8][8];
 	ColorRGB color;
+	
+	/*
 	Pieza pieza;
 
 	Peon peones_blancos[8];
@@ -35,7 +37,7 @@ private:
 
 	Reina reina_blanca;
 	Reina reina_negra;
-
+	*/
 
 
 public:
