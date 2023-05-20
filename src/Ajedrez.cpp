@@ -1,7 +1,6 @@
 #include "Mundo.h"
 #include "freeglut.h"
 
-
 Mundo mundo;
 
 
