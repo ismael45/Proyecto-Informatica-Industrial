@@ -21,7 +21,8 @@ void Mundo::dibuja()
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
 	//aqui es donde hay que poner el codigo de dibujo
-	//listapiezas.inicializar();
+	//listapiezas.inicializar_clasico();
+	listapiezas.inicializar_flores();
 	tablero.dibujaTab_flores();
 	tablero.dibujaMarco_flores();
 	//tablero.dibujaTab_clasico();

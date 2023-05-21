@@ -8,4 +8,7 @@ public:
     void dibuja_torreBlanca();
     void dibuja_torreNegra();
 
+    //fichas para el otro tablero
+    void dibuja_torreFlor();
+    void dibuja_torreBosque();
 };

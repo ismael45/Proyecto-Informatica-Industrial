@@ -1,6 +1,2 @@
-﻿  Tablero.cpp
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(11,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(11,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(48,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(48,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+﻿  Rey.cpp
   Pang.vcxproj -> C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\bin\Ajedrez.exe

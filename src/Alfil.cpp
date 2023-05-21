@@ -20,3 +20,26 @@ void Alfil::dibuja_alfilNegro()
     sprite.draw();
     glPopMatrix();
 }
+
+void Alfil::dibuja_alfilFlor()
+{
+    
+
+    sprite = { "bin/imagenes/Alfil_flor.png", posicion.x + 0.07f, posicion.y - 0.03f, 2, 3 };
+
+    glPushMatrix();
+    glTranslatef(0, 0, 2);
+    sprite.draw();
+    glPopMatrix();
+}
+
+void Alfil::dibuja_alfilBosque()
+{
+    sprite = { "bin/imagenes/Alfil_bosque.png", posicion.x + 0.07f, posicion.y - 0.03f, 3, 3.5 };
+
+    glPushMatrix();
+    glTranslatef(0, 0, 2);
+    sprite.draw();
+    glPopMatrix();
+
+}

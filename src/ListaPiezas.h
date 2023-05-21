@@ -41,7 +41,8 @@ class ListaPiezas
 public:
 
 	ListaPiezas();
-	void inicializar();
+	void inicializar_clasico();
+	void inicializar_flores();
 	//void dibujar1();
 	
 

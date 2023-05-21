@@ -52,8 +52,6 @@ void Tablero::dibujaTab_flores()
 		}
 	}
 
-	// Establecer el color de fondo
-	glClearColor(0, 0, 0, 1.0);
 
 
 
