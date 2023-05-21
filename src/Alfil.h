@@ -5,6 +5,7 @@ class Alfil : public Pieza
 {
 public:
     Alfil() : Pieza() {}
-    void dibuja_alfil();
+    void dibuja_alfilBlanco();
+    void dibuja_alfilNegro();
 
 };

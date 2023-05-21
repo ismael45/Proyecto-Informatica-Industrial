@@ -6,18 +6,43 @@ ListaPiezas::ListaPiezas()
 
 void ListaPiezas::inicializar()
 {
+	//********************+***PIEZAS BLANCAS*************************//
+
+	//Dibuja los peones blancos 
 	for (int i = 0; i < 8; i++) {
 		peones_blancos[i].dibuja_peonBlanco();
 		peones_blancos[i].setPos(-14 + 4 * i, -10);
 		//peones_blancos[i].setColor(255, 0, 0);
 	}
 
+	//Dibuja los alfiles de los blancos
+	alfiles_blancos[0].dibuja_alfilBlanco();
+	alfiles_blancos[0].setPos(-6, -14);
+	
+
+	alfiles_blancos[1].dibuja_alfilBlanco();
+	alfiles_blancos[1].setPos(6, -14);
+	
+
+	//********************+***PIEZAS NEGRAS*************************//
+	
 	//Dibuja los peones de los negros
 	for (int i = 0; i < 8; i++) {
 		peones_negros[i].dibuja_peonNegro();
 		peones_negros[i].setPos(-14 + 4 * i, 10);
 		peones_negros[i].setColor(0, 255, 0);
 	}
+
+	//Dibuja los alfiles de los negros
+	alfiles_negros[0].dibuja_alfilNegro();
+	alfiles_negros[0].setPos(-6, 14);
+	
+
+	alfiles_negros[1].dibuja_alfilNegro();
+	alfiles_negros[1].setPos(6, 14);
+	
+
+
 	/*
 	for (int i = 0; i < 8; i++) {
 		peones_blancos[i].dibuja_peon();
