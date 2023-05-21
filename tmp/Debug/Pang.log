@@ -1,5 +1,2 @@
-﻿  ListaPiezas.cpp
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(11,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(61,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  LINK : no se encontró C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\bin\Ajedrez.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+﻿  Peon.cpp
   Pang.vcxproj -> C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\bin\Ajedrez.exe

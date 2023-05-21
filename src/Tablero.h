@@ -7,6 +7,7 @@
 #include "Reina.h"
 #include "Rey.h"
 #include "freeglut.h"
+#include "ListaPiezas.h"
 
 class Tablero
 {
@@ -16,6 +17,7 @@ public:
 private:
 	Casilla casilla[8][8];
 	ColorRGB color;
+	
 	
 	/*
 	Pieza pieza;

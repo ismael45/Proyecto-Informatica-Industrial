@@ -7,6 +7,19 @@ ListaPiezas::ListaPiezas()
 void ListaPiezas::inicializar()
 {
 	for (int i = 0; i < 8; i++) {
+		peones_blancos[i].dibuja_peonBlanco();
+		peones_blancos[i].setPos(-14 + 4 * i, -10);
+		//peones_blancos[i].setColor(255, 0, 0);
+	}
+
+	//Dibuja los peones de los negros
+	for (int i = 0; i < 8; i++) {
+		peones_negros[i].dibuja_peonNegro();
+		peones_negros[i].setPos(-14 + 4 * i, 10);
+		peones_negros[i].setColor(0, 255, 0);
+	}
+	/*
+	for (int i = 0; i < 8; i++) {
 		peones_blancos[i].dibuja_peon();
 		peones_blancos[i].setPos(-14 + 4 * i, -10);
 		peones_blancos[i].setColor(255, 0, 0);
@@ -102,6 +115,8 @@ void ListaPiezas::inicializar()
 	reina_negra.dibuja_reina();
 	reina_negra.setPos(-2, 14),
 	reina_negra.setColor(0, 255, 0);
-	
+	*/
 
 }
+
+

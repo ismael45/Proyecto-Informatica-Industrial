@@ -20,6 +20,8 @@ void Tablero::dibujaTab() {
 	// Establecer el color de fondo
 	glClearColor(1, 1, 0, 1.0);
 
+	
+
 }
 
 
@@ -148,6 +150,7 @@ void Tablero::dibujaMarco() {
 	glVertex3d(-18.0, 18.0, -0.0);
 	glEnd();
 	glEnable(GL_LIGHTING);
+	
 }
 
 

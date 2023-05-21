@@ -7,14 +7,20 @@
 #include "Reina.h"
 #include "Rey.h"
 #include "freeglut.h"
+#include "Pieza.h"
+#include "Vector2D.h"
 
-#define NumMax 32;
+
+
 
 class ListaPiezas
 {
+	
+
+	
 	Casilla casilla[8][8];
 	ColorRGB color;
-	//Pieza pieza;
+	Pieza pieza;
 
 	Peon peones_blancos[8];
 	Peon peones_negros[8];
@@ -33,10 +39,13 @@ class ListaPiezas
 
 	Reina reina_blanca;
 	Reina reina_negra;
+	
 
 public:
+
 	ListaPiezas();
 	void inicializar();
+	//void dibujar1();
 	
 
 };

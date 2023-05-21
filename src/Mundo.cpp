@@ -21,11 +21,14 @@ void Mundo::dibuja()
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
 	//aqui es donde hay que poner el codigo de dibujo
+	listapiezas.inicializar();
+	
 	tablero.dibujaTab();
 	tablero.dibujaMarco();
+
 	tablero.dibujaPiezas();
 	texto.dibujar();
-	listapiezas.inicializar();
+	
 
 
 	glFlush();
