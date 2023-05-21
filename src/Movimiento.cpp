@@ -28,7 +28,7 @@ bool Movimiento::mover(float x, float y) {
 }
 
 void Movimiento::setTablero(Tablero* tablero) {
-	tablero->dibujaTab();
+	tablero->dibujaTab_clasico();
 }
 
 void Movimiento::moverIzquierda() {

@@ -14,7 +14,7 @@ public:
     void dibuja();
 
 private:
-    ColorRGB color_tab;
+    ColorRGB color;
     Vector2D posicion;
     float tamaño;
    
