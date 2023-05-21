@@ -5,6 +5,7 @@ class Rey : public Pieza
 {
 public:
     Rey() : Pieza() {}
-    void dibuja_rey();
+    void dibuja_reyBlanco();
+    void dibuja_reyNegro();
 
 };

@@ -15,9 +15,6 @@
 
 class ListaPiezas
 {
-	
-
-	
 	Casilla casilla[8][8];
 	ColorRGB color;
 	Pieza pieza;

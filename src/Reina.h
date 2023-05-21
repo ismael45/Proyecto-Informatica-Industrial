@@ -5,6 +5,7 @@ class Reina : public Pieza
 {
 public:
     Reina() : Pieza() {}
-    void dibuja_reina();
+    void dibuja_reinaBlanca();
+    void dibuja_reinaNegra();
 
 };

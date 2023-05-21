@@ -5,6 +5,7 @@ class Caballo : public Pieza
 {
 public:
     Caballo() : Pieza() {}
-    void dibuja_caballo();
+    void dibuja_caballoBlanco();
+    void dibuja_caballoNegro();
 
 };

@@ -5,6 +5,7 @@ class Torre : public Pieza
 {
 public:
     Torre() : Pieza() {}
-    void dibuja_torre();
+    void dibuja_torreBlanca();
+    void dibuja_torreNegra();
 
 };

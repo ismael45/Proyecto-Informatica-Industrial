@@ -18,7 +18,7 @@ void Tablero::dibujaTab() {
 	}
 
 	// Establecer el color de fondo
-	glClearColor(1, 1, 0, 1.0);
+	glClearColor(0, 0, 0, 1.0);
 
 	
 
