@@ -3,12 +3,17 @@
 
 Mundo mundo;
 
+
 void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
 
 int main(int argc, char* argv[])
-{
+{	
+
+	bool opcion1;
+	bool opcion2;
+
 	//Inicializar el gestor de ventanas GLUT
 	//y crear la ventana
 	glutInit(&argc, argv);
@@ -30,6 +35,7 @@ int main(int argc, char* argv[])
 	glutKeyboardFunc(OnKeyboardDown);
 
 	mundo.inicializa();
+	
 
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
@@ -45,8 +51,6 @@ void OnDraw(void)
 	//Para definir el punto de vista
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
-
 
 	mundo.dibuja();
 

@@ -2,9 +2,7 @@
 
 
 Casilla::Casilla() {
-	color_tab.r = 255;
-	color_tab.g = 250;
-	color_tab.b = 250;
+
 	tamaño = 4.0f;
 	posicion = { 0.0f, 0.0f };
 
@@ -15,9 +13,9 @@ Casilla::~Casilla() {
 };
 
 void Casilla::setColor(Byte r, Byte g, Byte b) {
-	color_tab.r = r;
-	color_tab.g = g;
-	color_tab.b = b;
+	color.r = r;
+	color.g = g;
+	color.b = b;
 }
 
 void Casilla::setPos(float x, float y) {
@@ -27,10 +25,12 @@ void Casilla::setPos(float x, float y) {
 
 void Casilla::dibuja() {
 	{
-		glPushMatrix();
+		glColor3ub(color.r, color.g, color.b);
+		//glPushMatrix();
 		glTranslatef(posicion.x, posicion.y, 0);
-		glColor3f(color_tab.r, color_tab.g, color_tab.b);
+		//glColor3f(color_tab.r, color_tab.g, color_tab.b);
 		glutSolidCube(tamaño);
-		glPopMatrix();
+		glTranslatef(-posicion.x, -posicion.y, 0);
+		//glPopMatrix();
 	}
 }

@@ -7,6 +7,7 @@
 #include "Reina.h"
 #include "Rey.h"
 #include "freeglut.h"
+#include "ListaPiezas.h"
 
 class Tablero
 {
@@ -16,32 +17,18 @@ public:
 private:
 	Casilla casilla[8][8];
 	ColorRGB color;
-	Pieza pieza;
-
-	Peon peones_blancos[8];
-	Peon peones_negros[8];
-
-	Torre torres_blancas[2];
-	Torre torres_negras[2];
-
-	Caballo caballos_blancos[2];
-	Caballo caballos_negros[2];
-
-	Alfil alfiles_blancos[2];
-	Alfil alfiles_negros[2];
-
-	Rey rey_blanco;
-	Rey rey_negro;
-
-	Reina reina_blanca;
-	Reina reina_negra;
-
-
+	
 
 public:
-	void dibujaTab();
-	void dibujaMarco();
-	void dibujaPiezas();
+
+	//Tablero clasico blanco y negro
+	void dibujaTab_clasico();
+	void dibujaMarco_clasico();
+
+	//Tablero temático de flores
+	void dibujaTab_flores();
+	void dibujaMarco_flores();
+
 	bool estaDentroTablero(float x, float y);
 
 };
