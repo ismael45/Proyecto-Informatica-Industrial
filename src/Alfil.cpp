@@ -41,5 +41,9 @@ void Alfil::dibuja_alfilBosque()
     glTranslatef(0, 0, 2);
     sprite.draw();
     glPopMatrix();
+}
 
+void Alfil::mover()
+{
+    Movimiento::moverDiagDrcha(&);
 }

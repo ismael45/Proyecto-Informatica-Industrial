@@ -11,7 +11,7 @@ void ListaPiezas::inicializar_clasico()
 	//Dibuja los peones blancos 
 	for (int i = 0; i < 8; i++) {
 		peones_blancos[i].dibuja_peonBlanco();
-		peones_blancos[i].setPos(-14 + 4 * i, -10);
+		peones_blancos[i].setPos(-14 + 4 * i, -10); 
 		//peones_blancos[i].setColor(255, 0, 0);
 	}
 

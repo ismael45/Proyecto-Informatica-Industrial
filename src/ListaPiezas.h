@@ -8,7 +8,7 @@
 #include "Rey.h"
 #include "freeglut.h"
 #include "Pieza.h"
-#include "Vector2D.h"
+//#include "Vector2D.h"
 
 
 
@@ -37,7 +37,7 @@ class ListaPiezas
 	Reina reina_blanca;
 	Reina reina_negra;
 	
-
+	friend class Movimiento;
 public:
 
 	ListaPiezas();

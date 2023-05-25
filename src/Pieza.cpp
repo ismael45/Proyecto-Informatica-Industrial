@@ -34,3 +34,7 @@ void Pieza::dibuja() {
     glutSolidSphere(tamaño, 20, 20);
     glPopMatrix();
 }
+
+void Pieza::mover() {
+  
+}
