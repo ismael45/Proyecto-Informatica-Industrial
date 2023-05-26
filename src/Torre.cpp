@@ -40,3 +40,11 @@ void Torre::dibuja_torreBosque()
     sprite.draw();
     glPopMatrix();
 }
+
+void Torre::mover()
+{
+    Movimiento::moverArriba(getPos());
+    Movimiento::moverAbajo(getPos());
+    Movimiento::moverDerecha(getPos());
+    Movimiento::moverIzquierda(getPos());
+}

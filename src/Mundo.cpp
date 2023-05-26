@@ -2,6 +2,8 @@
 #include "freeglut.h"
 #include <math.h>
 
+MOUSEMOVEPOINT mouse;
+
 Mundo::Mundo() {};
 Mundo::~Mundo() {};
 
@@ -54,6 +56,8 @@ void Mundo::inicializa()
 
 void Mundo::tecla(unsigned char key)
 {
+	if (key == 'x')
+		listapiezas.alfiles_blancos[1].mover();
 	/*switch (key)
 	{
 	case GLUT_KEY_LEFT:

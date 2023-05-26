@@ -12,4 +12,6 @@ public:
     void dibuja_reinaFlor();
     void dibuja_reinaBosque();
 
+    void mover();
+
 };

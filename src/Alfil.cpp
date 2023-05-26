@@ -45,5 +45,6 @@ void Alfil::dibuja_alfilBosque()
 
 void Alfil::mover()
 {
-    Movimiento::moverDiagDrcha(&);
+    Movimiento::moverDiagDrcha(getPos());
+    Movimiento::moverDiagIzq(getPos());
 }

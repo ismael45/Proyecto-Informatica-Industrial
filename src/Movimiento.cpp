@@ -21,57 +21,61 @@ bool Movimiento::validarMovimiento(Vector2D v) {
 //	tablero->dibujaTab_clasico();
 //}
 
-void Movimiento::moverIzquierda(Pieza* pieza) {
+Vector2D Movimiento::moverIzquierda(Vector2D pos) {
 	Vector2D aux;
-	aux.x = pieza->getPos().x - 4;
-	aux.y = pieza->getPos().y;
+	aux.x = pos.x - 4;
+	aux.y = pos.y;
 	if (validarMovimiento(aux) == true)
 	{
-		pieza->setPos(aux.x, aux.y);
+		return aux;
 	}
-	else pieza->setPos(pieza->getPos().x, pieza->getPos().y);
+	else return pos;
 }
 
-void Movimiento::moverDerecha(Vector2D vec) {
+Vector2D Movimiento::moverDerecha(Vector2D pos) {
 	Vector2D aux;
-	aux.x = pieza->getPos().x + 4;
-	aux.y = pieza->getPos().y;
+	aux.x = pos.x + 4;
+	aux.y = pos.y;
 	if (validarMovimiento(aux) == true)
 	{
-		pieza->setPos(aux.x, aux.y);
+		return aux;
 	}
-	else pieza->setPos(pieza->getPos().x, pieza->getPos().y);
+	else return pos;
 }
 
-void Movimiento::moverArriba(Pieza* pieza) {
+Vector2D Movimiento::moverArriba(Vector2D pos) {
 	Vector2D aux;
-	aux.x = pieza->getPos().x;
-	aux.y = pieza->getPos().y + 4;
+	aux.x = pos.x;
+	aux.y = pos.y + 4;
 	if (validarMovimiento(aux) == true)
 	{
-		pieza->setPos(aux.x, aux.y);
+		return aux;
 	}
-	else pieza->setPos(pieza->getPos().x, pieza->getPos().y);
+	else return pos;
 }
 
-void Movimiento::moverAbajo(Pieza* pieza) {
+Vector2D Movimiento::moverAbajo(Vector2D pos) {
 	Vector2D aux;
-	aux.x = pieza->getPos().x;
-	aux.y = pieza->getPos().y - 4;
+	aux.x = pos.x;
+	aux.y = pos.y - 4;
 	if (validarMovimiento(aux) == true)
 	{
-		pieza->setPos(aux.x, aux.y);
+		return aux;
 	}
-	else pieza->setPos(pieza->getPos().x, pieza->getPos().y);
+	else return pos;
 }
 
-void Movimiento::moverDiagDrcha(Pieza* pieza) {
-	moverDerecha(pieza);
-	if(pieza->getPos().x<0)//probando
-		moverArriba(pieza);
+ Vector2D Movimiento::moverDiagDrcha(Vector2D pos) {
+	Vector2D aux;
+	aux=moverDerecha(pos);
+	if(aux.y<0)//probando
+		moverArriba(aux);
+	return aux;
 }
-void Movimiento::moverDiagIzq(Pieza* pieza) {
-	moverIzquierda(pieza);
-	if (pieza->getPos().x < 0)//probando
-		moverArriba(pieza);
+Vector2D Movimiento::moverDiagIzq(Vector2D pos) {
+	Vector2D aux;
+	aux = moverIzquierda(pos);
+	if (aux.y < 0)//probando
+		moverArriba(aux);
+	return aux;
 }

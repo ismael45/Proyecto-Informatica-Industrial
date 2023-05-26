@@ -10,6 +10,8 @@ class Peon : public Pieza
     void dibuja_peonNegro();
     //void dibuja_peon(); //La función para que se pase el colro segun sea true o false (no esta implementada hayque esperar par aver como van los movimiento)
 
+    void mover();
+
     //fichas para el otro tablero
     void dibuja_peonFlor();
     void dibuja_peonBosque();

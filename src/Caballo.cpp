@@ -42,3 +42,14 @@ void Caballo::dibuja_caballoBosque()
 	sprite.draw();
 	glPopMatrix();
 }
+
+void Caballo::mover()
+{
+	//dar una vuelta sobre cómo debe ser el movimiento en L
+	/*Movimiento::moverDiagDrcha(getPos());
+	Movimiento::moverDiagIzq(getPos());
+	Movimiento::moverArriba(getPos());
+	Movimiento::moverAbajo(getPos());
+	Movimiento::moverDerecha(getPos());
+	Movimiento::moverIzquierda(getPos());*/
+}

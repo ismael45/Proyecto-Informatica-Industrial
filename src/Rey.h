@@ -12,4 +12,5 @@ public:
     void dibuja_reyFlor();
     void dibuja_reyBosque();
 
+    void mover();
 };

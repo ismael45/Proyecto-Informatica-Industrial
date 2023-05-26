@@ -39,3 +39,13 @@ void Rey::dibuja_reyBosque()
 	sprite.draw();
 	glPopMatrix();
 }
+
+void Rey::mover()
+{
+	Movimiento::moverDiagDrcha(getPos());
+	Movimiento::moverDiagIzq(getPos());
+	Movimiento::moverArriba(getPos());
+	Movimiento::moverAbajo(getPos());
+	Movimiento::moverDerecha(getPos());
+	Movimiento::moverIzquierda(getPos());
+}

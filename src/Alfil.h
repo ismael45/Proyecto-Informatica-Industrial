@@ -9,6 +9,7 @@ public:
     void dibuja_alfilNegro();
 
     friend class Movimiento;
+    void mover(); //añadir poliformismo
     //fichas para el otro tablero
     void dibuja_alfilFlor();
     void dibuja_alfilBosque();

@@ -8,17 +8,16 @@ public:
     ~Movimiento();
 
     void setPieza(Pieza* pieza);
-    static bool validarMovimiento(Vector2D v);
-    static void moverIzquierda(Pieza*);
-    static void moverDerecha(Pieza*);
-    static void moverArriba(Pieza*);
-    static void moverAbajo(Pieza*);
-    static void moverDiagDrcha(Pieza*);
-    static void moverDiagIzq(Pieza*);
+    bool validarMovimiento(Vector2D v);
+    static Vector2D moverIzquierda(Vector2D);
+    static Vector2D moverDerecha(Vector2D);
+    static Vector2D moverArriba(Vector2D);
+    static Vector2D moverAbajo(Vector2D);
+    static Vector2D moverDiagDrcha(Vector2D);
+    static Vector2D moverDiagIzq(Vector2D);
     //void setTablero(Tablero* tablero);
     
 
 private:
-    ListaPiezas piezas;
     Tablero* tablero;
 };

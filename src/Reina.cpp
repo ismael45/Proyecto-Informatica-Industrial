@@ -40,3 +40,13 @@ void Reina::dibuja_reinaBosque()
 	sprite.draw();
 	glPopMatrix();
 }
+
+void Reina::mover()
+{
+	Movimiento::moverDiagDrcha(getPos());
+	Movimiento::moverDiagIzq(getPos());
+	Movimiento::moverArriba(getPos());
+	Movimiento::moverAbajo(getPos());
+	Movimiento::moverDerecha(getPos());
+	Movimiento::moverIzquierda(getPos());
+}

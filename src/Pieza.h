@@ -21,7 +21,6 @@ public:
     void setPos(float x, float y);
     void dibuja();
     Vector2D getPos() const;
-    virtual void mover();
 
 
 protected:

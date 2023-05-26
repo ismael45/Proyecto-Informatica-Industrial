@@ -15,6 +15,7 @@
 
 class ListaPiezas
 {
+protected:
 	Casilla casilla[8][8];
 	ColorRGB color;
 	Pieza pieza;
@@ -38,6 +39,7 @@ class ListaPiezas
 	Reina reina_negra;
 	
 	friend class Movimiento;
+	friend class Mundo;
 public:
 
 	ListaPiezas();

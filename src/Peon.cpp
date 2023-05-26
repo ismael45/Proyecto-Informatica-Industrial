@@ -45,6 +45,13 @@ void Peon::dibuja_peonBosque()
 
 }
 
+void Peon::mover()
+{
+	Movimiento::moverArriba(getPos());
+	Movimiento::moverDiagDrcha(getPos()); //cuando come piezas
+	Movimiento::moverDiagIzq(getPos()); //cuando come piezas
+}
+
 //función que se hace con el constructor que pasa true o false segun sea negro o blanco
 /*
 void Peon::dibuja_peon()
