@@ -23,6 +23,7 @@
     <ClCompile Include="src\Alfil.cpp" />
     <ClCompile Include="src\Caballo.cpp" />
     <ClCompile Include="src\Casilla.cpp" />
+    <ClCompile Include="src\ListaPiezas.cpp" />
     <ClCompile Include="src\Movimiento.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Peon.cpp" />
@@ -39,6 +40,7 @@
     <ClInclude Include="src\Caballo.h" />
     <ClInclude Include="src\Casilla.h" />
     <ClInclude Include="src\ColorRGB.h" />
+    <ClInclude Include="src\ListaPiezas.h" />
     <ClInclude Include="src\Movimiento.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Peon.h" />
@@ -131,10 +133,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>lib/src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

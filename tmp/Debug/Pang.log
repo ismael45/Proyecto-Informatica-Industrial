@@ -1,23 +1,2 @@
-﻿  Ajedrez.cpp
-  Alfil.cpp
-  Caballo.cpp
-  Casilla.cpp
-  Movimiento.cpp
-  Mundo.cpp
-C:\Users\andre\source\Repos\ismael45\Proyecto-Informatica-Industrial\src\Mundo.cpp(10,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\andre\source\Repos\ismael45\Proyecto-Informatica-Industrial\src\Mundo.cpp(11,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\andre\source\Repos\ismael45\Proyecto-Informatica-Industrial\src\Mundo.cpp(13,15): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\andre\source\Repos\ismael45\Proyecto-Informatica-Industrial\src\Mundo.cpp(14,15): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-  Peon.cpp
-  Pieza.cpp
-  Reina.cpp
-  Rey.cpp
-  Tablero.cpp
-C:\Users\andre\source\Repos\ismael45\Proyecto-Informatica-Industrial\src\Tablero.cpp(11,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\Repos\ismael45\Proyecto-Informatica-Industrial\src\Tablero.cpp(11,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\Repos\ismael45\Proyecto-Informatica-Industrial\src\Tablero.cpp(39,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\Repos\ismael45\Proyecto-Informatica-Industrial\src\Tablero.cpp(88,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Torre.cpp
-  Vector2D.cpp
-  Generando código...
-  Pang.vcxproj -> C:\Users\andre\source\Repos\ismael45\Proyecto-Informatica-Industrial\bin\Ajedrez.exe
+﻿  Rey.cpp
+  Pang.vcxproj -> C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\bin\Ajedrez.exe
