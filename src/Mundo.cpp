@@ -30,15 +30,24 @@ void Mundo::dibuja()
 	menu.dibuja_opcion_2();
 	menu.dibuja_texto();
 
-	if (suceso[0]) {
+	if (opcion[0]) {
 		listapiezas.inicializar_flores();
 		tablero.dibujaTab_flores();
 		tablero.dibujaMarco_flores();
-		if (suceso[58])
-			tablero.Seleccionar_Casilla(0, 7);
+
+
+		//COLOREAR LA CASILLA SELECICONADA DE ROJO
+		for (int i = 0; i < 64; i++) {
+			if (casilla[i]) {
+				int fila = i / 8; // Divide el índice por 8 para obtener la fila
+				int columna = i % 8; // Obtiene el resto de la división para obtener la columna
+				tablero.Seleccionar_Casilla(columna, fila);
+			}
+		}
+
 
 	}
-	if (suceso[1]) {
+	if (opcion[1]) {
 		listapiezas.inicializar_clasico();
 		tablero.dibujaTab_clasico();
 		tablero.dibujaMarco_clasico();
@@ -88,21 +97,73 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 
 	if (posX >= -25.7677 && posX <= -16.1491 && posY <= 21.5664 && posY >= 14.5947) {
 		cout << "Opcion 1" << endl;
-		suceso[0] = true;
-		suceso[1] = false;
+		opcion[0] = true;
+		opcion[1] = false;
 	}//seleccionar opcion 1 
 	if (posX >= 16.8984 && posX <=24.1805  && posY <= 21.5664 && posY >= 14.5947) {
 		cout << "Opcion 2" << endl;
-		suceso[0] = false;
-		suceso[1] = true;
+		opcion[0] = false;
+		opcion[1] = true;
 	}//seleccionar opcion 2
 	
-	if (posX >= -15.4322 && posX <= -12.062 && posY <= 15.8757 && posY >= 11.8846) {
-		suceso[58] = true;
-		cout << "Suceso 2" << endl;
+
+	//SELECCION DE CASILLAS 
+	float min_x = -15.9644, max_x = -12.1507;
+	float min_y = -15.787, max_y = -11.9733;
+
+	for (int i = 0; i < 64; i++) {
+		if (posX >= min_x && posX <= max_x && posY <= max_y && posY >= min_y)casilla[i] = true;
+		else casilla[i] = false;
+		min_x += 4;
+		max_x += 4;
+		if (i == 7) {
+			min_x = -15.9644;
+			max_x = -12.1507;
+			min_y += 4;
+			max_y += 4;
+		}
+		if (i == 15) {
+			min_x = -15.9644;
+			max_x = -12.1507;
+			min_y += 4;
+			max_y += 4;
+		}
+		if (i == 23) {
+			min_x = -15.9644;
+			max_x = -12.1507;
+			min_y += 4;
+			max_y += 4;
+		}
+		if (i == 31) {
+			min_x = -15.9644;
+			max_x = -12.1507;
+			min_y += 4;
+			max_y += 4;
+		}
+		if (i == 39) {
+			min_x = -15.9644;
+			max_x = -12.1507;
+			min_y += 4;
+			max_y += 4;
+		}
+		if (i == 47) {
+			min_x = -15.9644;
+			max_x = -12.1507;
+			min_y += 4;
+			max_y += 4;
+		}
+		if (i == 55) {
+			min_x = -15.9644;
+			max_x = -12.1507;
+			min_y += 4;
+			max_y += 4;
+		}
+
+
 	}
-	else
-		suceso[58] = false;
+
+
+
 
 
 	//Empieza el codigo de las acciones a realizar con el ratón
@@ -110,3 +171,4 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 	//ACCIONES: Seleccionar modo de juego en el menú
 	//...
 }
+

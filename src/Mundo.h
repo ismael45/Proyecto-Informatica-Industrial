@@ -32,11 +32,13 @@ public:
 	void MouseButton(int x, int y, int button, bool down);
 
 
+
+
 	float x_ojo;
 	float y_ojo;
 	float z_ojo;
 
-	bool suceso[200];
-
+	bool opcion[2];
+	bool casilla[64];
 
 };
