@@ -11,6 +11,7 @@ void Peon::dibuja_peonBlanco() {
 	
 
 }
+
 void Peon::dibuja_peonNegro() {
 
 		sprite = { "bin/imagenes/Peon_negro.png", posicion.x + 0.07f, posicion.y - 0.1f, 3, 3.5 };

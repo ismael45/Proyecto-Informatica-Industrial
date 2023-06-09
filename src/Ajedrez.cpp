@@ -1,5 +1,4 @@
 #include "Mundo.h"
-#include "freeglut.h"
 
 Mundo mundo;
 
@@ -7,6 +6,7 @@ Mundo mundo;
 void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
+void OnMouseClick(int button, int state, int x, int y); //cundo se use el raton
 
 int main(int argc, char* argv[])
 {
@@ -29,6 +29,7 @@ int main(int argc, char* argv[])
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
+	glutMouseFunc(OnMouseClick);
 
 	mundo.inicializa();
 	
@@ -56,10 +57,13 @@ void OnDraw(void)
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
 }
+
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-	mundo.tecla(key);
+	//if (key == ' ') { //para imprimir las coordenadas del ratón en pantalla
+	//	mundo.tecla(key);
+	//}
 
 	glutPostRedisplay();
 }
@@ -71,5 +75,16 @@ void OnTimer(int value)
 
 	//no borrar estas lineas
 	glutTimerFunc(25, OnTimer, 0);
+	glutPostRedisplay();
+}
+
+void OnMouseClick(int b, int state, int x, int y) {
+	bool down = (state == GLUT_DOWN);
+	int button;
+	if (b == GLUT_LEFT_BUTTON) {
+		button = MOUSE_LEFT_BUTTON;
+	}
+
+	mundo.MouseButton(x, y, b, down);
 	glutPostRedisplay();
 }
