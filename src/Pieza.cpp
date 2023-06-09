@@ -9,7 +9,6 @@ Pieza::Pieza() {
     posicion = { 0.0f, 0.0f };
 }
 
-
 Pieza::~Pieza() {}
 
 void Pieza::setColor(Byte r, Byte g, Byte b) {
