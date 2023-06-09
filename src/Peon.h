@@ -3,8 +3,15 @@
 
 class Peon : public Pieza
 {
-public:
+  public:
     Peon() : Pieza() {}
-    void dibuja_peon();
+    //void dibuja1();
+    void dibuja_peonBlanco();
+    void dibuja_peonNegro();
+    //void dibuja_peon(); //La función para que se pase el colro segun sea true o false (no esta implementada hayque esperar par aver como van los movimiento)
+
+    //fichas para el otro tablero
+    void dibuja_peonFlor();
+    void dibuja_peonBosque();
 
 };
