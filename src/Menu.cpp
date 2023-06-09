@@ -1,4 +1,6 @@
 #include "Menu.h"
+
+
 using namespace std;
 
 void Menu::dibuja_Fondo() {
@@ -38,25 +40,6 @@ void Menu::dibuja_texto() {
     glPopMatrix();
 }
 
-int Menu::detectarClic(int x, int y) {
-   
-    POINT cursor;
-    GetCursorPos(&cursor);
-    x = cursor.x;
-    y = cursor.y;
-    bool botonPresionado = (GetAsyncKeyState(VK_LBUTTON) & 0x8000);
-
-    if (263 <= x && x <= 350 && 177 <= y && y <= 245 && botonPresionado) {
-        cout << "Opcion 1" << endl;
-        return 1;
-
-    }
-    else if (731 <= x && x <= 814 && 177 <= y && y <= 245 && botonPresionado) {
-        cout << "Opcion 2" << endl;
-        return 2;
-    }
-    else return 0;
-}
 
 
 

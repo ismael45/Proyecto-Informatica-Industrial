@@ -1,49 +1,16 @@
 #include "Movimiento.h"
 #include <cmath>
 
-Movimiento::Movimiento() {}
-
-Movimiento::~Movimiento() {}
-
-void Movimiento::setPieza(Pieza* p) {
-	p->dibuja();
-}
-
-bool Movimiento::validarMovimiento(float x, float y) {
-	if (mover(x, y) == true)
-		return true;
-	else
+bool Movimiento::Dentro_del_tablero(Pieza p) {
+	if (p.getPos().x < -14 || p.getPos().x > 14 || p.getPos().y < -14 || p.getPos().y >14) {
 		return false;
-}
-
-
-bool Movimiento::mover(float x, float y) {
-	if (tablero->estaDentroTablero(x, y) == true)
-	{
-		pieza->setPos(x, y);
-		return true;
 	}
 	else
-		return false;
+		return true;
 }
 
-void Movimiento::setTablero(Tablero* tablero) {
-	tablero->dibujaTab_clasico();
-}
 
-void Movimiento::moverIzquierda() {
-	pieza->setPos(pieza->getPos().x - 4, pieza->getPos().y);
-}
-
-void Movimiento::moverDerecha() {
-	pieza->setPos(pieza->getPos().x + 4,pieza->getPos().y);
-}
-
-void Movimiento::moverArriba() {
-	pieza->setPos(pieza->getPos().x, pieza->getPos().y + 4);
-}
-
-void Movimiento::moverAbajo() {
-	pieza->setPos(pieza->getPos().x, pieza->getPos().y - 4);
-	
+void Movimiento::salida_peon_blanco(int n) {
+	listapiezas.peones_blancos[n].mover_arriba();
+	listapiezas.peones_blancos[n].mover_arriba();
 }

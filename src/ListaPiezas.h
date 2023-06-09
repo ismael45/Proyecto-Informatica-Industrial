@@ -15,9 +15,10 @@
 
 class ListaPiezas
 {
+public:
 	Casilla casilla[8][8];
 	ColorRGB color;
-	Pieza pieza;
+
 
 	Peon peones_blancos[8];
 	Peon peones_negros[8];
@@ -38,13 +39,13 @@ class ListaPiezas
 	Reina reina_negra;
 	
 
-public:
+
 
 	ListaPiezas();
 	void inicializar_clasico();
 	void inicializar_flores();
 	//void dibujar1();
-	
 
+	
 };
 

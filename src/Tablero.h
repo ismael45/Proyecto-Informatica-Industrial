@@ -31,4 +31,11 @@ public:
 
 	bool estaDentroTablero(float x, float y);
 
+	void Seleccionar_Casilla(int x, int y) {
+		casilla[x][y].dibuja();
+		casilla[x][y].setPos(-14 + 4 * x, -14 + 4 * y);
+		casilla[x][y].setColor(255, 0, 0);
+
+	}
+
 };

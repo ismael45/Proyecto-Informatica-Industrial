@@ -21,6 +21,11 @@ public:
     void dibuja();
     Vector2D getPos() const;
 
+    void mover_arriba();
+    void mover_abajo();
+    void mover_izquierda();
+    void mover_derecha();
+
 
 protected:
     ColorRGB color;

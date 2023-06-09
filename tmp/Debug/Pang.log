@@ -1,7 +1,4 @@
-﻿  Ajedrez.cpp
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Ajedrez.cpp(14,7): warning C4101: 'opcion1': variable local sin referencia
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Ajedrez.cpp(15,7): warning C4101: 'opcion2': variable local sin referencia
-  Menu.cpp
-  Mundo.cpp
-  Generando código...
+﻿  Mundo.cpp
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Pang.vcxproj -> C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\bin\Ajedrez.exe

@@ -1,22 +1,15 @@
 #pragma once
 #include "Pieza.h"
 #include "Tablero.h"
+#include "ListaPiezas.h"
 
 class Movimiento {
 public:
-    Movimiento();
-    ~Movimiento();
-
-    void setPieza(Pieza* pieza);
-    bool validarMovimiento(float x, float y);
-    bool mover(float x, float y);
-    void moverIzquierda();
-    void moverDerecha();
-    void moverArriba();
-    void moverAbajo();
-    void setTablero(Tablero* tablero);
-
+	bool Dentro_del_tablero(Pieza p);
+	
+	void salida_peon_blanco(int n);
+	
 private:
-    Pieza* pieza;
-    Tablero* tablero;
+	ListaPiezas listapiezas;
+
 };
