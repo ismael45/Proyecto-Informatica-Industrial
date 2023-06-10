@@ -38,7 +38,12 @@ public:
 	float y_ojo;
 	float z_ojo;
 
+
+	//Bool de sucesos tras hacer clic
 	bool opcion[2];
-	bool casilla[64];
+
+	bool casillas[64];
+	
+	bool piezas[64];
 
 };

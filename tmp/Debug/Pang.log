@@ -1,22 +1,16 @@
-﻿  Mundo.cpp
+﻿  ListaPiezas.cpp
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(16,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(55,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(102,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(143,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Mundo.cpp
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(111,24): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(111,42): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(112,23): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(112,41): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(120,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(121,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(126,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(127,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(132,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(133,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(138,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(139,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(144,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(145,20): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(139,24): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(139,42): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(140,23): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(140,41): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(150,20): warning C4305: '=': truncamiento de 'double' a 'float'
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(151,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(156,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(157,20): warning C4305: '=': truncamiento de 'double' a 'float'
+  Generando código...
   Pang.vcxproj -> C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\bin\Ajedrez.exe

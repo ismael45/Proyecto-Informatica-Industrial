@@ -2,10 +2,12 @@
 
 ListaPiezas::ListaPiezas()
 {
+	
 }
 
 void ListaPiezas::inicializar_clasico()
 {
+	ListaPiezas::asignar_piezas();
 	//********************+***PIEZAS BLANCAS*************************//
 
 	//Dibuja los peones blancos 
@@ -91,6 +93,7 @@ void ListaPiezas::inicializar_clasico()
 
 void ListaPiezas::inicializar_flores()
 {
+	ListaPiezas::asignar_piezas();
 	//********************+***PIEZAS BLANCAS*************************//
 
 //Dibuja los peones blancos 
@@ -177,3 +180,27 @@ void ListaPiezas::inicializar_flores()
 }
 
 
+void ListaPiezas::asignar_piezas() {
+	piezas[0] = torres_blancas[0];
+	piezas[1] = caballos_blancos[0];
+	piezas[2] = alfiles_blancos[0];
+	piezas[3] = reina_blanca;
+	piezas[4] = rey_blanco;
+	piezas[5] = alfiles_blancos[1];
+	piezas[6] = caballos_blancos[1];
+	piezas[7] = torres_blancas[1];
+	for (int i = 0; i < 8; i++) {
+		piezas[i + 8] = peones_blancos[i];
+	}
+	for (int i = 0; i < 8; i++) {
+		piezas[i + 48] = peones_negros[i];
+	}
+	piezas[56] = torres_negras[0];
+	piezas[57] = caballos_negros[0];
+	piezas[58] = alfiles_negros[0];
+	piezas[59] = reina_negra;
+	piezas[60] = rey_negro;
+	piezas[61] = alfiles_negros[1];
+	piezas[62] = caballos_negros[1];
+	piezas[63] = torres_negras[1];
+}

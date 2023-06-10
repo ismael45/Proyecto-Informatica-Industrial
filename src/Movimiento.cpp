@@ -10,7 +10,3 @@ bool Movimiento::Dentro_del_tablero(Pieza p) {
 }
 
 
-void Movimiento::salida_peon_blanco(int n) {
-	listapiezas.peones_blancos[n].mover_arriba();
-	listapiezas.peones_blancos[n].mover_arriba();
-}
