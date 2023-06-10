@@ -33,7 +33,6 @@ public:
 
 
 
-
 	float x_ojo;
 	float y_ojo;
 	float z_ojo;
@@ -44,6 +43,6 @@ public:
 
 	bool casillas[64];
 	
-	bool piezas[64];
+	bool piezas[32];
 
 };

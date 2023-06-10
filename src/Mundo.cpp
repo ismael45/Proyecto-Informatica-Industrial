@@ -41,15 +41,12 @@ void Mundo::dibuja()
 
 		//COLOREAR LA CASILLA SELECICONADA DE ROJO
 		for (int i = 0; i < 64; i++) {
-			if (casillas[i] && piezas[i]) {
-				int fila = i / 8; // Divide el índice por 8 para obtener la fila
-				int columna = i % 8; // Obtiene el resto de la división para obtener la columna
-				tablero.Seleccionar_Casilla(columna, fila);
+			int columna = i / 8; // Divide el índice por 8 para obtener la fila
+			int fila = i % 8; // Obtiene el resto de la división para obtener la columna
+			if (casillas[i]) {
+				tablero.Seleccionar_Casilla(fila, columna);
 			}
 		}
-		
-		
-	
 	}
 
 	//SELECCIONAR OPCION CLASICO
@@ -60,13 +57,15 @@ void Mundo::dibuja()
 
 		//COLOREAR LA CASILLA SELECICONADA DE ROJO
 		for (int i = 0; i < 64; i++) {
-			if (casillas[i] && piezas[i]) {
-				int fila = i / 8; // Divide el índice por 8 para obtener la fila
-				int columna = i % 8; // Obtiene el resto de la división para obtener la columna
-				tablero.Seleccionar_Casilla(columna, fila);
+			int columna = i / 8; // Divide el índice por 8 para obtener la fila
+			int fila = i % 8; // Obtiene el resto de la división para obtener la columna
+			if (casillas[i]) {
+				tablero.Seleccionar_Casilla(fila, columna);
 			}
 		}
 	}
+
+
 
 
 
@@ -134,44 +133,33 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 		opcion[1] = true;
 	}
 	
-
+	float tolerancia = 2;
 	//SELECCION DE CASILLAS 
-	float min_x = -15.9644, max_x = -12.1507;
-	float min_y = -15.787, max_y = -11.9733;
-
 	for (int i = 0; i < 64; i++) {
-		if (posX >= min_x && posX <= max_x && posY <= max_y && posY >= min_y) casillas[i] = true;
-		else casillas[i] = false;
-
-		min_x += 4;
-		max_x += 4;
-
-		if ((i + 1) % 8 == 0) {
-			min_x = -15.9644;
-			max_x = -12.1507;
-			min_y += 4;
-			max_y += 4;
+		int columna = i / 8; // Divide el índice por 8 para obtener la fila
+		int fila = i % 8; // Obtiene el resto de la división para obtener la columna
+		if (posX >= tablero.getPos_Casilla(fila, columna).x - tolerancia &&
+			posX <= tablero.getPos_Casilla(fila, columna).x + tolerancia &&
+			posY >= tablero.getPos_Casilla(fila, columna).y - tolerancia &&
+			posY <= tablero.getPos_Casilla(fila, columna).y + tolerancia) {
+			casillas[i] = true;
+			cout << "Casilla " << i << endl;
+		}
+		else { 
+		casillas[i] = false;
 		}
 	}
-
-	float tolerancia = 2;
-
-
 	//SELECION DE PIEZAS
-	for (int i = 0; i < 64; i++) {
+	for (int i = 0; i < 32; i++) {
 		if (posX >= listapiezas.piezas[i].getPos().x - tolerancia &&
 			posX <= listapiezas.piezas[i].getPos().x + tolerancia &&
 			posY >= listapiezas.piezas[i].getPos().y - tolerancia &&
 			posY <= listapiezas.piezas[i].getPos().y + tolerancia) {
 			piezas[i] = true;
 			cout << "Pieza " << i << endl;
-			
 		}
-		else
-			piezas[i] = false;
-	}
-	
 
+	}
 
 	//Empieza el codigo de las acciones a realizar con el ratón
 	//ACCIONES: Seleccionar pieza a mover, seleccionar dónde colocar pieza

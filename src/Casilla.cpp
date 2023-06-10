@@ -23,6 +23,10 @@ void Casilla::setPos(float x, float y) {
 	posicion.y = y;
 }
 
+Vector2D Casilla::getPos() {
+	return posicion;
+}
+
 void Casilla::dibuja() {
 	{
 		glColor3ub(color.r, color.g, color.b);

@@ -45,16 +45,19 @@ void Pieza::mover_abajo() {
     float x = getPos().x;
     float y = getPos().y - 4;
     setPos(x, y);
+
 }
 
 void Pieza::mover_izquierda() {
     float x = getPos().x-4;
     float y = getPos().y;
     setPos(x, y);
+
 }
 
 void Pieza::mover_derecha() {
     float x = getPos().x+4;
     float y = getPos().y;
     setPos(x, y);
+
 }

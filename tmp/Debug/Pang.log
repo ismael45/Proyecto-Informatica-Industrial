@@ -1,16 +1,23 @@
-﻿  ListaPiezas.cpp
+﻿  Ajedrez.cpp
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  ListaPiezas.cpp
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(16,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(55,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(102,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(143,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Movimiento.cpp
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Mundo.cpp
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(139,24): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(139,42): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(140,23): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(140,41): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(150,20): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(151,20): warning C4305: '=': truncamiento de 'double' a 'float'
+  Tablero.cpp
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(36,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.cpp(11,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.cpp(11,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.cpp(48,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.cpp(48,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Generando código...
   Pang.vcxproj -> C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\bin\Ajedrez.exe

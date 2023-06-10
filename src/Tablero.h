@@ -38,4 +38,9 @@ public:
 
 	}
 
+	Vector2D getPos_Casilla( int x, int y) {
+		return casilla[x][y].getPos();
+	}
+	
+
 };

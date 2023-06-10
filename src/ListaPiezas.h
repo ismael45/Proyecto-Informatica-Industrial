@@ -15,7 +15,7 @@
 
 class ListaPiezas
 {
-private:
+public:
 	//Casilla casilla[8][8];
 	//ColorRGB color;
 
@@ -38,7 +38,7 @@ private:
 	Reina reina_negra;  //piezas 31
 	
 public:
-	Pieza piezas[64];
+	Pieza piezas[32];
 
 	ListaPiezas();
 	void inicializar_clasico();
