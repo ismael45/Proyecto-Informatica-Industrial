@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Ajedrez.cpp
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(28,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(28,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
@@ -11,3 +12,8 @@ C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mu
 C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(165,77): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
   Generando código...
   Pang.vcxproj -> C:\Users\ismat\OneDrive\Documentos\GitHub\Proyecto-Informatica-Industrial\bin\Ajedrez.exe
+=======
+﻿  Peon.cpp
+C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Peon.cpp(11,29): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+  Pang.vcxproj -> C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\bin\Ajedrez.exe
+>>>>>>> main

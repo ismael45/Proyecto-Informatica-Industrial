@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="src\Ajedrez.cpp" />
     <ClCompile Include="src\Alfil.cpp" />
     <ClCompile Include="src\Caballo.cpp" />
@@ -26,16 +27,18 @@
     <ClCompile Include="src\ListaPiezas.cpp" />
     <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Movimiento.cpp" />
+=======
+    <ClCompile Include="src\Casilla.cpp" />
+    <ClCompile Include="src\ConjuntoPiezas.cpp" />
+>>>>>>> main
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Peon.cpp" />
     <ClCompile Include="src\Pieza.cpp" />
-    <ClCompile Include="src\Reina.cpp" />
-    <ClCompile Include="src\Rey.cpp" />
     <ClCompile Include="src\Tablero.cpp" />
-    <ClCompile Include="src\Torre.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="lib\freeglut.h" />
     <ClInclude Include="src\Alfil.h" />
     <ClInclude Include="src\Caballo.h" />
@@ -44,13 +47,19 @@
     <ClInclude Include="src\ListaPiezas.h" />
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Movimiento.h" />
+=======
+    <ClInclude Include="src\Casilla.h" />
+    <ClInclude Include="src\ColorRGB.h" />
+    <ClInclude Include="src\ConjuntoPiezas.h" />
+>>>>>>> main
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Peon.h" />
     <ClInclude Include="src\Pieza.h" />
-    <ClInclude Include="src\Reina.h" />
-    <ClInclude Include="src\Rey.h" />
     <ClInclude Include="src\Tablero.h" />
+<<<<<<< HEAD
     <ClInclude Include="src\Torre.h" />
+=======
+>>>>>>> main
     <ClInclude Include="src\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
