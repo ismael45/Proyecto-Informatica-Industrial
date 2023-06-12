@@ -1,5 +1,5 @@
 #include "Pieza.h"
-#include "freeglut.h"
+
 
 Pieza::Pieza() {
     color.r = 255;

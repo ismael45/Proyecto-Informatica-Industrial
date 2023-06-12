@@ -14,7 +14,6 @@ void ListaPiezas::inicializar_clasico()
 	for (int i = 0; i < 8; i++) {
 		peones_blancos[i].dibuja_peonBlanco();
 		peones_blancos[i].setPos(-14 + 4 * i, -10);
-		//peones_blancos[i].setColor(255, 0, 0);
 	}
 
 	//Dibuja los alfiles de los blancos
@@ -53,7 +52,6 @@ void ListaPiezas::inicializar_clasico()
 	for (int i = 0; i < 8; i++) {
 		peones_negros[i].dibuja_peonNegro();
 		peones_negros[i].setPos(-14 + 4 * i, 10);
-		peones_negros[i].setColor(0, 255, 0);
 	}
 
 	//Dibuja los alfiles de los negros
@@ -212,3 +210,24 @@ void ListaPiezas::asignar_piezas() {
 
 }
 
+void ListaPiezas::borrar_piezas()
+{
+	for (int i = 0; i < 8; i++) {
+		peones_blancos[i] = Peon();
+		peones_negros[i] = Peon();
+	}
+
+	for (int i = 0; i < 2; i++) {
+		alfiles_blancos[i] = Alfil();
+		alfiles_negros[i] = Alfil();
+		caballos_blancos[i] = Caballo();
+		caballos_negros[i] = Caballo();
+		torres_blancas[i] = Torre();
+		torres_negras[i] = Torre();
+	}
+
+	reina_blanca = Reina();
+	reina_negra = Reina();
+	rey_blanco = Rey();
+	rey_negro = Rey();
+}
