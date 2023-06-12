@@ -1,13 +1,7 @@
-#pragma once
+ï»¿#pragma once
 #include "Casilla.h"
-#include "Peon.h"
-#include"Torre.h"
-#include "Alfil.h"
-#include "Caballo.h"
-#include "Reina.h"
-#include "Rey.h"
 #include "freeglut.h"
-#include "ListaPiezas.h"
+
 
 class Tablero
 {
@@ -17,7 +11,7 @@ public:
 private:
 	Casilla casilla[8][8];
 	ColorRGB color;
-	
+
 
 public:
 
@@ -25,11 +19,9 @@ public:
 	void dibujaTab_clasico();
 	void dibujaMarco_clasico();
 
-	//Tablero temático de flores
+	//Tablero temï¿½tico de flores
 	void dibujaTab_flores();
 	void dibujaMarco_flores();
-
-	bool estaDentroTablero(float x, float y);
 
 	void Seleccionar_Casilla(int x, int y) {
 		casilla[x][y].dibuja();
@@ -38,9 +30,9 @@ public:
 
 	}
 
-	Vector2D getPos_Casilla( int x, int y) {
+	Vector2D getPos_Casilla(int x, int y) {
 		return casilla[x][y].getPos();
 	}
-	
+
 
 };

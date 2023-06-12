@@ -1,5 +1,5 @@
-#include "Mundo.h"
-#include "freeglut.h"
+ï»¿#include "Mundo.h"
+
 
 
 using namespace std;
@@ -26,7 +26,7 @@ void Mundo::dibuja()
 	//aqui es donde hay que poner el codigo de dibujo
 
 
-	//DIBUJAR MENÚ PRINCIPAL
+	//DIBUJAR MENï¿½ PRINCIPAL
 	menu.dibuja_Fondo();
 	menu.dibuja_opcion_1();
 	menu.dibuja_opcion_2();
@@ -38,15 +38,15 @@ void Mundo::dibuja()
 		tablero.dibujaTab_flores();
 		tablero.dibujaMarco_flores();
 
-
 		//COLOREAR LA CASILLA SELECICONADA DE ROJO
 		for (int i = 0; i < 64; i++) {
-			int columna = i / 8; // Divide el índice por 8 para obtener la fila
-			int fila = i % 8; // Obtiene el resto de la división para obtener la columna
+			int columna = i / 8;
+			int fila = i % 8;
 			if (casillas[i]) {
 				tablero.Seleccionar_Casilla(fila, columna);
 			}
 		}
+
 	}
 
 	//SELECCIONAR OPCION CLASICO
@@ -55,10 +55,12 @@ void Mundo::dibuja()
 		tablero.dibujaTab_clasico();
 		tablero.dibujaMarco_clasico();
 
+
+
 		//COLOREAR LA CASILLA SELECICONADA DE ROJO
 		for (int i = 0; i < 64; i++) {
-			int columna = i / 8; // Divide el índice por 8 para obtener la fila
-			int fila = i % 8; // Obtiene el resto de la división para obtener la columna
+			int columna = i / 8; // Divide el ï¿½ndice por 8 para obtener la fila
+			int fila = i % 8; // Obtiene el resto de la divisiï¿½n para obtener la columna
 			if (casillas[i]) {
 				tablero.Seleccionar_Casilla(fila, columna);
 			}
@@ -81,6 +83,7 @@ void Mundo::dibuja()
 void Mundo::mueve()
 {
 
+
 }
 
 void Mundo::inicializa()
@@ -93,10 +96,12 @@ void Mundo::inicializa()
 void Mundo::tecla(unsigned char key)
 {
 
+
 }
 
 
 void Mundo::MouseButton(int x, int y, int button, bool down) {
+	int movimiento = 0;
 	GLint viewport[4];//vista
 	GLdouble modelview[16];//cordenadas del modelo
 	GLdouble projection[16];//proyeccion de la vista en las coordenadas del modelo
@@ -112,10 +117,10 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 	winY = (float)viewport[3] - (float)y;
 	//hallar coordenada Z de la pantalla
 	glReadPixels(x, int(winY), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winZ);
-	//conversión de coordenadas del ratón en pantalla a coordenadas en nuestro mundo
+	//conversiï¿½n de coordenadas del ratï¿½n en pantalla a coordenadas en nuestro mundo
 	gluUnProject(winX, winY, winZ, modelview, projection, viewport, &posX, &posY, &posZ);
 
-	//mostrar en consola la posición en la que se hizo click
+	//mostrar en consola la posiciï¿½n en la que se hizo click
 	std::cout << posX << "," << posY << "\n";
 
 
@@ -127,17 +132,17 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 	}
 
 	//seleccionar opcion 2
-	if (posX >= 16.8984 && posX <=24.1805  && posY <= 21.5664 && posY >= 14.5947) {
+	if (posX >= 16.8984 && posX <= 24.1805 && posY <= 21.5664 && posY >= 14.5947) {
 		cout << "Opcion 2" << endl;
 		opcion[0] = false;
 		opcion[1] = true;
 	}
-	
+
 	float tolerancia = 2;
 	//SELECCION DE CASILLAS 
 	for (int i = 0; i < 64; i++) {
-		int columna = i / 8; // Divide el índice por 8 para obtener la fila
-		int fila = i % 8; // Obtiene el resto de la división para obtener la columna
+		int columna = i / 8; // Divide el ï¿½ndice por 8 para obtener la fila
+		int fila = i % 8; // Obtiene el resto de la divisiï¿½n para obtener la columna
 		if (posX >= tablero.getPos_Casilla(fila, columna).x - tolerancia &&
 			posX <= tablero.getPos_Casilla(fila, columna).x + tolerancia &&
 			posY >= tablero.getPos_Casilla(fila, columna).y - tolerancia &&
@@ -145,8 +150,8 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 			casillas[i] = true;
 			cout << "Casilla " << i << endl;
 		}
-		else { 
-		casillas[i] = false;
+		else {
+			casillas[i] = false;
 		}
 	}
 	//SELECION DE PIEZAS
@@ -157,14 +162,94 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 			posY <= listapiezas.piezas[i].getPos().y + tolerancia) {
 			piezas[i] = true;
 			cout << "Pieza " << i << endl;
+			cout << "Casilla " << Posicion_por_casilla(listapiezas.piezas[i].getPos().x,
+				listapiezas.piezas[i].getPos().y) << endl;
+
 		}
+		else piezas[i] = false;
 
 	}
 
-	//Empieza el codigo de las acciones a realizar con el ratón
-	//ACCIONES: Seleccionar pieza a mover, seleccionar dónde colocar pieza
-	//ACCIONES: Seleccionar modo de juego en el menú
+
+
+
+
+
+
+	//Empieza el codigo de las acciones a realizar con el ratï¿½n
+	//ACCIONES: Seleccionar pieza a mover, seleccionar dï¿½nde colocar pieza
+	//ACCIONES: Seleccionar modo de juego en el menï¿½
 	//...
 }
 
+
+
+int Mundo::Posicion_por_casilla(int x, int y) {
+	int valor = 0;
+	if (x == -14 && y == -14)valor = 0;
+	if (x == -10 && y == -14)valor = 1;
+	if (x == -6 && y == -14)valor = 2;
+	if (x == -2 && y == -14)valor = 3;
+	if (x == 2 && y == -14)valor = 4;
+	if (x == 6 && y == -14)valor = 5;
+	if (x == 10 && y == -14)valor = 6;
+	if (x == 14 && y == -14)valor = 7;
+	if (x == -14 && y == -10)valor = 8;
+	if (x == -10 && y == -10)valor = 9;
+	if (x == -6 && y == -10)valor = 10;
+	if (x == -2 && y == -10)valor = 11;
+	if (x == 2 && y == -10)valor = 12;
+	if (x == 6 && y == -10)valor = 13;
+	if (x == 10 && y == -10)valor = 14;
+	if (x == 14 && y == -10)valor = 15;
+	if (x == -14 && y == -6)valor = 16;
+	if (x == -10 && y == -6)valor = 17;
+	if (x == -6 && y == -6)valor = 18;
+	if (x == -2 && y == -6)valor = 19;
+	if (x == 2 && y == -6)valor = 20;
+	if (x == 6 && y == -6)valor = 21;
+	if (x == 10 && y == -6)valor = 22;
+	if (x == 14 && y == -6)valor = 23;
+	if (x == -14 && y == -2)valor = 24;
+	if (x == -10 && y == -2)valor = 25;
+	if (x == -6 && y == -2)valor = 26;
+	if (x == -2 && y == -2)valor = 27;
+	if (x == 2 && y == -2)valor = 28;
+	if (x == 6 && y == -2)valor = 29;
+	if (x == 10 && y == -2)valor = 30;
+	if (x == 14 && y == -2)valor = 31;
+	if (x == -14 && y == 2)valor = 32;
+	if (x == -10 && y == 2)valor = 33;
+	if (x == -6 && y == 2)valor = 34;
+	if (x == -2 && y == 2)valor = 35;
+	if (x == 2 && y == 2)valor = 36;
+	if (x == 6 && y == 2)valor = 37;
+	if (x == 10 && y == 2)valor = 38;
+	if (x == 14 && y == 2)valor = 39;
+	if (x == -14 && y == 6)valor = 40;
+	if (x == -10 && y == 6)valor = 41;
+	if (x == -6 && y == 6)valor = 42;
+	if (x == -2 && y == 6)valor = 43;
+	if (x == 2 && y == 6)valor = 44;
+	if (x == 6 && y == 6)valor = 45;
+	if (x == 10 && y == 6)valor = 46;
+	if (x == 14 && y == 6)valor = 47;
+	if (x == -14 && y == 10)valor = 48;
+	if (x == -10 && y == 10)valor = 49;
+	if (x == -6 && y == 10)valor = 50;
+	if (x == -2 && y == 10)valor = 51;
+	if (x == 2 && y == 10)valor = 52;
+	if (x == 6 && y == 10)valor = 53;
+	if (x == 10 && y == 10)valor = 54;
+	if (x == 14 && y == 10)valor = 55;
+	if (x == -14 && y == 14)valor = 56;
+	if (x == -10 && y == 14)valor = 57;
+	if (x == -6 && y == 14)valor = 58;
+	if (x == -2 && y == 14)valor = 59;
+	if (x == 2 && y == 14)valor = 60;
+	if (x == 6 && y == 14)valor = 61;
+	if (x == 10 && y == 14)valor = 62;
+	if (x == 14 && y == 14)valor = 63;
+	return valor;
+}
 

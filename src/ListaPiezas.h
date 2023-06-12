@@ -1,14 +1,11 @@
 #pragma once
-#include "Casilla.h"
 #include "Peon.h"
 #include"Torre.h"
 #include "Alfil.h"
 #include "Caballo.h"
 #include "Reina.h"
 #include "Rey.h"
-#include "freeglut.h"
-#include "Pieza.h"
-#include "Vector2D.h"
+
 
 
 
@@ -16,8 +13,7 @@
 class ListaPiezas
 {
 public:
-	//Casilla casilla[8][8];
-	//ColorRGB color;
+
 
 	Peon peones_blancos[8]; //piezas 0 a 7
 	Peon peones_negros[8]; //piezas 7 a 15
@@ -36,7 +32,7 @@ public:
 
 	Reina reina_blanca;  //piezas 30 
 	Reina reina_negra;  //piezas 31
-	
+
 public:
 	Pieza piezas[32];
 
@@ -45,7 +41,7 @@ public:
 	void inicializar_flores();
 	//void dibujar1();
 	void asignar_piezas();
+	void borrar_piezas();
 
-	
+
 };
-
