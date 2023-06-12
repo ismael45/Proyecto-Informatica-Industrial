@@ -1,35 +1,12 @@
-﻿  Ajedrez.cpp
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.h(28,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.h(28,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Alfil.cpp
-  Caballo.cpp
-  Casilla.cpp
-  ListaPiezas.cpp
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\ListaPiezas.cpp(16,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\ListaPiezas.cpp(54,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\ListaPiezas.cpp(100,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\ListaPiezas.cpp(141,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Menu.cpp
-  Movimiento.cpp
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.h(28,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.h(28,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Mundo.cpp
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.h(28,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.h(28,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Mundo.cpp(166,35): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Mundo.cpp(165,77): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-  Peon.cpp
-  Pieza.cpp
-  Reina.cpp
-  Rey.cpp
-  Tablero.cpp
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.h(28,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.h(28,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.cpp(11,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.cpp(11,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.cpp(48,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\src\Tablero.cpp(48,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Torre.cpp
-  Vector2D.cpp
-  Generando código...
-  Pang.vcxproj -> C:\Users\ismat\OneDrive\Escritorio\Proyecto-Informatica-Industrial-Nuevo-Master\Proyecto-Informatica-Industrial-Nuevo-Master\bin\Ajedrez.exe
+﻿  Mundo.cpp
+C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(28,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\src\Tablero.h(28,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(127,39): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
+C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(127,33): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
+C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(131,61): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(131,45): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(142,15): warning C4804: '>=': uso no seguro del tipo 'bool' en la operación
+C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(142,45): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
+C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(149,15): warning C4804: '>=': uso no seguro del tipo 'bool' en la operación
+C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\src\Mundo.cpp(149,45): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
+  Pang.vcxproj -> C:\Users\andre\Documents\GitHub\Proyecto-Informatica-Industrial\bin\Ajedrez.exe

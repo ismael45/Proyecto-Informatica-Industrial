@@ -34,5 +34,5 @@ public:
 		return casilla[x][y].getPos();
 	}
 
-
+	bool estaDentroTablero(float x, float y);
 };

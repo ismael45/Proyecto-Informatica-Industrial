@@ -70,3 +70,9 @@ void Tablero::dibujaMarco_flores()
 	glEnable(GL_LIGHTING);
 }
 
+bool Tablero::estaDentroTablero(float x, float y) {
+	if (x > -15.0f && x < 15.0f && y > -15.0f && y < 15.0f) {
+		return true;
+	}
+	return false;
+}
