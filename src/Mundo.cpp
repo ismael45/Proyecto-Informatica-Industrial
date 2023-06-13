@@ -120,55 +120,72 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 	//conversi�n de coordenadas del rat�n en pantalla a coordenadas en nuestro mundo
 	gluUnProject(winX, winY, winZ, modelview, projection, viewport, &posX, &posY, &posZ);
 
-	//mostrar en consola la posici�n en la que se hizo click
-	std::cout << posX << "," << posY << "\n";
-
-
-	//seleccionar opcion 1 
-	if (posX >= -25.7677 && posX <= -16.1491 && posY <= 21.5664 && posY >= 14.5947) {
-		cout << "Opcion 1" << endl;
-		opcion[0] = true;
-		opcion[1] = false;
-	}
-
-	//seleccionar opcion 2
-	if (posX >= 16.8984 && posX <= 24.1805 && posY <= 21.5664 && posY >= 14.5947) {
-		cout << "Opcion 2" << endl;
-		opcion[0] = false;
-		opcion[1] = true;
-	}
-
-	float tolerancia = 2;
-	//SELECCION DE CASILLAS 
-	for (int i = 0; i < 64; i++) {
-		int columna = i / 8; // Divide el �ndice por 8 para obtener la fila
-		int fila = i % 8; // Obtiene el resto de la divisi�n para obtener la columna
-		if (posX >= tablero.getPos_Casilla(fila, columna).x - tolerancia &&
-			posX <= tablero.getPos_Casilla(fila, columna).x + tolerancia &&
-			posY >= tablero.getPos_Casilla(fila, columna).y - tolerancia &&
-			posY <= tablero.getPos_Casilla(fila, columna).y + tolerancia) {
-			casillas[i] = true;
-			cout << "Casilla " << i << endl;
+	//cuando se produzca un click
+	if (down) {
+		std::cout << (int)posX << "," << (int)posY << "\n";
+		//MOVIMIENTOS PIEZAS POR CLICKS
+		if (tablero.estaDentroTablero(posX, posY) == true) {
+			if (raton.click == 0) {
+				raton.origen = { (float)posX, (float)posY };
+				raton.click = 1; //marcador de que se ha hecho click una primera vez
+				std::cout << "ORIGEN:"<<raton.origen.x << "," << raton.origen.y << "\n";
+			}
+			else if (raton.click == 1) {
+				raton.destino = { (float)posX, (float)posY };
+				raton.click = 0;
+				std::cout << "DESTINO:" << raton.destino.x << "," << raton.destino.y << "\n";
+			}
 		}
-		else {
-			casillas[i] = false;
+		//ELECCION DE MENUS
+		//seleccionar opcion 1 
+		if (posX >= -25.7677-5 && posX <= -16.1491-5 && posY <= 21.5664 && posY >= 14.5947) {
+			cout << "Opcion 1" << endl;
+			opcion[0] = true;
+			opcion[1] = false;
+		}
+
+		//seleccionar opcion 2
+		if (posX >= 16.8984+5 && posX <= 24.1805+5 && posY <= 21.5664 && posY >= 14.5947) {
+			cout << "Opcion 2" << endl;
+			opcion[0] = false;
+			opcion[1] = true;
 		}
 	}
-	//SELECION DE PIEZAS
-	for (int i = 0; i < 32; i++) {
-		if (posX >= listapiezas.piezas[i].getPos().x - tolerancia &&
-			posX <= listapiezas.piezas[i].getPos().x + tolerancia &&
-			posY >= listapiezas.piezas[i].getPos().y - tolerancia &&
-			posY <= listapiezas.piezas[i].getPos().y + tolerancia) {
-			piezas[i] = true;
-			cout << "Pieza " << i << endl;
-			cout << "Casilla " << Posicion_por_casilla(listapiezas.piezas[i].getPos().x,
-				listapiezas.piezas[i].getPos().y) << endl;
 
-		}
-		else piezas[i] = false;
 
-	}
+
+
+	//float tolerancia = 2;
+	////SELECCION DE CASILLAS 
+	//for (int i = 0; i < 64; i++) {
+	//	int columna = i / 8; // Divide el �ndice por 8 para obtener la fila
+	//	int fila = i % 8; // Obtiene el resto de la divisi�n para obtener la columna
+	//	if (posX >= tablero.getPos_Casilla(fila, columna).x - tolerancia &&
+	//		posX <= tablero.getPos_Casilla(fila, columna).x + tolerancia &&
+	//		posY >= tablero.getPos_Casilla(fila, columna).y - tolerancia &&
+	//		posY <= tablero.getPos_Casilla(fila, columna).y + tolerancia) {
+	//		casillas[i] = true;
+	//		cout << "Casilla " << i << endl;
+	//	}
+	//	else {
+	//		casillas[i] = false;
+	//	}
+	//}
+	////SELECION DE PIEZAS
+	//for (int i = 0; i < 32; i++) {
+	//	if (posX >= listapiezas.piezas[i].getPos().x - tolerancia &&
+	//		posX <= listapiezas.piezas[i].getPos().x + tolerancia &&
+	//		posY >= listapiezas.piezas[i].getPos().y - tolerancia &&
+	//		posY <= listapiezas.piezas[i].getPos().y + tolerancia) {
+	//		piezas[i] = true;
+	//		cout << "Pieza " << i << endl;
+	//		cout << "Casilla " << Posicion_por_casilla(listapiezas.piezas[i].getPos().x,
+	//			listapiezas.piezas[i].getPos().y) << endl;
+
+	//	}
+	//	else piezas[i] = false;
+
+	//}
 
 
 

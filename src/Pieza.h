@@ -1,25 +1,27 @@
 #pragma once
-#include "ColorRGB.h"
 #include "Vector2D.h"
 #include "ETSIDI.h"
 
 
 typedef unsigned char Byte;
 
+typedef enum Color {NOCOLOR=0,BLANCAS,NEGRAS};
+typedef enum Tipo{NOTIPO=0,FLORES,CLASICAS};
+
 class Pieza {
 public:
 
-    //Pieza(bool _color) : colour(_color) {  }
     Pieza();
     virtual ~Pieza();
 
-    //virtual void inicializa(Vector2D _pos, bool _color) { posicion = _pos, color = _color; }
-    void dibuja1() {}
+    void setColor(Color c);
+    void setTipo(Tipo t);
 
-    void setColor(Byte r, Byte g, Byte b);
     void setPos(float x, float y);
-    void dibuja();
     Vector2D getPos() const;
+
+    virtual void dibuja()=0;
+    
 
     void mover_arriba();
     void mover_abajo();
@@ -28,10 +30,13 @@ public:
 
 
 protected:
-    ColorRGB color;
-    Vector2D posicion;
+    Color color;
+    Tipo tipo;
+
     float tamaño;
-    bool colour;
+    Vector2D posicion;
+
+
 
     ETSIDI::Sprite sprite{ "bin/imagenes/fondo.png", 0.0, 0.0, 3, 3.5 };
 };

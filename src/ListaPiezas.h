@@ -34,13 +34,14 @@ public:
 	Reina reina_negra;  //piezas 31
 
 public:
-	Pieza piezas[32];
+
 
 	ListaPiezas();
+
 	void inicializar_clasico();
 	void inicializar_flores();
-	//void dibujar1();
-	void asignar_piezas();
+
+
 	void borrar_piezas();
 
 

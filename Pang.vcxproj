@@ -25,7 +25,6 @@
     <ClCompile Include="src\Casilla.cpp" />
     <ClCompile Include="src\ListaPiezas.cpp" />
     <ClCompile Include="src\Menu.cpp" />
-    <ClCompile Include="src\Movimiento.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Peon.cpp" />
     <ClCompile Include="src\Pieza.cpp" />
@@ -43,10 +42,10 @@
     <ClInclude Include="src\ColorRGB.h" />
     <ClInclude Include="src\ListaPiezas.h" />
     <ClInclude Include="src\Menu.h" />
-    <ClInclude Include="src\Movimiento.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Peon.h" />
     <ClInclude Include="src\Pieza.h" />
+    <ClInclude Include="src\Raton.h" />
     <ClInclude Include="src\Reina.h" />
     <ClInclude Include="src\Rey.h" />
     <ClInclude Include="src\Tablero.h" />

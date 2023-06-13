@@ -60,7 +60,7 @@ void Tablero::dibujaTab_flores()
 void Tablero::dibujaMarco_flores()
 {
 	glDisable(GL_LIGHTING);
-	glColor3ub(101, 76, 0);
+	glColor3ub(255, 100, 100);
 	glBegin(GL_POLYGON);
 	glVertex3d(18.0, 18.0, -0.0);
 	glVertex3d(18.0, -18.0, -0.0);
@@ -70,3 +70,9 @@ void Tablero::dibujaMarco_flores()
 	glEnable(GL_LIGHTING);
 }
 
+bool Tablero::estaDentroTablero(float x, float y) {
+	if (x > -15.0f && x < 15.0f && y > -15.0f && y < 15.0f) {
+		return true;
+	}
+	return false;
+}

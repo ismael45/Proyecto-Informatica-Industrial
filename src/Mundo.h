@@ -1,5 +1,5 @@
 ﻿#include "Tablero.h"
-#include "Movimiento.h"
+#include "Raton.h"
 #include "ListaPiezas.h"
 #include "Menu.h"
 
@@ -9,7 +9,7 @@
 #include <Windows.h> //libreria para usar el rat�n
 #include "freeglut.h"
 
-enum { MOUSE_LEFT_BUTTON, MOUSE_MIDDLE_BUTTON, MOUSE_RIGHT_BUTTON };
+//enum { MOUSE_LEFT_BUTTON, MOUSE_MIDDLE_BUTTON, MOUSE_RIGHT_BUTTON };
 
 class Mundo
 {
@@ -18,7 +18,7 @@ public:
 	virtual~Mundo();
 private:
 	ListaPiezas listapiezas;
-	Movimiento movimiento;
+	Raton raton;
 	Tablero tablero;
 	Menu menu;
 
