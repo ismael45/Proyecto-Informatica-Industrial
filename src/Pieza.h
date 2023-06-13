@@ -22,6 +22,7 @@ public:
 
     virtual void dibuja()=0;
     
+    void mover_a_posicion(float x, float y);
 
     void mover_arriba();
     void mover_abajo();

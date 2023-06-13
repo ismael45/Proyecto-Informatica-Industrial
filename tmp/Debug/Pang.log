@@ -1,8 +1,8 @@
-﻿  Tablero.cpp
+﻿  Mundo.cpp
 C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Tablero.h(28,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Tablero.h(28,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(11,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(11,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(48,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(48,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
+C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
+C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Mundo.cpp(130,39): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
+C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Mundo.cpp(130,33): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
   Pang.vcxproj -> C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\bin\Ajedrez.exe

@@ -38,8 +38,9 @@ public:
 
 	ListaPiezas();
 
-	void inicializar_clasico();
-	void inicializar_flores();
+	void actualizar_clasico();
+	void actualizar_flores();
+
 
 
 	void borrar_piezas();

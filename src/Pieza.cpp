@@ -34,6 +34,8 @@ void Pieza::mover_arriba() {
     float x = getPos().x;
     float y = getPos().y + 4;
     setPos(x, y);
+    
+    
 }
 
 void Pieza::mover_abajo() {
@@ -55,4 +57,8 @@ void Pieza::mover_derecha() {
     float y = getPos().y;
     setPos(x, y);
 
+}
+
+void Pieza::mover_a_posicion(float x, float y) {
+    setPos(posicion.x, posicion.y);
 }

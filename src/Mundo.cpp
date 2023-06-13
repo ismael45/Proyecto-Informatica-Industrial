@@ -34,9 +34,11 @@ void Mundo::dibuja()
 
 	//SELECCIONAR OPCION FLORES
 	if (opcion[0]) {
-		listapiezas.inicializar_flores();
+		listapiezas.actualizar_flores();
 		tablero.dibujaTab_flores();
 		tablero.dibujaMarco_flores();
+
+		
 
 		//COLOREAR LA CASILLA SELECICONADA DE ROJO
 		for (int i = 0; i < 64; i++) {
@@ -51,11 +53,11 @@ void Mundo::dibuja()
 
 	//SELECCIONAR OPCION CLASICO
 	if (opcion[1]) {
-		listapiezas.inicializar_clasico();
+		listapiezas.actualizar_clasico();
 		tablero.dibujaTab_clasico();
 		tablero.dibujaMarco_clasico();
 
-
+		
 
 		//COLOREAR LA CASILLA SELECICONADA DE ROJO
 		for (int i = 0; i < 64; i++) {
@@ -83,6 +85,7 @@ void Mundo::dibuja()
 void Mundo::mueve()
 {
 
+	
 
 }
 
@@ -142,6 +145,7 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 			cout << "Opcion 1" << endl;
 			opcion[0] = true;
 			opcion[1] = false;
+			 
 		}
 
 		//seleccionar opcion 2
@@ -149,7 +153,34 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 			cout << "Opcion 2" << endl;
 			opcion[0] = false;
 			opcion[1] = true;
+
 		}
+
+
+
+
+		float tolerancia = 2;
+		// SELECCION DE CASILLAS 
+		for (int i = 0; i < 64; i++) {
+			int columna = i / 8; // Divide el índice por 8 para obtener la fila
+			int fila = i % 8; // Obtiene el resto de la división para obtener la columna
+			if (posX >= tablero.getPos_Casilla(fila, columna).x - tolerancia &&
+				posX <= tablero.getPos_Casilla(fila, columna).x + tolerancia &&
+				posY >= tablero.getPos_Casilla(fila, columna).y - tolerancia &&
+				posY <= tablero.getPos_Casilla(fila, columna).y + tolerancia) {
+				casillas[i] = true;
+				cout << "Casilla " << i << endl;
+				listapiezas.peones_blancos[0].setPos(tablero.getPos_Casilla(fila, columna).x,
+					tablero.getPos_Casilla(fila, columna).y);
+			}
+			else {
+				casillas[i] = false;
+			}
+		}
+		
+
+
+
 	}
 
 
