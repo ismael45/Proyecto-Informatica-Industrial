@@ -92,6 +92,8 @@ void Mundo::inicializa()
 	x_ojo = 0;
 	y_ojo = 30;
 	z_ojo = 0;
+
+	
 }
 
 void Mundo::tecla(unsigned char key)
@@ -146,9 +148,104 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 			opcion[1] = true;
 		}
 
+		//CODIGO IRENE, INTENTO DE QUE GUARDE LAS POSICIONES
+		if (tablero.estaDentroTablero(posX, posY) == true)
+		
+		{
+			for (int i = 0; i < 64; i++)
+			{
+				if (posX >= tablero.getPos_Casilla(i).x - tolerancia &&
+					posX <= tablero.getPos_Casilla(i).x + tolerancia &&
+					posY >= tablero.getPos_Casilla(i).y - tolerancia &&
+					posY <= tablero.getPos_Casilla(i).y + tolerancia)
+				{
+					if (raton.click_dos == false)
+					{
+						raton.casilla_seleccionada = i;
+						raton.origen = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
+						cout << "Origen:" << raton.origen.x << " " << raton.origen.y << endl;
+						raton.click_dos == true;
+
+
+					}
+				
+					else if (raton.click_dos == true)
+					{
+						raton.casilla_seleccionada = i;
+						raton.destino = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
+						cout << "Destino" << raton.destino.x << " " << raton.destino.y << endl;
+						// Verificar si la casilla seleccionada está ocupada por otro peón
+						bool casilla_ocupada = false;
+						for (int j = 0; j < 8; j++)
+						{
+							if (raton.peon_blanco_seleccionado != j &&
+								raton.destino.x == listapiezas.peones_blancos[j].getPos().x &&
+								raton.destino.y == listapiezas.peones_blancos[j].getPos().y) {
+								casilla_ocupada = true;
+								break;
+							}
+						}
+
+						// Realizar el movimiento del peón si la casilla no está ocupada
+						if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1)
+						{
+							listapiezas.peones_blancos[raton.peon_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
+							cout << "Movimiento realizado: Peon blanco " << raton.peon_blanco_seleccionado << " a la casilla " << i << endl;
+						}
+
+						else { raton.casilla_seleccionada = -1; }
+
+					}
+				}
+						
+
+					}
+
+			}
+				
+				
+		
+
+			// SELECCION DE PEONES BLANCOS
+			int peon_seleccionado_previo = raton.peon_blanco_seleccionado; // Almacenar el índice del peón previamente seleccionado
+			raton.peon_blanco_seleccionado = -1; // Desseleccionar el peón por defecto
+
+			for (int i = 0; i < 8; i++) {
+				if (posX >= listapiezas.peones_blancos[i].getPos().x - tolerancia &&
+					posX <= listapiezas.peones_blancos[i].getPos().x + tolerancia &&
+					posY >= listapiezas.peones_blancos[i].getPos().y - tolerancia &&
+					posY <= listapiezas.peones_blancos[i].getPos().y + tolerancia) {
+					if (peon_seleccionado_previo == i) {
+						// Hacer clic por segunda vez en el mismo peón: deseleccionar
+						raton.peon_blanco_seleccionado = -1;
+						cout << "Peon blanco " << i << " deseleccionado" << endl;
+					}
+					else {
+						// Hacer clic en un peón diferente: seleccionar el nuevo peón
+						raton.peon_blanco_seleccionado = i;
+						cout << "Peon blanco " << i << " seleccionado" << endl;
+					}
+				}
+
+
+			}
+		
+
+
+
+
+
+
+
+
+
+		//CODIGO DE ISMAEL QUE VA CAMBIANDO LA POSICIÓN SEGÚN EL CLICK
+		/*
+
 
 		//MOVIMIENTOS PIEZAS POR CLICKS
 		if (tablero.estaDentroTablero(posX, posY) == true) {
+
 
 			// SELECCION DE CASILLA
 			for (int i = 0; i < 64; i++) {
@@ -158,7 +255,9 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 					posY <= tablero.getPos_Casilla(i).y + tolerancia) {
 					raton.casilla_seleccionada = i;
 					raton.destino = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
-					cout << listapiezas.piezas[0].getPos().x << ", " << listapiezas.piezas[0].getPos().y;
+					cout << raton.destino.x << " " << raton.destino.y << endl;
+					//Devuelve simpre 0,0
+					//cout <<" " << listapiezas.piezas[0].getPos().x << ", " << listapiezas.piezas[0].getPos().y;
 
 					// Verificar si la casilla seleccionada está ocupada por otro peón
 					bool casilla_ocupada = false;
@@ -174,7 +273,7 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 					// Realizar el movimiento del peón si la casilla no está ocupada
 					if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1) {
 						listapiezas.peones_blancos[raton.peon_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Peón blanco " << raton.peon_blanco_seleccionado << " a la casilla " << i << endl;
+						cout << "Movimiento realizado: Peon blanco " << raton.peon_blanco_seleccionado << " a la casilla " << i << endl;
 					}
 				}
 				else {
@@ -198,18 +297,23 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 					if (peon_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo peón: deseleccionar
 						raton.peon_blanco_seleccionado = -1;
-						cout << "Peón blanco " << i << " deseleccionado" << endl;
+						cout << "Peon blanco " << i << " deseleccionado" << endl;
 					}
 					else {
 						// Hacer clic en un peón diferente: seleccionar el nuevo peón
 						raton.peon_blanco_seleccionado = i;
-						cout << "Peón blanco " << i << " seleccionado" << endl;
+						cout << "Peon blanco " << i << " seleccionado" << endl;
 					}
 				}
 			}
 
 
 		}
+
+
+		*/
+
+
 
 	}
 }

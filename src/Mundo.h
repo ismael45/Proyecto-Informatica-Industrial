@@ -20,6 +20,7 @@ private:
 	Raton raton;
 	Tablero tablero;
 	Menu menu;
+	int final;
 
 
 public:
