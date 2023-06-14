@@ -9,7 +9,7 @@ public:
 	Tablero();
 	virtual ~Tablero();
 private:
-	Casilla casilla[8][8];
+	Casilla casilla[64];
 	ColorRGB color;
 
 
@@ -23,15 +23,13 @@ public:
 	void dibujaTab_flores();
 	void dibujaMarco_flores();
 
-	void Seleccionar_Casilla(int x, int y) {
-		casilla[x][y].dibuja();
-		casilla[x][y].setPos(-14 + 4 * x, -14 + 4 * y);
-		casilla[x][y].setColor(255, 0, 0);
+	void Seleccionar_Casilla(int num) {
+		casilla[num].setColor(255, 0, 0);
 
 	}
 
-	Vector2D getPos_Casilla(int x, int y) {
-		return casilla[x][y].getPos();
+	Vector2D getPos_Casilla(int num) {
+		return casilla[num].getPos();
 	}
 
 	bool estaDentroTablero(float x, float y);

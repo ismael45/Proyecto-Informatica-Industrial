@@ -59,6 +59,3 @@ void Pieza::mover_derecha() {
 
 }
 
-void Pieza::mover_a_posicion(float x, float y) {
-    setPos(posicion.x, posicion.y);
-}

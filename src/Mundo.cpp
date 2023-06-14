@@ -41,13 +41,13 @@ void Mundo::dibuja()
 		
 
 		//COLOREAR LA CASILLA SELECICONADA DE ROJO
-		for (int i = 0; i < 64; i++) {
+	/*	for (int i = 0; i < 64; i++) {
 			int columna = i / 8;
 			int fila = i % 8;
-			if (casillas[i]) {
+			if (casilla_seleccionada[i]) {
 				tablero.Seleccionar_Casilla(fila, columna);
 			}
-		}
+		}*/
 
 	}
 
@@ -60,13 +60,13 @@ void Mundo::dibuja()
 		
 
 		//COLOREAR LA CASILLA SELECICONADA DE ROJO
-		for (int i = 0; i < 64; i++) {
-			int columna = i / 8; // Divide el �ndice por 8 para obtener la fila
-			int fila = i % 8; // Obtiene el resto de la divisi�n para obtener la columna
-			if (casillas[i]) {
-				tablero.Seleccionar_Casilla(fila, columna);
-			}
-		}
+		//for (int i = 0; i < 64; i++) {
+		//	int columna = i / 8; // Divide el �ndice por 8 para obtener la fila
+		//	int fila = i % 8; // Obtiene el resto de la divisi�n para obtener la columna
+		//	if (casilla_seleccionada[i]) {
+		//		tablero.Seleccionar_Casilla(fila, columna);
+		//	}
+		//}
 	}
 
 
@@ -125,18 +125,18 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 
 	//cuando se produzca un click
 	if (down) {
-		std::cout << (int)posX << "," << (int)posY << "\n";
+		//std::cout << (int)posX << "," << (int)posY << "\n";
 		//MOVIMIENTOS PIEZAS POR CLICKS
 		if (tablero.estaDentroTablero(posX, posY) == true) {
 			if (raton.click == 0) {
 				raton.origen = { (float)posX, (float)posY };
 				raton.click = 1; //marcador de que se ha hecho click una primera vez
-				std::cout << "ORIGEN:"<<raton.origen.x << "," << raton.origen.y << "\n";
+				//std::cout << "ORIGEN:"<<raton.origen.x << "," << raton.origen.y << "\n";
 			}
 			else if (raton.click == 1) {
 				raton.destino = { (float)posX, (float)posY };
 				raton.click = 0;
-				std::cout << "DESTINO:" << raton.destino.x << "," << raton.destino.y << "\n";
+				//std::cout << "DESTINO:" << raton.destino.x << "," << raton.destino.y << "\n";
 			}
 		}
 		//ELECCION DE MENUS
@@ -145,7 +145,6 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 			cout << "Opcion 1" << endl;
 			opcion[0] = true;
 			opcion[1] = false;
-			 
 		}
 
 		//seleccionar opcion 2
@@ -157,27 +156,441 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 		}
 
 
-
-
 		float tolerancia = 2;
 		// SELECCION DE CASILLAS 
 		for (int i = 0; i < 64; i++) {
-			int columna = i / 8; // Divide el índice por 8 para obtener la fila
-			int fila = i % 8; // Obtiene el resto de la división para obtener la columna
-			if (posX >= tablero.getPos_Casilla(fila, columna).x - tolerancia &&
-				posX <= tablero.getPos_Casilla(fila, columna).x + tolerancia &&
-				posY >= tablero.getPos_Casilla(fila, columna).y - tolerancia &&
-				posY <= tablero.getPos_Casilla(fila, columna).y + tolerancia) {
-				casillas[i] = true;
+
+			if (posX >= tablero.getPos_Casilla(i).x - tolerancia &&
+				posX <= tablero.getPos_Casilla(i).x + tolerancia &&
+				posY >= tablero.getPos_Casilla(i).y - tolerancia &&
+				posY <= tablero.getPos_Casilla(i).y + tolerancia) {
+				casilla_seleccionada[i] = true;
 				cout << "Casilla " << i << endl;
-				listapiezas.peones_blancos[0].setPos(tablero.getPos_Casilla(fila, columna).x,
-					tablero.getPos_Casilla(fila, columna).y);
+
 			}
 			else {
-				casillas[i] = false;
+				casilla_seleccionada[i] = false;
 			}
 		}
-		
+
+	// SELECCION DE PEONES BLANCOS
+		for (int i = 0; i < 8; i++) {
+			if (posX >= listapiezas.peones_blancos[i].getPos().x - tolerancia &&
+				posX <= listapiezas.peones_blancos[i].getPos().x + tolerancia &&
+				posY >= listapiezas.peones_blancos[i].getPos().y - tolerancia &&
+				posY <= listapiezas.peones_blancos[i].getPos().y + tolerancia) {
+				if (peon_blanco_seleccionado == -1) {
+					peon_blanco_seleccionado = i;
+					cout << "Peon blanco " << i << " seleccionado" << endl;
+				}
+				else {
+					peon_blanco_seleccionado = -1; // Deseleccionar el peón si ya había uno seleccionado
+					cout << "Peon deseleccionado" << endl;
+				}
+			}
+		}
+
+		if (peon_blanco_seleccionado != -1 && raton.click == 0) {
+			// Si hay un peón seleccionado y se ha hecho el segundo click en una casilla vacía
+			if (!casilla_seleccionada[peon_blanco_seleccionado]) {
+				listapiezas.peones_blancos[peon_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo peon blanco " << peon_blanco_seleccionado << " a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover el peon " << peon_blanco_seleccionado << " a una casilla ocupada" << endl;
+			}
+			peon_blanco_seleccionado = -1; // Deseleccionar el peón después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}
+
+
+/*		// SELECCION DE PEONES NEGROS
+		for (int i = 0; i < 8; i++) {
+			if (posX >= listapiezas.peones_negros[i].getPos().x - tolerancia &&
+				posX <= listapiezas.peones_negros[i].getPos().x + tolerancia &&
+				posY >= listapiezas.peones_negros[i].getPos().y - tolerancia &&
+				posY <= listapiezas.peones_negros[i].getPos().y + tolerancia) {
+				if (peon_negro_seleccionado == -1) {
+					peon_negro_seleccionado = i;
+					cout << "Peon negro " << i << " seleccionado" << endl;
+				}
+				else {
+					peon_negro_seleccionado = -1; // Deseleccionar el peón si ya había uno seleccionado
+					cout << "Peon negro deseleccionado" << endl;
+				}
+			}
+		}
+
+		if (peon_negro_seleccionado != -1 && raton.click == 0) {
+			// Si hay un peón seleccionado y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[peon_negro_seleccionado]) {
+				listapiezas.peones_negros[peon_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo peon negro " << peon_negro_seleccionado << " a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover el peon negro " << peon_negro_seleccionado << " a una casilla ocupada" << endl;
+			}
+			peon_negro_seleccionado = -1; // Deseleccionar el peón después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}*/
+
+
+	/*	// SELECCION DE ALFILES BLANCOS
+		for (int i = 0; i < 2; i++) {
+			if (posX >= listapiezas.alfiles_blancos[i].getPos().x - tolerancia &&
+				posX <= listapiezas.alfiles_blancos[i].getPos().x + tolerancia &&
+				posY >= listapiezas.alfiles_blancos[i].getPos().y - tolerancia &&
+				posY <= listapiezas.alfiles_blancos[i].getPos().y + tolerancia) {
+				if (alfil_blanco_seleccionado == -1) {
+					alfil_blanco_seleccionado = i;
+					cout << "Alfil blanco " << i << " seleccionado" << endl;
+				}
+				else {
+					alfil_blanco_seleccionado = -1; // Deseleccionar el alfil si ya había uno seleccionado
+					cout << "Alfil blanco deseleccionado" << endl;
+				}
+			}
+		}
+
+		if (alfil_blanco_seleccionado != -1 && raton.click == 0) {
+			// Si hay un alfil seleccionado y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[alfil_blanco_seleccionado + 8]) {
+				listapiezas.alfiles_blancos[alfil_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo alfil blanco " << alfil_blanco_seleccionado << " a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover el alfil blanco " << alfil_blanco_seleccionado << " a una casilla ocupada" << endl;
+			}
+			alfil_blanco_seleccionado = -1; // Deseleccionar el alfil después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}
+
+		// SELECCION DE ALFILES NEGROS
+		for (int i = 0; i < 2; i++) {
+			if (posX >= listapiezas.alfiles_negros[i].getPos().x - tolerancia &&
+				posX <= listapiezas.alfiles_negros[i].getPos().x + tolerancia &&
+				posY >= listapiezas.alfiles_negros[i].getPos().y - tolerancia &&
+				posY <= listapiezas.alfiles_negros[i].getPos().y + tolerancia) {
+				if (alfil_negro_seleccionado == -1) {
+					alfil_negro_seleccionado = i;
+					cout << "Alfil negro " << i << " seleccionado" << endl;
+				}
+				else {
+					alfil_negro_seleccionado = -1; // Deseleccionar el alfil si ya había uno seleccionado
+					cout << "Alfil negro deseleccionado" << endl;
+				}
+			}
+		}
+
+		if (alfil_negro_seleccionado != -1 && raton.click == 0) {
+			// Si hay un alfil seleccionado y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[alfil_negro_seleccionado + 56]) {
+				listapiezas.alfiles_negros[alfil_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo alfil negro " << alfil_negro_seleccionado << " a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover el alfil negro " << alfil_negro_seleccionado << " a una casilla ocupada" << endl;
+			}
+			alfil_negro_seleccionado = -1; // Deseleccionar el alfil después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}
+
+		// SELECCION DE CABALLOS BLANCOS
+		for (int i = 0; i < 2; i++) {
+			if (posX >= listapiezas.caballos_blancos[i].getPos().x - tolerancia &&
+				posX <= listapiezas.caballos_blancos[i].getPos().x + tolerancia &&
+				posY >= listapiezas.caballos_blancos[i].getPos().y - tolerancia &&
+				posY <= listapiezas.caballos_blancos[i].getPos().y + tolerancia) {
+				if (caballo_blanco_seleccionado == -1) {
+					caballo_blanco_seleccionado = i;
+					cout << "Caballo blanco " << i << " seleccionado" << endl;
+				}
+				else {
+					caballo_blanco_seleccionado = -1; // Deseleccionar el caballo si ya había uno seleccionado
+					cout << "Caballo blanco deseleccionado" << endl;
+				}
+			}
+		}
+
+		if (caballo_blanco_seleccionado != -1 && raton.click == 0) {
+			// Si hay un caballo seleccionado y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[caballo_blanco_seleccionado + 16]) {
+				listapiezas.caballos_blancos[caballo_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo caballo blanco " << caballo_blanco_seleccionado << " a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover el caballo blanco " << caballo_blanco_seleccionado << " a una casilla ocupada" << endl;
+			}
+			caballo_blanco_seleccionado = -1; // Deseleccionar el caballo después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}
+
+		// SELECCION DE CABALLOS NEGROS
+		for (int i = 0; i < 2; i++) {
+			if (posX >= listapiezas.caballos_negros[i].getPos().x - tolerancia &&
+				posX <= listapiezas.caballos_negros[i].getPos().x + tolerancia &&
+				posY >= listapiezas.caballos_negros[i].getPos().y - tolerancia &&
+				posY <= listapiezas.caballos_negros[i].getPos().y + tolerancia) {
+				if (caballo_negro_seleccionado == -1) {
+					caballo_negro_seleccionado = i;
+					cout << "Caballo negro " << i << " seleccionado" << endl;
+				}
+				else {
+					caballo_negro_seleccionado = -1; // Deseleccionar el caballo si ya había uno seleccionado
+					cout << "Caballo negro deseleccionado" << endl;
+				}
+			}
+		}
+
+		if (caballo_negro_seleccionado != -1 && raton.click == 0) {
+			// Si hay un caballo seleccionado y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[caballo_negro_seleccionado + 48]) {
+				listapiezas.caballos_negros[caballo_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo caballo negro " << caballo_negro_seleccionado << " a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover el caballo negro " << caballo_negro_seleccionado << " a una casilla ocupada" << endl;
+			}
+			caballo_negro_seleccionado = -1; // Deseleccionar el caballo después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}
+
+		// SELECCION DE TORRES BLANCAS
+		for (int i = 0; i < 2; i++) {
+			if (posX >= listapiezas.torres_blancas[i].getPos().x - tolerancia &&
+				posX <= listapiezas.torres_blancas[i].getPos().x + tolerancia &&
+				posY >= listapiezas.torres_blancas[i].getPos().y - tolerancia &&
+				posY <= listapiezas.torres_blancas[i].getPos().y + tolerancia) {
+				if (torre_blanca_seleccionada == -1) {
+					torre_blanca_seleccionada = i;
+					cout << "Torre blanca " << i << " seleccionada" << endl;
+				}
+				else {
+					torre_blanca_seleccionada = -1; // Deseleccionar la torre si ya había una seleccionada
+					cout << "Torre blanca deseleccionada" << endl;
+				}
+			}
+		}
+
+		if (torre_blanca_seleccionada != -1 && raton.click == 0) {
+			// Si hay una torre seleccionada y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[torre_blanca_seleccionada + 24]) {
+				listapiezas.torres_blancas[torre_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo torre blanca " << torre_blanca_seleccionada << " a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover la torre blanca " << torre_blanca_seleccionada << " a una casilla ocupada" << endl;
+			}
+			torre_blanca_seleccionada = -1; // Deseleccionar la torre después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}
+
+		// SELECCION DE TORRES NEGRAS
+		for (int i = 0; i < 2; i++) {
+			if (posX >= listapiezas.torres_negras[i].getPos().x - tolerancia &&
+				posX <= listapiezas.torres_negras[i].getPos().x + tolerancia &&
+				posY >= listapiezas.torres_negras[i].getPos().y - tolerancia &&
+				posY <= listapiezas.torres_negras[i].getPos().y + tolerancia) {
+				if (torre_negra_seleccionada == -1) {
+					torre_negra_seleccionada = i;
+					cout << "Torre negra " << i << " seleccionada" << endl;
+				}
+				else {
+					torre_negra_seleccionada = -1; // Deseleccionar la torre si ya había una seleccionada
+					cout << "Torre negra deseleccionada" << endl;
+				}
+			}
+		}
+
+		if (torre_negra_seleccionada != -1 && raton.click == 0) {
+			// Si hay una torre seleccionada y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[torre_negra_seleccionada + 56]) {
+				listapiezas.torres_negras[torre_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo torre negra " << torre_negra_seleccionada << " a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover la torre negra " << torre_negra_seleccionada << " a una casilla ocupada" << endl;
+			}
+			torre_negra_seleccionada = -1; // Deseleccionar la torre después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}
+
+		// SELECCION DE REY BLANCO
+		if (posX >= listapiezas.rey_blanco.getPos().x - tolerancia &&
+			posX <= listapiezas.rey_blanco.getPos().x + tolerancia &&
+			posY >= listapiezas.rey_blanco.getPos().y - tolerancia &&
+			posY <= listapiezas.rey_blanco.getPos().y + tolerancia) {
+			if (rey_blanco_seleccionado == false) {
+				rey_blanco_seleccionado = true;
+				cout << "Rey blanco seleccionado" << endl;
+			}
+			else {
+				rey_blanco_seleccionado = false; // Deseleccionar el rey si ya estaba seleccionado
+				cout << "Rey blanco deseleccionado" << endl;
+			}
+		}
+
+		if (rey_blanco_seleccionado && raton.click == 0) {
+			// Si el rey blanco está seleccionado y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[60]) {
+				listapiezas.rey_blanco.setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo rey blanco a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover el rey blanco a una casilla ocupada" << endl;
+			}
+			rey_blanco_seleccionado = false; // Deseleccionar el rey después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}
+
+		// SELECCION DE REY NEGRO
+		if (posX >= listapiezas.rey_negro.getPos().x - tolerancia &&
+			posX <= listapiezas.rey_negro.getPos().x + tolerancia &&
+			posY >= listapiezas.rey_negro.getPos().y - tolerancia &&
+			posY <= listapiezas.rey_negro.getPos().y + tolerancia) {
+			if (rey_negro_seleccionado == false) {
+				rey_negro_seleccionado = true;
+				cout << "Rey negro seleccionado" << endl;
+			}
+			else {
+				rey_negro_seleccionado = false; // Deseleccionar el rey si ya estaba seleccionado
+				cout << "Rey negro deseleccionado" << endl;
+			}
+		}
+
+		if (rey_negro_seleccionado && raton.click == 0) {
+			// Si el rey negro está seleccionado y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[4]) {
+				listapiezas.rey_negro.setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo rey negro a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover el rey negro a una casilla ocupada" << endl;
+			}
+			rey_negro_seleccionado = false; // Deseleccionar el rey después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}
+
+		// SELECCION DE REINA BLANCA
+		if (posX >= listapiezas.reina_blanca.getPos().x - tolerancia &&
+			posX <= listapiezas.reina_blanca.getPos().x + tolerancia &&
+			posY >= listapiezas.reina_blanca.getPos().y - tolerancia &&
+			posY <= listapiezas.reina_blanca.getPos().y + tolerancia) {
+			if (reina_blanca_seleccionada == false) {
+				reina_blanca_seleccionada = true;
+				cout << "Reina blanca seleccionada" << endl;
+			}
+			else {
+				reina_blanca_seleccionada = false; // Deseleccionar la reina si ya estaba seleccionada
+				cout << "Reina blanca deseleccionada" << endl;
+			}
+		}
+
+		if (reina_blanca_seleccionada && raton.click == 0) {
+			// Si la reina blanca está seleccionada y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[59]) {
+				listapiezas.reina_blanca.setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo reina blanca a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover la reina blanca a una casilla ocupada" << endl;
+			}
+			reina_blanca_seleccionada = false; // Deseleccionar la reina después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}
+
+		// SELECCION DE REINA NEGRA
+		if (posX >= listapiezas.reina_negra.getPos().x - tolerancia &&
+			posX <= listapiezas.reina_negra.getPos().x + tolerancia &&
+			posY >= listapiezas.reina_negra.getPos().y - tolerancia &&
+			posY <= listapiezas.reina_negra.getPos().y + tolerancia) {
+			if (reina_negra_seleccionada == false) {
+				reina_negra_seleccionada = true;
+				cout << "Reina negra seleccionada" << endl;
+			}
+			else {
+				reina_negra_seleccionada = false; // Deseleccionar la reina si ya estaba seleccionada
+				cout << "Reina negra deseleccionada" << endl;
+			}
+		}
+
+		if (reina_negra_seleccionada && raton.click == 0) {
+			// Si la reina negra está seleccionada y se ha hecho el segundo click en una casilla vacía
+			if (!casillas[3]) {
+				listapiezas.reina_negra.setPos(raton.destino.x, raton.destino.y);
+				cout << "Moviendo reina negra a la casilla destino" << endl;
+			}
+			else {
+				cout << "No se puede mover la reina negra a una casilla ocupada" << endl;
+			}
+			reina_negra_seleccionada = false; // Deseleccionar la reina después de hacer el movimiento
+		}
+		else if (raton.click == 0) {
+			cout << "";
+		}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -186,38 +599,7 @@ void Mundo::MouseButton(int x, int y, int button, bool down) {
 
 
 
-	//float tolerancia = 2;
-	////SELECCION DE CASILLAS 
-	//for (int i = 0; i < 64; i++) {
-	//	int columna = i / 8; // Divide el �ndice por 8 para obtener la fila
-	//	int fila = i % 8; // Obtiene el resto de la divisi�n para obtener la columna
-	//	if (posX >= tablero.getPos_Casilla(fila, columna).x - tolerancia &&
-	//		posX <= tablero.getPos_Casilla(fila, columna).x + tolerancia &&
-	//		posY >= tablero.getPos_Casilla(fila, columna).y - tolerancia &&
-	//		posY <= tablero.getPos_Casilla(fila, columna).y + tolerancia) {
-	//		casillas[i] = true;
-	//		cout << "Casilla " << i << endl;
-	//	}
-	//	else {
-	//		casillas[i] = false;
-	//	}
-	//}
-	////SELECION DE PIEZAS
-	//for (int i = 0; i < 32; i++) {
-	//	if (posX >= listapiezas.piezas[i].getPos().x - tolerancia &&
-	//		posX <= listapiezas.piezas[i].getPos().x + tolerancia &&
-	//		posY >= listapiezas.piezas[i].getPos().y - tolerancia &&
-	//		posY <= listapiezas.piezas[i].getPos().y + tolerancia) {
-	//		piezas[i] = true;
-	//		cout << "Pieza " << i << endl;
-	//		cout << "Casilla " << Posicion_por_casilla(listapiezas.piezas[i].getPos().x,
-	//			listapiezas.piezas[i].getPos().y) << endl;
-
-	//	}
-	//	else piezas[i] = false;
-
-	//}
-
+	
 
 
 
