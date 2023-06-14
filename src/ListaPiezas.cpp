@@ -238,6 +238,42 @@ void ListaPiezas::actualizar_clasico()
 
 
 
+void ListaPiezas::asignar_piezas() {
+	// Piezas blancas
+	for (int i = 0; i < 8; i++) {
+		piezas[i] = peones_blancos[i];
+	}
+
+	piezas[8] = torres_blancas[0];
+	piezas[9] = torres_blancas[1];
+
+	piezas[10] = caballos_blancos[0];
+	piezas[11] = caballos_blancos[1];
+
+	piezas[12] = alfiles_blancos[0];
+	piezas[13] = alfiles_blancos[1];
+
+	piezas[14] = rey_blanco;
+	piezas[15] = reina_blanca;
+
+	// Piezas negras
+	for (int i = 0; i < 8; i++) {
+		piezas[16 + i] = peones_negros[i];
+	}
+
+	piezas[24] = torres_negras[0];
+	piezas[25] = torres_negras[1];
+
+	piezas[26] = caballos_negros[0];
+	piezas[27] = caballos_negros[1];
+
+	piezas[28] = alfiles_negros[0];
+	piezas[29] = alfiles_negros[1];
+
+	piezas[30] = rey_negro;
+	piezas[31] = reina_negra;
+}
+
 
 
 void ListaPiezas::borrar_piezas()

@@ -20,7 +20,7 @@ public:
     void setPos(float x, float y);
     Vector2D getPos() const;
 
-    virtual void dibuja()=0;
+    //virtual void dibuja()=0;
     
  
     void mover_arriba();

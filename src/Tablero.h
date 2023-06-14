@@ -25,6 +25,7 @@ public:
 
 	void Seleccionar_Casilla(int num) {
 		casilla[num].setColor(255, 0, 0);
+		casilla[num].dibuja();
 
 	}
 

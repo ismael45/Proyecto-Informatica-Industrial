@@ -34,7 +34,7 @@ public:
 	Reina reina_negra;  //piezas 31
 
 public:
-
+	Pieza piezas[32];
 
 	ListaPiezas();
 
@@ -42,8 +42,8 @@ public:
 	void actualizar_flores();
 
 
-
 	void borrar_piezas();
 
 
+	void asignar_piezas();
 };
