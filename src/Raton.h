@@ -4,8 +4,14 @@
 struct Raton {
 	Vector2D origen = { 0,0 };
 	Vector2D destino = { 0,0 };
-	
+	double o_x, o_y;
+	double d_x, d_y;
+
+	bool click_dos;
+
 	int casilla_seleccionada = -1;
+
+	int pieza_seleccionada = -1;
 
 	int peon_blanco_seleccionado = -1;
 	int peon_negro_seleccionado = -1;

@@ -1,6 +1,5 @@
 ﻿#include "Pieza.h"
 
-
 Pieza::Pieza() {
 
     tamaño = 2.0f;
@@ -20,9 +19,10 @@ void Pieza::setTipo(Tipo t) {
     tipo = t;
 }
 
-void Pieza::setPos(float x, float y) {
+void Pieza::setPos(float x, float y){
     posicion.x = x;
     posicion.y = y;
+    
 }
 
 Vector2D Pieza::getPos() const {

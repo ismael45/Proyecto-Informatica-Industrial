@@ -7,5 +7,4 @@ class Peon : public Pieza
     Peon() : Pieza() {}
     void dibuja();
 
-
 };

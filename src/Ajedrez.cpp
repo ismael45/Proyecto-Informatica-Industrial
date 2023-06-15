@@ -77,7 +77,7 @@ void OnTimer(int value)
 void OnMouseClick(int b, int state, int x, int y) {
 	bool down = (state==GLUT_DOWN);
 	if (b == GLUT_LEFT_BUTTON) {
-		mundo.MouseButton(x, y, b, down);
+		mundo.Mover(x, y, b, down);
 	}
 	
 	glutPostRedisplay();

@@ -42,6 +42,7 @@ ListaPiezas::ListaPiezas()
 
 void ListaPiezas::actualizar_flores()
 {
+	ListaPiezas::asignar_piezas();
 	//********************+***PIEZAS BLANCAS*************************//
 
 // PEONES
@@ -141,6 +142,8 @@ void ListaPiezas::actualizar_flores()
 
 void ListaPiezas::actualizar_clasico()
 {
+
+	ListaPiezas::asignar_piezas();
 	//********************+***PIEZAS BLANCAS*************************//
 
 // PEONES
@@ -241,7 +244,7 @@ void ListaPiezas::actualizar_clasico()
 void ListaPiezas::asignar_piezas() {
 	// Piezas blancas
 	for (int i = 0; i < 8; i++) {
-		piezas[i] = peones_blancos[i];
+		 piezas[i] =  peones_blancos[i];
 	}
 
 	piezas[8] = torres_blancas[0];
