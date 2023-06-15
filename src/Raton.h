@@ -2,6 +2,7 @@
 #include "Vector2D.h"
 
 struct Raton {
+<<<<<<< HEAD
 	Vector2D origen = { 0,0 };
 	Vector2D destino = { 0,0 };
 	double o_x, o_y;
@@ -9,6 +10,13 @@ struct Raton {
 
 	bool click_dos;
 
+=======
+	double o_x, o_y;
+	double d_x, d_y;
+	Vector2D origen;
+	Vector2D destino;
+	bool click_dos;
+>>>>>>> 1f1f14d2786f946ed6f43684cdd800b2b9350102
 	int casilla_seleccionada = -1;
 
 	int pieza_seleccionada = -1;

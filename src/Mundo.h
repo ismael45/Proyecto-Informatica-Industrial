@@ -10,8 +10,13 @@ public:
 	virtual~Mundo();
 private:
 	Menu menu;
+<<<<<<< HEAD
 	Movimientos movimientos;
 	int final;
+=======
+	int final;
+
+>>>>>>> 1f1f14d2786f946ed6f43684cdd800b2b9350102
 
 public:
 	void tecla(unsigned char key);
