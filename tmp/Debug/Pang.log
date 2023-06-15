@@ -1,16 +1,13 @@
-<<<<<<< HEAD
-﻿  Movimientos.cpp
+﻿  Ajedrez.cpp
+C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
+C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
+  Movimientos.cpp
 C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
 C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
 C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(57,39): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
 C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(57,33): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
+  Mundo.cpp
+C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
+C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
+  Generando código...
   Pang.vcxproj -> C:\Users\ismat\source\repos\Proyecto-Informatica-Industrial\bin\Ajedrez.exe
-=======
-﻿  Mundo.cpp
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Mundo.cpp(152,39): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Mundo.cpp(152,33): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Mundo.cpp(169,23): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
-  Pang.vcxproj -> C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\bin\Ajedrez.exe
->>>>>>> 1f1f14d2786f946ed6f43684cdd800b2b9350102

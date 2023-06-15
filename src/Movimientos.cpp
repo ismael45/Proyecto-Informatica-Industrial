@@ -492,7 +492,7 @@ void Movimientos::dibuja() {
 bool Movimientos::movimiento_peon() {
 	for (int i = 0; i < 8; i++) {
 		if (raton.destino.x == listapiezas.peones_blancos[i].getPos().x &&
-			raton.destino.y == listapiezas.peones_blancos[i].getPos().y + 1 ) {
+			raton.destino.y == listapiezas.peones_blancos[i].getPos().y + 4 ) {
 			return true;
 		}
 	}
