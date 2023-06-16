@@ -13,6 +13,11 @@ private:
 	ListaPiezas listapiezas;
 	Raton raton;
 	Tablero tablero;
+	Vector2D pos_reyNegro, pos_reyBlanco;
+	Vector2D pos_peonN, pos_peonB;
+	Vector2D pos_torreN, pos_torreB;
+	Vector2D pos_caballoN, pos_caballoB;
+	Vector2D pos_alfilN, pos_alfilB;
 public:
 
 
@@ -26,4 +31,6 @@ public:
 	bool movimiento_alfil();
 	bool movimiento_rey();
 	bool movimiento_caballo();
+
+	void jaque();
 };

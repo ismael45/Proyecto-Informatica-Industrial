@@ -77,6 +77,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 							//cout << "Origen:" << raton.origen.x << "," << raton.origen.y << endl;
 							break;
 						}
+						pos_alfilN = { 0,0 };
 					}
 
 					//PIEZAS BLANCAS//
@@ -84,31 +85,39 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 
 					// Realizar el movimiento del peón si la casilla no está ocupada
 					if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon()) {
-
+						pos_peonB = { raton.destino };
+						jaque();
 						listapiezas.peones_blancos[raton.peon_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Peón blanco " << raton.peon_blanco_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento de la torre si la casilla no está ocupada
 					if (!casilla_ocupada && raton.torre_blanca_seleccionada != -1 && movimiento_torre()) {
+						pos_torreB = { raton.destino };
+						jaque();
 						listapiezas.torres_blancas[raton.torre_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Torre blanca " << raton.torre_blanca_seleccionada << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del caballo blanco si la casilla no está ocupada
 					if (!casilla_ocupada && raton.caballo_blanco_seleccionado != -1 && movimiento_caballo()) {
+						pos_caballoB = { raton.destino };
+						jaque();
 						listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Caballo blanco " << raton.caballo_blanco_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del alfil blanco si la casilla no está ocupada
 					if (!casilla_ocupada && raton.alfil_blanco_seleccionado != -1 && movimiento_alfil()) {
+						pos_alfilB = { raton.destino };
+						jaque();
 						listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Alfil blanco " << raton.alfil_blanco_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del rey blanco si la casilla no está ocupada
 					if (!casilla_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey()) {
+						pos_reyBlanco = { raton.destino };
 						listapiezas.rey_blanco.setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Rey blanco a la casilla " << i << endl;
 					}
@@ -123,30 +132,39 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 
 					// Realizar el movimiento del peón negro si la casilla no está ocupada
 					if (!casilla_ocupada && raton.peon_negro_seleccionado != -1 && movimiento_peon()) {
+						pos_peonN = { raton.destino };
+						jaque();
 						listapiezas.peones_negros[raton.peon_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Peón negro " << raton.peon_negro_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento de la torre negra si la casilla no está ocupada
 					if (!casilla_ocupada && raton.torre_negra_seleccionada != -1 && movimiento_torre()) {
+						pos_torreN = { raton.destino };
+						jaque();
 						listapiezas.torres_negras[raton.torre_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Torre negra " << raton.torre_negra_seleccionada << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del caballo negro si la casilla no está ocupada
 					if (!casilla_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()) {
+						pos_caballoN = { raton.destino };
+						jaque();
 						listapiezas.caballos_negros[raton.caballo_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Caballo negro " << raton.caballo_negro_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del alfil negro si la casilla no está ocupada
 					if (!casilla_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()) {
+						pos_alfilN = { raton.destino };
+						jaque();
 						listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Alfil negro " << raton.alfil_negro_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del rey negro si la casilla no está ocupada
 					if (!casilla_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey()) {
+						pos_reyNegro = { raton.destino };
 						listapiezas.rey_negro.setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Rey negro a la casilla " << i << endl;
 					}
@@ -533,6 +551,83 @@ bool Movimientos::movimiento_caballo()
 	int delta_columnas = std::abs((raton.destino.y - raton.origen.y)/4);
 
 	return ((delta_filas == 1 && delta_columnas == 2) || (delta_filas == 2 && delta_columnas == 1));
+
+}
+
+void Movimientos::jaque()
+{
+	int delta_filasN = std::abs((pos_reyBlanco.x - pos_caballoN.x) / 4);
+	int delta_columnasN = std::abs((pos_reyBlanco.y - pos_caballoN.y) / 4);
+	int delta_filasB = std::abs((pos_reyNegro.x - pos_caballoB.x) / 4);
+	int delta_columnasB = std::abs((pos_reyNegro.y - pos_caballoB.y) / 4);
+	int diffFilaN = std::abs((pos_reyBlanco.x - pos_alfilN.x));
+	int diffColumnaN = std::abs((pos_reyBlanco.y - pos_alfilN.y));
+	int diffFilaB = std::abs((pos_reyNegro.x - pos_alfilB.x));
+	int diffColumnaB = std::abs((pos_reyNegro.y - pos_alfilB.y));
+
+	//Jaque del peon negro al rey blanco
+	if ((pos_peonN.x + 4 == pos_reyBlanco.x && pos_peonN.y + 4 == pos_reyBlanco.y) ||
+		(pos_peonN.x + 4 == pos_reyBlanco.x && pos_peonN.y - 4 == pos_reyBlanco.y) ||
+		(pos_peonN.x - 4 == pos_reyBlanco.x && pos_peonN.y + 4 == pos_reyBlanco.y) ||
+		(pos_peonN.x - 4 == pos_reyBlanco.x && pos_peonN.y - 4 == pos_reyBlanco.y)
+		)
+	{
+		cout << "EQUIPO NEGRO: JAQUE " << endl;
+	}
+
+	//Jaque del peon blanco al rey negro
+	if ((pos_peonB.x + 4 == pos_reyNegro.x && pos_peonB.y + 4 == pos_reyNegro.y) ||
+		(pos_peonB.x + 4 == pos_reyNegro.x && pos_peonB.y - 4 == pos_reyNegro.y) ||
+		(pos_peonB.x - 4 == pos_reyNegro.x && pos_peonB.y + 4 == pos_reyNegro.y) ||
+		(pos_peonB.x - 4 == pos_reyNegro.x && pos_peonB.y - 4 == pos_reyNegro.y)
+		)
+	{
+		cout << "EQUIPO BLANCO: JAQUE " << endl;
+	}
+
+	//Jaque de la torre negra al rey blanco
+	if ((pos_torreN.x == pos_reyBlanco.x && pos_torreN.y != pos_reyBlanco.y)||
+		(pos_torreN.x != pos_reyBlanco.x && pos_torreN.y == pos_reyBlanco.y))
+	{
+		cout << "EQUIPO NEGRO: JAQUE " << endl;
+		
+	}
+
+	//Jaque de la torre blanca al rey negro
+	if ((pos_torreB.x == pos_reyNegro.x && pos_torreB.y != pos_reyNegro.y) ||
+		(pos_torreB.x != pos_reyNegro.x && pos_torreB.y == pos_reyNegro.y))
+	{
+		cout << "EQUIPO BLANCO: JAQUE " << endl;
+
+	}
+
+	//Jaque del caballo negro al rey blanco
+	if ((delta_filasN == 1 && delta_columnasN == 2) || (delta_filasN == 2 && delta_columnasN == 1)) {
+		cout << "EQUIPO NEGRO: JAQUE " << endl;
+	}
+
+	//Jaque del caballo blanco al rey negro
+	if ((delta_filasB == 1 && delta_columnasB == 2) || (delta_filasB == 2 && delta_columnasB == 1)) {
+		cout << "EQUIPO BLANCO: JAQUE " << endl;
+	}
+
+	/*
+	//Jaque del alfil negro al rey blanco
+	if (diffFilaN == diffColumnaN )
+	{
+		cout << "EQUIPO NEGRO: JAQUE MAL " << endl;
+	}
+
+	//Jaque del alfil blanco al rey negro
+	if (diffFilaB == diffColumnaB)
+	{
+		cout << "EQUIPO BLANCO: JAQUE MAL " << endl;
+	}
+	*/
+
+
+
+	
 
 }
 

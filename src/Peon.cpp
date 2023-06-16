@@ -24,10 +24,7 @@ void Peon::dibuja() {
 	glPopMatrix();
 }
 
-bool Peon::movimiento(Vector2D destino)
-{
-	return false;
-}
+
 
 
 
