@@ -73,6 +73,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 							raton.destino.x == listapiezas.piezas[j].getPos().x &&
 							raton.destino.y == listapiezas.piezas[j].getPos().y) {
 							casilla_ocupada = true;
+							raton.origen= { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
+							//cout << "Origen:" << raton.origen.x << "," << raton.origen.y << endl;
 							break;
 						}
 					}
@@ -82,30 +84,31 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 
 					// Realizar el movimiento del peón si la casilla no está ocupada
 					if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon()) {
+
 						listapiezas.peones_blancos[raton.peon_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Peón blanco " << raton.peon_blanco_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento de la torre si la casilla no está ocupada
-					if (!casilla_ocupada && raton.torre_blanca_seleccionada != -1) {
+					if (!casilla_ocupada && raton.torre_blanca_seleccionada != -1 && movimiento_torre()) {
 						listapiezas.torres_blancas[raton.torre_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Torre blanca " << raton.torre_blanca_seleccionada << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del caballo blanco si la casilla no está ocupada
-					if (!casilla_ocupada && raton.caballo_blanco_seleccionado != -1) {
+					if (!casilla_ocupada && raton.caballo_blanco_seleccionado != -1 && movimiento_caballo()) {
 						listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Caballo blanco " << raton.caballo_blanco_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del alfil blanco si la casilla no está ocupada
-					if (!casilla_ocupada && raton.alfil_blanco_seleccionado != -1) {
+					if (!casilla_ocupada && raton.alfil_blanco_seleccionado != -1 && movimiento_alfil()) {
 						listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Alfil blanco " << raton.alfil_blanco_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del rey blanco si la casilla no está ocupada
-					if (!casilla_ocupada && raton.rey_blanco_seleccionado != -1) {
+					if (!casilla_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey()) {
 						listapiezas.rey_blanco.setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Rey blanco a la casilla " << i << endl;
 					}
@@ -119,31 +122,31 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					//PIEZAS NEGRAS//
 
 					// Realizar el movimiento del peón negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.peon_negro_seleccionado != -1) {
+					if (!casilla_ocupada && raton.peon_negro_seleccionado != -1 && movimiento_peon()) {
 						listapiezas.peones_negros[raton.peon_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Peón negro " << raton.peon_negro_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento de la torre negra si la casilla no está ocupada
-					if (!casilla_ocupada && raton.torre_negra_seleccionada != -1) {
+					if (!casilla_ocupada && raton.torre_negra_seleccionada != -1 && movimiento_torre()) {
 						listapiezas.torres_negras[raton.torre_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Torre negra " << raton.torre_negra_seleccionada << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del caballo negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.caballo_negro_seleccionado != -1) {
+					if (!casilla_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()) {
 						listapiezas.caballos_negros[raton.caballo_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Caballo negro " << raton.caballo_negro_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del alfil negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.alfil_negro_seleccionado != -1) {
+					if (!casilla_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()) {
 						listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Alfil negro " << raton.alfil_negro_seleccionado << " a la casilla " << i << endl;
 					}
 
 					// Realizar el movimiento del rey negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.rey_negro_seleccionado != -1) {
+					if (!casilla_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey()) {
 						listapiezas.rey_negro.setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Rey negro a la casilla " << i << endl;
 					}
@@ -490,12 +493,46 @@ void Movimientos::dibuja() {
 
 
 bool Movimientos::movimiento_peon() {
-	for (int i = 0; i < 8; i++) {
-		if (raton.destino.x == listapiezas.peones_blancos[i].getPos().x &&
-			raton.destino.y == listapiezas.peones_blancos[i].getPos().y + 4 ) {
+	
+		if (raton.destino.x == raton.origen.x && 
+			(raton.destino.y == raton.origen.y + 4 || raton.destino.y == raton.origen.y - 4) ) {
 			return true;
 		}
-	}
 	return false;
+}
+
+bool Movimientos::movimiento_torre() {
+	 
+		if ((raton.destino.x == raton.origen.x && raton.destino.y!= raton.origen.y)|| 
+			(raton.destino.x != raton.origen.x && raton.destino.y == raton.origen.y)) {
+			return true;
+		}	
+	return false;
+}
+
+bool Movimientos::movimiento_alfil()
+{
+		if (raton.destino.x != raton.origen.x && raton.destino.y != raton.origen.y) {
+			return true;
+		}
+	return false;
+}
+
+bool Movimientos::movimiento_rey()
+{
+		if (raton.destino.x == raton.origen.x + 4 || raton.destino.y == raton.origen.y + 4 || 
+			raton.destino.x == raton.origen.x - 4 || raton.destino.y == raton.origen.y - 4) {
+			return true;
+		}
+	return false;
+}
+
+bool Movimientos::movimiento_caballo()
+{
+	int delta_filas = std::abs((raton.destino.x - raton.origen.x)/4);
+	int delta_columnas = std::abs((raton.destino.y - raton.origen.y)/4);
+
+	return ((delta_filas == 1 && delta_columnas == 2) || (delta_filas == 2 && delta_columnas == 1));
+
 }
 

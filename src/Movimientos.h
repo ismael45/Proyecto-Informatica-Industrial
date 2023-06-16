@@ -22,4 +22,8 @@ public:
 	
 
 	bool movimiento_peon();
+	bool movimiento_torre();
+	bool movimiento_alfil();
+	bool movimiento_rey();
+	bool movimiento_caballo();
 };
