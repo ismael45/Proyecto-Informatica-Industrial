@@ -10,7 +10,6 @@ public:
 	virtual~Mundo();
 private:
 	Menu menu;
-
 	Movimientos movimientos;
 	int final;
 

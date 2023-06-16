@@ -18,6 +18,8 @@ private:
 	Vector2D pos_torreN, pos_torreB;
 	Vector2D pos_caballoN, pos_caballoB;
 	Vector2D pos_alfilN, pos_alfilB;
+
+	bool t;
 public:
 
 
@@ -31,6 +33,8 @@ public:
 	bool movimiento_alfil();
 	bool movimiento_rey();
 	bool movimiento_caballo();
+
+	bool turnos(); //True= turno blancas false= turno negras
 
 	void jaque();
 };

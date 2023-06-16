@@ -34,6 +34,8 @@ void Mundo::dibuja()
 
 	movimientos.dibuja();
 
+	
+
 	glFlush();
 	//glutSwapBuffers();
 }
@@ -51,6 +53,9 @@ void Mundo::inicializa()
 	y_ojo = 30;
 	z_ojo = 0;
 
+	movimientos.turnos() == true;
+
+	cout << "PRUEBA" << endl;
 	
 }
 
@@ -64,5 +69,6 @@ void Mundo::tecla(unsigned char key)
 
 void Mundo::Mover(int x, int y, int button, bool down) {
 	movimientos.MouseButton(x, y, button, down);
+	
 
 }

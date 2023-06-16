@@ -64,7 +64,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					posY <= tablero.getPos_Casilla(i).y + tolerancia) {
 					raton.casilla_seleccionada = i;
 					raton.destino = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
-					cout << raton.destino.x << ", " << raton.destino.y << endl;
+					//cout << raton.destino.x << ", " << raton.destino.y << endl;
 
 					// Verificar si la casilla seleccionada está ocupada por otra pieza
 					bool casilla_ocupada = false;
@@ -77,102 +77,114 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 							//cout << "Origen:" << raton.origen.x << "," << raton.origen.y << endl;
 							break;
 						}
-						pos_alfilN = { 0,0 };
+						
 					}
 
 					//PIEZAS BLANCAS//
 
 
 					// Realizar el movimiento del peón si la casilla no está ocupada
-					if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon()) {
+					if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon()&& turnos()) {
 						pos_peonB = { raton.destino };
 						jaque();
+						t = true;
 						listapiezas.peones_blancos[raton.peon_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Peón blanco " << raton.peon_blanco_seleccionado << " a la casilla " << i << endl;
+						cout << "Movimiento realizado: Peón blanco " << raton.peon_blanco_seleccionado << " a la casilla " << i << endl; cout << "****Turno Negras****" << endl;
 					}
 
 					// Realizar el movimiento de la torre si la casilla no está ocupada
-					if (!casilla_ocupada && raton.torre_blanca_seleccionada != -1 && movimiento_torre()) {
+					if (!casilla_ocupada && raton.torre_blanca_seleccionada != -1 && movimiento_torre()&& turnos()) {
 						pos_torreB = { raton.destino };
 						jaque();
+						t = true;
 						listapiezas.torres_blancas[raton.torre_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Torre blanca " << raton.torre_blanca_seleccionada << " a la casilla " << i << endl;
+						cout << "Movimiento realizado: Torre blanca " << raton.torre_blanca_seleccionada << " a la casilla " << i << endl;cout << "****Turno Negras****" << endl;
 					}
 
 					// Realizar el movimiento del caballo blanco si la casilla no está ocupada
-					if (!casilla_ocupada && raton.caballo_blanco_seleccionado != -1 && movimiento_caballo()) {
+					if (!casilla_ocupada && raton.caballo_blanco_seleccionado != -1 && movimiento_caballo() && turnos()) {
 						pos_caballoB = { raton.destino };
 						jaque();
+						t = true;
 						listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Caballo blanco " << raton.caballo_blanco_seleccionado << " a la casilla " << i << endl;
+						cout << "Movimiento realizado: Caballo blanco " << raton.caballo_blanco_seleccionado << " a la casilla " << i << endl;cout << "****Turno Negras****" << endl;
 					}
 
 					// Realizar el movimiento del alfil blanco si la casilla no está ocupada
-					if (!casilla_ocupada && raton.alfil_blanco_seleccionado != -1 && movimiento_alfil()) {
+					if (!casilla_ocupada && raton.alfil_blanco_seleccionado != -1 && movimiento_alfil() && turnos()) {
 						pos_alfilB = { raton.destino };
 						jaque();
+						t = true;
 						listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Alfil blanco " << raton.alfil_blanco_seleccionado << " a la casilla " << i << endl;
+						cout << "Movimiento realizado: Alfil blanco " << raton.alfil_blanco_seleccionado << " a la casilla " << i << endl;cout << "****Turno Negras****" << endl;
 					}
 
 					// Realizar el movimiento del rey blanco si la casilla no está ocupada
-					if (!casilla_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey()) {
+					if (!casilla_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey() && turnos()) {
 						pos_reyBlanco = { raton.destino };
+						t = true;
 						listapiezas.rey_blanco.setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Rey blanco a la casilla " << i << endl;
+						cout << "Movimiento realizado: Rey blanco a la casilla " << i << endl;cout << "****Turno Negras****" << endl;
 					}
 
 					// Realizar el movimiento de la reina blanca si la casilla no está ocupada
-					if (!casilla_ocupada && raton.reina_blanca_seleccionada != -1) {
+					if (!casilla_ocupada && raton.reina_blanca_seleccionada != -1 && turnos()) {
+						t = true;
 						listapiezas.reina_blanca.setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Reina blanca a la casilla " << i << endl;
+						cout << "Movimiento realizado: Reina blanca a la casilla " << i << endl;cout << "****Turno Negras****" << endl;
 					}
 
 					//PIEZAS NEGRAS//
 
 					// Realizar el movimiento del peón negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.peon_negro_seleccionado != -1 && movimiento_peon()) {
+					if (!casilla_ocupada && raton.peon_negro_seleccionado != -1 && movimiento_peon() && !turnos()) {
 						pos_peonN = { raton.destino };
 						jaque();
+						t = false;
 						listapiezas.peones_negros[raton.peon_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Peón negro " << raton.peon_negro_seleccionado << " a la casilla " << i << endl;
+						cout << "Movimiento realizado: Peón negro " << raton.peon_negro_seleccionado << " a la casilla " << i << endl; cout << "***Turno Blancas****" << endl;
 					}
 
 					// Realizar el movimiento de la torre negra si la casilla no está ocupada
-					if (!casilla_ocupada && raton.torre_negra_seleccionada != -1 && movimiento_torre()) {
+					if (!casilla_ocupada && raton.torre_negra_seleccionada != -1 && movimiento_torre()&&!turnos()) {
 						pos_torreN = { raton.destino };
 						jaque();
+						t = false;
 						listapiezas.torres_negras[raton.torre_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Torre negra " << raton.torre_negra_seleccionada << " a la casilla " << i << endl;
+						cout << "Movimiento realizado: Torre negra " << raton.torre_negra_seleccionada << " a la casilla " << i << endl;cout << "***Turno Blancas****" << endl;
 					}
 
 					// Realizar el movimiento del caballo negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()) {
+					if (!casilla_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()&&!turnos()) {
 						pos_caballoN = { raton.destino };
 						jaque();
+						t = false;
 						listapiezas.caballos_negros[raton.caballo_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Caballo negro " << raton.caballo_negro_seleccionado << " a la casilla " << i << endl;
+						cout << "Movimiento realizado: Caballo negro " << raton.caballo_negro_seleccionado << " a la casilla " << i << endl;cout << "***Turno Blancas****" << endl;
 					}
 
 					// Realizar el movimiento del alfil negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()) {
+					if (!casilla_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()&&!turnos()) {
 						pos_alfilN = { raton.destino };
 						jaque();
+						t = false;
 						listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Alfil negro " << raton.alfil_negro_seleccionado << " a la casilla " << i << endl;
+						cout << "Movimiento realizado: Alfil negro " << raton.alfil_negro_seleccionado << " a la casilla " << i << endl;cout << "***Turno Blancas****" << endl;
 					}
 
 					// Realizar el movimiento del rey negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey()) {
+					if (!casilla_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey() && !turnos()) {
 						pos_reyNegro = { raton.destino };
+						t = false;
 						listapiezas.rey_negro.setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Rey negro a la casilla " << i << endl;
+						cout << "Movimiento realizado: Rey negro a la casilla " << i << endl;cout << "***Turno Blancas****" << endl;
 					}
 
 					// Realizar el movimiento de la reina negra si la casilla no está ocupada
-					if (!casilla_ocupada && raton.reina_negra_seleccionada != -1) {
+					if (!casilla_ocupada && raton.reina_negra_seleccionada != -1 && !turnos()) {
+						t = false;
 						listapiezas.reina_negra.setPos(raton.destino.x, raton.destino.y);
-						cout << "Movimiento realizado: Reina negra a la casilla " << i << endl;
+						cout << "Movimiento realizado: Reina negra a la casilla " << i << endl;cout << "***Turno Blancas****" << endl;
 					}
 
 
@@ -470,7 +482,6 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 
 	}
 
-	
 }
 
 
@@ -554,6 +565,8 @@ bool Movimientos::movimiento_caballo()
 
 }
 
+
+
 void Movimientos::jaque()
 {
 	int delta_filasN = std::abs((pos_reyBlanco.x - pos_caballoN.x) / 4);
@@ -626,8 +639,14 @@ void Movimientos::jaque()
 	*/
 
 
-
-	
-
 }
 
+
+bool Movimientos::turnos()
+{
+	if (t == true) {
+		return false;
+	}
+	else { return true;  }
+	
+}
