@@ -1,7 +1,18 @@
 #include "Tablero.h"
 
 
-Tablero::Tablero() {};
+Tablero::Tablero() {
+	//Atribución del nombre(Código) de celda según índice
+	for (int i = 0; i < 64; i++) {
+		int fil = i / 8; 
+		int col = i % 8; 
+		int numToChar = 65 + col;
+		char c1 = (char)numToChar;
+		char c2 = (char)(49 + fil);
+		casilla[i].setCodigo(c1);
+		casilla[i].setCodigo(c2);	
+	}
+};
 Tablero::~Tablero() {};
 
 void Tablero::dibujaTab_clasico() {
@@ -70,7 +81,7 @@ bool Tablero::estaDentroTablero(float x, float y) {
 Casilla Tablero::getCasilla_Pos(float x, float y) {
 	int num;
 	for (int i = 0; i < 8; i++) {//cambio fila
-		for (int j = 0; i < 8; i++) {//cambio columna
+		for (int j = 0; j < 8; j++) {//cambio columna
 			if (x > (4 * j - 16.0f) && x < (4 * j - 12.0f) && y > (4 * i - 16.0f) && y < (4 * i - 12.0f))
 				num = 8 * i + j;
 		}		

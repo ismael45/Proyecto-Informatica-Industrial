@@ -1,6 +1,7 @@
 #include "Casilla.h"
 
 
+
 Casilla::Casilla() {
 
 	tamaño = 4.0f;
@@ -23,8 +24,16 @@ void Casilla::setPos(float x, float y) {
 	posicion.y = y;
 }
 
+void Casilla::setCodigo(char i) {
+	codigo.push_back(i);
+}
+
 Vector2D Casilla::getPos() {
 	return posicion;
+}
+
+string Casilla::getCodigo() {
+	return codigo;
 }
 
 void Casilla::dibuja() {

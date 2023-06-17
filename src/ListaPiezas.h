@@ -1,8 +1,8 @@
 #pragma once
 #include "Peon.h"
-#include"Torre.h"
-#include "Alfil.h"
 #include "Caballo.h"
+#include "Alfil.h"
+#include "Torre.h"
 #include "Reina.h"
 #include "Rey.h"
 

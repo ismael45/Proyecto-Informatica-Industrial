@@ -1,15 +1,15 @@
 ﻿#pragma once
 #include "Casilla.h"
-//#include "freeglut.h"
 
 
-class Tablero
+
+class Tablero  // no le faltaría la derivación privada de casilla?
 {
 public:
 	Tablero();
 	virtual ~Tablero();
 	
-private:
+public://********************
 	Casilla casilla[64];
 	ColorRGB color;
 
@@ -20,7 +20,7 @@ public:
 	void dibujaTab_clasico();
 	void dibujaMarco_clasico();
 
-	//Tablero tem�tico de flores
+	//Tablero tematico de flores
 	void dibujaTab_flores();
 	void dibujaMarco_flores();
 
