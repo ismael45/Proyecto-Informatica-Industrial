@@ -6,8 +6,8 @@ Tablero::~Tablero() {};
 
 void Tablero::dibujaTab_clasico() {
 	for (int i = 0; i < 64; i++) {
-		int fila = i / 8; // Divide el índice por 8 para obtener la fila
-		int columna = i % 8; // Obtiene el resto de la división para obtener la columna
+		int fila = i / 8; // Divide el índice por 8 para obtener la fila. Rango :0 - 7
+		int columna = i % 8; // Obtiene el resto de la división para obtener la columna. Rango :0 - 7
 		casilla[i].setPos(-14 + 4 * columna, -14 + 4 * fila);
 		casilla[i].setColor((i + fila) % 2 == 0 ? 0 : 255, (i + fila) % 2 == 0 ? 0 : 255,
 			(i + fila) % 2 == 0 ? 0 : 255);
@@ -18,14 +18,11 @@ void Tablero::dibujaTab_clasico() {
 	glClearColor(0, 0, 0, 1.0);
 }
 
-
-
-
 void Tablero::dibujaTab_flores()
 {
 	for (int i = 0; i < 64; i++) {
-		int fila = i / 8; // Divide el índice por 8 para obtener la fila
-		int columna = i % 8; // Obtiene el resto de la división para obtener la columna
+		int fila = i / 8; // Divide el índice por 8 para obtener la fila. Rango :0 - 7
+		int columna = i % 8; // Obtiene el resto de la división para obtener la columna. Rango :0 - 7
 		casilla[i].setPos(-14 + 4 * columna, -14 + 4 * fila); // Corrige el orden de las coordenadas x e y
 		if ((fila + columna) % 2 == 0)
 			casilla[i].setColor(132, 192, 140); // si la suma de fila y columna es par, pinta el color negro
@@ -50,8 +47,6 @@ void Tablero::dibujaMarco_flores()
 }
 
 
-
-
 void Tablero::dibujaMarco_clasico() {
 	glDisable(GL_LIGHTING);
 	glColor3ub(120, 70, 42);
@@ -66,8 +61,19 @@ void Tablero::dibujaMarco_clasico() {
 }
 
 bool Tablero::estaDentroTablero(float x, float y) {
-	if (x > -15.0f && x < 15.0f && y > -15.0f && y < 15.0f) {
+	if (x > -16.0f && x < 16.0f && y > -16.0f && y < 16.0f) {
 		return true;
 	}
 	return false;
+}
+
+Casilla Tablero::getCasilla_Pos(float x, float y) {
+	int num;
+	for (int i = 0; i < 8; i++) {//cambio fila
+		for (int j = 0; i < 8; i++) {//cambio columna
+			if (x > (4 * j - 16.0f) && x < (4 * j - 12.0f) && y > (4 * i - 16.0f) && y < (4 * i - 12.0f))
+				num = 8 * i + j;
+		}		
+	}
+	return casilla[num];
 }

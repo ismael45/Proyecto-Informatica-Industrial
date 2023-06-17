@@ -7,9 +7,6 @@
 #include "Rey.h"
 
 
-
-
-
 class ListaPiezas
 {
 public:

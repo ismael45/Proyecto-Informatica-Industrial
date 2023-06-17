@@ -12,6 +12,8 @@ Pieza::Pieza() {
 
 Pieza::~Pieza() {}
 
+//Setters
+
 void Pieza::setColor(Color c) {
     color = c;
 }
@@ -22,22 +24,28 @@ void Pieza::setTipo(Tipo t) {
 
 void Pieza::setPos(float x, float y){
     posicion.x = x;
-    posicion.y = y;
-    
+    posicion.y = y; 
+}
+
+void Pieza::setValor(float v) {
+    valor = v;
+}
+
+//Getters
+
+Color Pieza::getColor() {
+    return color;
 }
 
 Vector2D Pieza::getPos() const {
     return posicion;
 }
 
-
-void Pieza::setValor(float v) {
-    valor = v;
-}
 float Pieza::getValor() {
     return valor;
 }
 
+//Movimientos unitarios de casillas
 
 void Pieza::mover_arriba() {
     float x = getPos().x;

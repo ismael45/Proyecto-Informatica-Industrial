@@ -36,7 +36,6 @@ ListaPiezas::ListaPiezas()
 	rey_negro.setPos(2, 14);
 	reina_negra.setPos(-2, 14);
 
-
 }
 
 
@@ -45,7 +44,7 @@ void ListaPiezas::actualizar_flores()
 	ListaPiezas::asignar_piezas();
 	//********************+***PIEZAS BLANCAS*************************//
 
-// PEONES
+	// PEONES
 	for (int i = 0; i < 8; i++) {
 		peones_blancos[i].setPos(peones_blancos[i].getPos().x, peones_blancos[i].getPos().y);
 		peones_blancos[i].setColor(BLANCAS);
@@ -92,7 +91,7 @@ void ListaPiezas::actualizar_flores()
 
 
 	//********************+***PIEZAS NEGRAS*************************//
-// PEONES
+	// PEONES
 	for (int i = 0; i < 8; i++) {
 		peones_negros[i].setPos(peones_negros[i].getPos().x, peones_negros[i].getPos().y);
 		peones_negros[i].setColor(NEGRAS);
@@ -146,7 +145,7 @@ void ListaPiezas::actualizar_clasico()
 	ListaPiezas::asignar_piezas();
 	//********************+***PIEZAS BLANCAS*************************//
 
-// PEONES
+	// PEONES
 	for (int i = 0; i < 8; i++) {
 		peones_blancos[i].setPos(peones_blancos[i].getPos().x, peones_blancos[i].getPos().y);
 		peones_blancos[i].setColor(BLANCAS);
@@ -193,7 +192,7 @@ void ListaPiezas::actualizar_clasico()
 
 
 	//********************+***PIEZAS NEGRAS*************************//
-// PEONES
+	// PEONES
 	for (int i = 0; i < 8; i++) {
 		peones_negros[i].setPos(peones_negros[i].getPos().x, peones_negros[i].getPos().y);
 		peones_negros[i].setColor(NEGRAS);

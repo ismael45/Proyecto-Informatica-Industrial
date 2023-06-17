@@ -17,17 +17,22 @@ public:
     virtual ~Pieza();
 
     void setColor(Color c);
+
     void setTipo(Tipo t);
 
     void setPos(float x, float y);
 
-    Vector2D getPos() const;
-
-
     void setValor(float v);
+
+    Color getColor();
+
+    Vector2D getPos() const;
 
     float getValor();
 
+    
+
+    
     //virtual void dibuja()=0;
     
  

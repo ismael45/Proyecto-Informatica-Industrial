@@ -8,6 +8,7 @@ class Tablero
 public:
 	Tablero();
 	virtual ~Tablero();
+	
 private:
 	Casilla casilla[64];
 	ColorRGB color;
@@ -32,6 +33,7 @@ public:
 	Vector2D getPos_Casilla(int num) {
 		return casilla[num].getPos();
 	}
+	Casilla getCasilla_Pos(float x, float y);
 
 	bool estaDentroTablero(float x, float y);
 };
