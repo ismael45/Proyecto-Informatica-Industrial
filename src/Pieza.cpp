@@ -6,6 +6,7 @@ Pieza::Pieza() {
     posicion = { 0.0f, 0.0f };
     tipo = NOTIPO;
     color = NOCOLOR;
+    valor = 0;
 }
 
 
@@ -27,6 +28,14 @@ void Pieza::setPos(float x, float y){
 
 Vector2D Pieza::getPos() const {
     return posicion;
+}
+
+
+void Pieza::setValor(int v) {
+    valor = v;
+}
+int Pieza::getValor() {
+    return valor;
 }
 
 

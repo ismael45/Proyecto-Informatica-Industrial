@@ -16,16 +16,16 @@ public:
 
 
 	Peon peones_blancos[8]; //piezas 0 a 7
-	Peon peones_negros[8]; //piezas 7 a 15
+	Peon peones_negros[8]; //piezas 8 a 15
 
-	Torre torres_blancas[2]; //piezas 15 a 17
-	Torre torres_negras[2];  //piezas 17 a 19
+	Torre torres_blancas[2]; //piezas 16 a 17
+	Torre torres_negras[2];  //piezas 18 a 19
 
-	Caballo caballos_blancos[2]; //piezas 19 a 21
-	Caballo caballos_negros[2];  //piezas 21 a 23
+	Caballo caballos_blancos[2]; //piezas 20 a 21
+	Caballo caballos_negros[2];  //piezas 22 a 23
 
-	Alfil alfiles_blancos[2]; //piezas 23 a 25
-	Alfil alfiles_negros[2];  //piezas 25 a 27
+	Alfil alfiles_blancos[2]; //piezas 24 a 25
+	Alfil alfiles_negros[2];  //piezas 26 a 27
 
 	Rey rey_blanco;  //piezas 28
 	Rey rey_negro;   //piezas 29

@@ -8,6 +8,8 @@ typedef unsigned char Byte;
 typedef enum Color {NOCOLOR=0,BLANCAS,NEGRAS};
 typedef enum Tipo{NOTIPO=0,FLORES,CLASICAS};
 
+
+
 class Pieza {
 public:
 
@@ -18,7 +20,13 @@ public:
     void setTipo(Tipo t);
 
     void setPos(float x, float y);
+
     Vector2D getPos() const;
+
+
+    void setValor(int v);
+
+    int getValor();
 
     //virtual void dibuja()=0;
     
@@ -36,7 +44,7 @@ protected:
     float tamaño;
     Vector2D posicion;
 
-
+    int valor;
 
     ETSIDI::Sprite sprite{ "bin/imagenes/fondo.png", 0.0, 0.0, 3, 3.5 };
 };

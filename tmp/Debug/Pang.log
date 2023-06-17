@@ -1,16 +1,5 @@
-﻿  Movimientos.cpp
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(57,39): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(57,33): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(561,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(562,21): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(572,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(573,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(574,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(575,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(576,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(577,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(578,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(579,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  Pang.vcxproj -> C:\Users\Usuario\source\Repos\Proyecto-Informatica-Industrial\bin\Ajedrez.exe
+﻿  Mundo.cpp
+C:\Users\Realorth\Desktop\Proyectos C++\LocalRepositories\Project\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
+C:\Users\Realorth\Desktop\Proyectos C++\LocalRepositories\Project\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
+C:\Users\Realorth\Desktop\Proyectos C++\LocalRepositories\Project\Proyecto-Informatica-Industrial\src\Mundo.cpp(53,23): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+  Pang.vcxproj -> C:\Users\Realorth\Desktop\Proyectos C++\LocalRepositories\Project\Proyecto-Informatica-Industrial\bin\Ajedrez.exe
