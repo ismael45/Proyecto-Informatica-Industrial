@@ -24,9 +24,9 @@ public:
     Vector2D getPos() const;
 
 
-    void setValor(int v);
+    void setValor(float v);
 
-    int getValor();
+    float getValor();
 
     //virtual void dibuja()=0;
     
@@ -44,7 +44,7 @@ protected:
     float tamaño;
     Vector2D posicion;
 
-    int valor;
+    float valor;
 
     ETSIDI::Sprite sprite{ "bin/imagenes/fondo.png", 0.0, 0.0, 3, 3.5 };
 };

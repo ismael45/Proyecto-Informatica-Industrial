@@ -4,6 +4,6 @@
 class Torre : public Pieza
 {
 public:
-    Torre() : Pieza() {}
+    Torre() : Pieza() { setValor(5.0f); }
     void dibuja();
 };

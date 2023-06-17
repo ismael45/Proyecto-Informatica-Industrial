@@ -4,7 +4,7 @@
 class Reina : public Pieza
 {
 public:
-    Reina() : Pieza() {}
+    Reina() : Pieza() { setValor(9.0f); }
     void dibuja();
 
 };

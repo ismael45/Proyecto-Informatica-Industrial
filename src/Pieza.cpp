@@ -6,7 +6,7 @@ Pieza::Pieza() {
     posicion = { 0.0f, 0.0f };
     tipo = NOTIPO;
     color = NOCOLOR;
-    valor = 0;
+    valor = 0;          // Solo en Caso del Rey no cambiará
 }
 
 
@@ -31,10 +31,10 @@ Vector2D Pieza::getPos() const {
 }
 
 
-void Pieza::setValor(int v) {
+void Pieza::setValor(float v) {
     valor = v;
 }
-int Pieza::getValor() {
+float Pieza::getValor() {
     return valor;
 }
 
