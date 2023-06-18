@@ -58,10 +58,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 
 			// SELECCION DE CASILLA
 			for (int i = 0; i < 64; i++) {
-				if (posX >= tablero.getPos_Casilla(i).x - tolerancia &&
-					posX <= tablero.getPos_Casilla(i).x + tolerancia &&
-					posY >= tablero.getPos_Casilla(i).y - tolerancia &&
-					posY <= tablero.getPos_Casilla(i).y + tolerancia) 
+				if (posX > tablero.getPos_Casilla(i).x - tolerancia &&
+					posX < tablero.getPos_Casilla(i).x + tolerancia &&
+					posY > tablero.getPos_Casilla(i).y - tolerancia &&
+					posY < tablero.getPos_Casilla(i).y + tolerancia) 
 				{
 					raton.casilla_seleccionada = i;
 					raton.destino = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
@@ -85,7 +85,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 
 
 					// Realizar el movimiento del peón si la casilla no está ocupada
-					if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon()&& turnos()) {
+					if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon_blanco()&& turnos()) {
 						pos_peonB = { raton.destino };
 						jaque();
 						t = true;
@@ -144,7 +144,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					//PIEZAS NEGRAS//
 
 					// Realizar el movimiento del peón negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.peon_negro_seleccionado != -1 && movimiento_peon() && !turnos()) {
+					if (!casilla_ocupada && raton.peon_negro_seleccionado != -1 && movimiento_peon_negro() && !turnos()) {
 						pos_peonN = { raton.destino };
 						jaque();
 						t = false;
@@ -219,10 +219,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.peon_blanco_seleccionado = -1; // Desseleccionar el peón por defecto
 
 			for (int i = 0; i < 8; i++) {
-				if (posX >= listapiezas.peones_blancos[i].getPos().x - tolerancia &&
-					posX <= listapiezas.peones_blancos[i].getPos().x + tolerancia &&
-					posY >= listapiezas.peones_blancos[i].getPos().y - tolerancia &&
-					posY <= listapiezas.peones_blancos[i].getPos().y + tolerancia) {
+				if (posX > listapiezas.peones_blancos[i].getPos().x - tolerancia &&
+					posX < listapiezas.peones_blancos[i].getPos().x + tolerancia &&
+					posY > listapiezas.peones_blancos[i].getPos().y - tolerancia &&
+					posY < listapiezas.peones_blancos[i].getPos().y + tolerancia) {
 					if (peon_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo peón: deseleccionar
 						raton.peon_blanco_seleccionado = -1;
@@ -242,10 +242,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.torre_blanca_seleccionada = -1; // Desseleccionar la torre por defecto
 
 			for (int i = 0; i < 2; i++) {
-				if (posX >= listapiezas.torres_blancas[i].getPos().x - tolerancia &&
-					posX <= listapiezas.torres_blancas[i].getPos().x + tolerancia &&
-					posY >= listapiezas.torres_blancas[i].getPos().y - tolerancia &&
-					posY <= listapiezas.torres_blancas[i].getPos().y + tolerancia) {
+				if (posX > listapiezas.torres_blancas[i].getPos().x - tolerancia &&
+					posX < listapiezas.torres_blancas[i].getPos().x + tolerancia &&
+					posY > listapiezas.torres_blancas[i].getPos().y - tolerancia &&
+					posY < listapiezas.torres_blancas[i].getPos().y + tolerancia) {
 					if (torre_seleccionada_previa == i) {
 						// Hacer clic por segunda vez en la misma torre: deseleccionar
 						raton.torre_blanca_seleccionada = -1;
@@ -265,10 +265,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.caballo_blanco_seleccionado = -1; // Desseleccionar el caballo blanco por defecto
 
 			for (int i = 0; i < 2; i++) {
-				if (posX >= listapiezas.caballos_blancos[i].getPos().x - tolerancia &&
-					posX <= listapiezas.caballos_blancos[i].getPos().x + tolerancia &&
-					posY >= listapiezas.caballos_blancos[i].getPos().y - tolerancia &&
-					posY <= listapiezas.caballos_blancos[i].getPos().y + tolerancia) {
+				if (posX > listapiezas.caballos_blancos[i].getPos().x - tolerancia &&
+					posX < listapiezas.caballos_blancos[i].getPos().x + tolerancia &&
+					posY > listapiezas.caballos_blancos[i].getPos().y - tolerancia &&
+					posY < listapiezas.caballos_blancos[i].getPos().y + tolerancia) {
 					if (caballo_blanco_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo caballo blanco: deseleccionar
 						raton.caballo_blanco_seleccionado = -1;
@@ -288,10 +288,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.alfil_blanco_seleccionado = -1; // Desseleccionar el alfil blanco por defecto
 
 			for (int i = 0; i < 2; i++) {
-				if (posX >= listapiezas.alfiles_blancos[i].getPos().x - tolerancia &&
-					posX <= listapiezas.alfiles_blancos[i].getPos().x + tolerancia &&
-					posY >= listapiezas.alfiles_blancos[i].getPos().y - tolerancia &&
-					posY <= listapiezas.alfiles_blancos[i].getPos().y + tolerancia) {
+				if (posX > listapiezas.alfiles_blancos[i].getPos().x - tolerancia &&
+					posX < listapiezas.alfiles_blancos[i].getPos().x + tolerancia &&
+					posY > listapiezas.alfiles_blancos[i].getPos().y - tolerancia &&
+					posY < listapiezas.alfiles_blancos[i].getPos().y + tolerancia) {
 					if (alfil_blanco_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo alfil blanco: deseleccionar
 						raton.alfil_blanco_seleccionado = -1;
@@ -311,10 +311,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.rey_blanco_seleccionado = -1; // Desseleccionar el rey blanco por defecto
 
 			// Solo hay un rey blanco
-			if (posX >= listapiezas.rey_blanco.getPos().x - tolerancia &&
-				posX <= listapiezas.rey_blanco.getPos().x + tolerancia &&
-				posY >= listapiezas.rey_blanco.getPos().y - tolerancia &&
-				posY <= listapiezas.rey_blanco.getPos().y + tolerancia) {
+			if (posX > listapiezas.rey_blanco.getPos().x - tolerancia &&
+				posX < listapiezas.rey_blanco.getPos().x + tolerancia &&
+				posY > listapiezas.rey_blanco.getPos().y - tolerancia &&
+				posY < listapiezas.rey_blanco.getPos().y + tolerancia) {
 				if (rey_blanco_seleccionado_previo == 0) {
 					// Hacer clic por segunda vez en el mismo rey blanco: deseleccionar
 					raton.rey_blanco_seleccionado = -1;
@@ -333,10 +333,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.reina_blanca_seleccionada = -1; // Desseleccionar la reina blanca por defecto
 
 			// Solo hay una reina blanca
-			if (posX >= listapiezas.reina_blanca.getPos().x - tolerancia &&
-				posX <= listapiezas.reina_blanca.getPos().x + tolerancia &&
-				posY >= listapiezas.reina_blanca.getPos().y - tolerancia &&
-				posY <= listapiezas.reina_blanca.getPos().y + tolerancia) {
+			if (posX > listapiezas.reina_blanca.getPos().x - tolerancia &&
+				posX < listapiezas.reina_blanca.getPos().x + tolerancia &&
+				posY > listapiezas.reina_blanca.getPos().y - tolerancia &&
+				posY < listapiezas.reina_blanca.getPos().y + tolerancia) {
 				if (reina_blanca_seleccionada_previa == 0) {
 					// Hacer clic por segunda vez en la misma reina blanca: deseleccionar
 					raton.reina_blanca_seleccionada = -1;
@@ -358,10 +358,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.peon_negro_seleccionado = -1; // Desseleccionar el peón negro por defecto
 
 			for (int i = 0; i < 8; i++) {
-				if (posX >= listapiezas.peones_negros[i].getPos().x - tolerancia &&
-					posX <= listapiezas.peones_negros[i].getPos().x + tolerancia &&
-					posY >= listapiezas.peones_negros[i].getPos().y - tolerancia &&
-					posY <= listapiezas.peones_negros[i].getPos().y + tolerancia) {
+				if (posX > listapiezas.peones_negros[i].getPos().x - tolerancia &&
+					posX < listapiezas.peones_negros[i].getPos().x + tolerancia &&
+					posY > listapiezas.peones_negros[i].getPos().y - tolerancia &&
+					posY < listapiezas.peones_negros[i].getPos().y + tolerancia) {
 					if (peon_negro_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo peón negro: deseleccionar
 						raton.peon_negro_seleccionado = -1;
@@ -381,10 +381,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.torre_negra_seleccionada = -1; // Desseleccionar la torre negra por defecto
 
 			for (int i = 0; i < 2; i++) {
-				if (posX >= listapiezas.torres_negras[i].getPos().x - tolerancia &&
-					posX <= listapiezas.torres_negras[i].getPos().x + tolerancia &&
-					posY >= listapiezas.torres_negras[i].getPos().y - tolerancia &&
-					posY <= listapiezas.torres_negras[i].getPos().y + tolerancia) {
+				if (posX > listapiezas.torres_negras[i].getPos().x - tolerancia &&
+					posX < listapiezas.torres_negras[i].getPos().x + tolerancia &&
+					posY > listapiezas.torres_negras[i].getPos().y - tolerancia &&
+					posY < listapiezas.torres_negras[i].getPos().y + tolerancia) {
 					if (torre_negra_seleccionada_previa == i) {
 						// Hacer clic por segunda vez en la misma torre negra: deseleccionar
 						raton.torre_negra_seleccionada = -1;
@@ -404,10 +404,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.caballo_negro_seleccionado = -1; // Desseleccionar el caballo negro por defecto
 
 			for (int i = 0; i < 2; i++) {
-				if (posX >= listapiezas.caballos_negros[i].getPos().x - tolerancia &&
-					posX <= listapiezas.caballos_negros[i].getPos().x + tolerancia &&
-					posY >= listapiezas.caballos_negros[i].getPos().y - tolerancia &&
-					posY <= listapiezas.caballos_negros[i].getPos().y + tolerancia) {
+				if (posX > listapiezas.caballos_negros[i].getPos().x - tolerancia &&
+					posX < listapiezas.caballos_negros[i].getPos().x + tolerancia &&
+					posY > listapiezas.caballos_negros[i].getPos().y - tolerancia &&
+					posY < listapiezas.caballos_negros[i].getPos().y + tolerancia) {
 					if (caballo_negro_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo caballo negro: deseleccionar
 						raton.caballo_negro_seleccionado = -1;
@@ -427,10 +427,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.alfil_negro_seleccionado = -1; // Desseleccionar el alfil negro por defecto
 
 			for (int i = 0; i < 2; i++) {
-				if (posX >= listapiezas.alfiles_negros[i].getPos().x - tolerancia &&
-					posX <= listapiezas.alfiles_negros[i].getPos().x + tolerancia &&
-					posY >= listapiezas.alfiles_negros[i].getPos().y - tolerancia &&
-					posY <= listapiezas.alfiles_negros[i].getPos().y + tolerancia) {
+				if (posX > listapiezas.alfiles_negros[i].getPos().x - tolerancia &&
+					posX < listapiezas.alfiles_negros[i].getPos().x + tolerancia &&
+					posY > listapiezas.alfiles_negros[i].getPos().y - tolerancia &&
+					posY < listapiezas.alfiles_negros[i].getPos().y + tolerancia) {
 					if (alfil_negro_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo alfil negro: deseleccionar
 						raton.alfil_negro_seleccionado = -1;
@@ -450,10 +450,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.rey_negro_seleccionado = -1; // Desseleccionar el rey negro por defecto
 
 			// Solo hay un rey negro
-			if (posX >= listapiezas.rey_negro.getPos().x - tolerancia &&
-				posX <= listapiezas.rey_negro.getPos().x + tolerancia &&
-				posY >= listapiezas.rey_negro.getPos().y - tolerancia &&
-				posY <= listapiezas.rey_negro.getPos().y + tolerancia) {
+			if (posX > listapiezas.rey_negro.getPos().x - tolerancia &&
+				posX < listapiezas.rey_negro.getPos().x + tolerancia &&
+				posY > listapiezas.rey_negro.getPos().y - tolerancia &&
+				posY < listapiezas.rey_negro.getPos().y + tolerancia) {
 				if (rey_negro_seleccionado_previo == 0) {
 					// Hacer clic por segunda vez en el mismo rey negro: deseleccionar
 					raton.rey_negro_seleccionado = -1;
@@ -472,10 +472,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			raton.reina_negra_seleccionada = -1; // Desseleccionar la reina negra por defecto
 
 			// Solo hay una reina negra
-			if (posX >= listapiezas.reina_negra.getPos().x - tolerancia &&
-				posX <= listapiezas.reina_negra.getPos().x + tolerancia &&
-				posY >= listapiezas.reina_negra.getPos().y - tolerancia &&
-				posY <= listapiezas.reina_negra.getPos().y + tolerancia) {
+			if (posX > listapiezas.reina_negra.getPos().x - tolerancia &&
+				posX < listapiezas.reina_negra.getPos().x + tolerancia &&
+				posY > listapiezas.reina_negra.getPos().y - tolerancia &&
+				posY < listapiezas.reina_negra.getPos().y + tolerancia) {
 				if (reina_negra_seleccionada_previa == 0) {
 					// Hacer clic por segunda vez en la misma reina negra: deseleccionar
 					raton.reina_negra_seleccionada = -1;
@@ -534,10 +534,31 @@ void Movimientos::dibuja() {
 }
 
 
-bool Movimientos::movimiento_peon() {
+bool Movimientos::movimiento_peon_blanco() {//****************************************************************************************
 	
-		if (raton.destino.x == raton.origen.x && 
-			(raton.destino.y == raton.origen.y + 4 || raton.destino.y == raton.origen.y - 4) ) {
+		if ( (raton.destino.x == raton.origen.x) && ( (raton.destino.y == raton.origen.y + 4 ) ) )
+		{
+			return true;
+		}
+		else if ((raton.destino.x == raton.origen.x) && ((raton.destino.y == raton.origen.y + 8)
+			&& (raton.origen.y < -8.0f) && (raton.origen.y > -12.0f)))
+		{
+			//activar la bandera de salto doble en el peón movido y..
+			return true;
+		}
+	return false;
+}
+bool Movimientos::movimiento_peon_negro() {//****************************************************************************************
+
+
+		if ((raton.destino.x == raton.origen.x) && ((raton.destino.y == raton.origen.y - 4)))
+		{
+			return true;
+		}
+		else if ((raton.destino.x == raton.origen.x) && ((raton.destino.y == raton.origen.y - 8)
+			&& (raton.origen.y < 12.0f) && (raton.origen.y > 8.0f)))
+		{
+			//activar la bandera de salto doble y..
 			return true;
 		}
 	return false;
@@ -592,21 +613,16 @@ void Movimientos::jaque()
 	int diffColumnaB = std::abs((pos_reyNegro.y - pos_alfilB.y));
 
 	//Jaque del peon negro al rey blanco
-	if ((pos_peonN.x + 4 == pos_reyBlanco.x && pos_peonN.y + 4 == pos_reyBlanco.y) ||
-		(pos_peonN.x + 4 == pos_reyBlanco.x && pos_peonN.y - 4 == pos_reyBlanco.y) ||
+	if (
 		(pos_peonN.x - 4 == pos_reyBlanco.x && pos_peonN.y + 4 == pos_reyBlanco.y) ||
-		(pos_peonN.x - 4 == pos_reyBlanco.x && pos_peonN.y - 4 == pos_reyBlanco.y)
-		)
+		(pos_peonN.x - 4 == pos_reyBlanco.x && pos_peonN.y - 4 == pos_reyBlanco.y)  )
 	{
 		cout << "EQUIPO NEGRO: JAQUE " << endl;
 	}
 
 	//Jaque del peon blanco al rey negro
 	if ((pos_peonB.x + 4 == pos_reyNegro.x && pos_peonB.y + 4 == pos_reyNegro.y) ||
-		(pos_peonB.x + 4 == pos_reyNegro.x && pos_peonB.y - 4 == pos_reyNegro.y) ||
-		(pos_peonB.x - 4 == pos_reyNegro.x && pos_peonB.y + 4 == pos_reyNegro.y) ||
-		(pos_peonB.x - 4 == pos_reyNegro.x && pos_peonB.y - 4 == pos_reyNegro.y)
-		)
+		(pos_peonB.x + 4 == pos_reyNegro.x && pos_peonB.y - 4 == pos_reyNegro.y)  )
 	{
 		cout << "EQUIPO BLANCO: JAQUE " << endl;
 	}
@@ -615,8 +631,7 @@ void Movimientos::jaque()
 	if ((pos_torreN.x == pos_reyBlanco.x && pos_torreN.y != pos_reyBlanco.y)||
 		(pos_torreN.x != pos_reyBlanco.x && pos_torreN.y == pos_reyBlanco.y))
 	{
-		cout << "EQUIPO NEGRO: JAQUE " << endl;
-		
+		cout << "EQUIPO NEGRO: JAQUE " << endl;	
 	}
 
 	//Jaque de la torre blanca al rey negro

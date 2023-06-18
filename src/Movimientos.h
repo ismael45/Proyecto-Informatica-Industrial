@@ -28,7 +28,9 @@ public:
 	void dibuja();
 	
 
-	bool movimiento_peon();
+	//bool movimiento_peon();
+	bool movimiento_peon_blanco();
+	bool movimiento_peon_negro();
 	bool movimiento_torre();
 	bool movimiento_alfil();
 	bool movimiento_rey();
