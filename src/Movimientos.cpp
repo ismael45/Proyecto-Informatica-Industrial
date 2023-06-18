@@ -505,8 +505,6 @@ void Movimientos::dibuja() {
 		tablero.dibujaTab_flores();
 		tablero.dibujaMarco_flores();
 
-
-
 		//COLOREAR LA CASILLA SELECICONADA DE ROJO
 	//for (int i = 0; i < 64; i++) {
 	//		if (casilla_seleccionada[i]) {
@@ -522,8 +520,6 @@ void Movimientos::dibuja() {
 		tablero.dibujaTab_clasico();
 		tablero.dibujaMarco_clasico();
 
-
-
 		//COLOREAR LA CASILLA SELECICONADA DE ROJO
 		//for (int i = 0; i < 64; i++) {
 		//	if (casilla_seleccionada[i]) {
@@ -533,7 +529,7 @@ void Movimientos::dibuja() {
 	}
 }
 
-
+//*****************************************************************************************************************************
 bool Movimientos::movimiento_peon_blanco() {//****************************************************************************************
 	
 		if ( (raton.destino.x == raton.origen.x) && ( (raton.destino.y == raton.origen.y + 4 ) ) )
@@ -603,12 +599,17 @@ bool Movimientos::movimiento_caballo()
 
 void Movimientos::jaque()
 {
+	//caballo
 	int delta_filasN = std::abs((pos_reyBlanco.x - pos_caballoN.x) / 4);
 	int delta_columnasN = std::abs((pos_reyBlanco.y - pos_caballoN.y) / 4);
+
 	int delta_filasB = std::abs((pos_reyNegro.x - pos_caballoB.x) / 4);
 	int delta_columnasB = std::abs((pos_reyNegro.y - pos_caballoB.y) / 4);
+
+	//alfil
 	int diffFilaN = std::abs((pos_reyBlanco.x - pos_alfilN.x));
 	int diffColumnaN = std::abs((pos_reyBlanco.y - pos_alfilN.y));
+
 	int diffFilaB = std::abs((pos_reyNegro.x - pos_alfilB.x));
 	int diffColumnaB = std::abs((pos_reyNegro.y - pos_alfilB.y));
 
