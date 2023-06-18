@@ -88,3 +88,6 @@ Casilla Tablero::getCasilla_Pos(float x, float y) {
 	}
 	return casilla[num];
 }
+Casilla Tablero::getCasilla_Ind(int i) {
+	return casilla[i];
+}

@@ -9,7 +9,7 @@ public:
 	Tablero();
 	virtual ~Tablero();
 	
-public://********************
+private://********************
 	Casilla casilla[64];
 	ColorRGB color;
 
@@ -34,6 +34,7 @@ public:
 		return casilla[num].getPos();
 	}
 	Casilla getCasilla_Pos(float x, float y);
+	Casilla getCasilla_Ind(int i);
 
 	bool estaDentroTablero(float x, float y);
 };
