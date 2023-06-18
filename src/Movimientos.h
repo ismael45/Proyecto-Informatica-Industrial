@@ -21,7 +21,7 @@ private:
 
 	bool t;
 
-	bool casillas_amenazadas_por_blancas[63] = { false };// vector de booleanos para indicar qué casillas se encuentran bajo amenaza inminente
+	bool casillas_amenazadas_por_blancas[63] = { false };// vectores de booleanos para indicar qué casillas se encuentran bajo amenaza inminente
 	bool casillas_amenazadas_por_negras[63] = { false };
 public:
 
@@ -44,7 +44,7 @@ public:
 
 	void jaque();
 
-	void piezaAmenaza(int i);
+	void piezaAmenaza(int i); //activa los bool de los arrays, a partir del indice de una pieza
 
 	bool celdaAmenazada(int i); //se le pasa el numero de celda, y devuelve estado de "peligro inminente" o "calma"
 

@@ -692,6 +692,8 @@ void Movimientos::aux_DiscriminaAmenaza(int i, int indice) {
 		casillas_amenazadas_por_negras[indice] = true;
 }
 
+
+//******************************************************************************************************************
 void Movimientos::piezaAmenaza(int i) {
 	for (int j = 0; j < 64; j++) {
 		int indice;
@@ -700,26 +702,18 @@ void Movimientos::piezaAmenaza(int i) {
 		if ((listapiezas.piezas[i].getPos().x == tablero.getCasilla_Ind(j).getPos().x)
 			&& (listapiezas.piezas[i].getPos().y == tablero.getCasilla_Ind(j).getPos().y))
 		{
-			//peones blancos
+			//peones blancos*************************************************************************************************
 			if (i >= 0 && i < 8)
 			{
 
 				if (j < 56) {  //solo hasta penúltima línea
 					//amenaza sup izq
 					indice = j + 7;
-					/*xx = tablero.getCasilla_Ind(indice).getPos().x;
-					yy = tablero.getCasilla_Ind(indice).getPos().y;
-					if (tablero.estaDentroTablero(xx, yy) == true)
-						if (listapiezas.piezas[indice].getColor() != listapiezas.piezas[i].getColor())*/
 					if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy))
 						casillas_amenazadas_por_blancas[indice] = true;
 
 					//amenaza sup der
 					indice = j + 9;
-					/*xx = tablero.getCasilla_Ind(indice).getPos().x;
-					yy = tablero.getCasilla_Ind(indice).getPos().y;
-					if (tablero.estaDentroTablero(xx, yy) == true)
-						if (listapiezas.piezas[indice].getColor() != listapiezas.piezas[i].getColor())*/
 					if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy))
 						casillas_amenazadas_por_blancas[indice] = true;
 				
@@ -762,71 +756,27 @@ void Movimientos::piezaAmenaza(int i) {
 				//hacia la derecha
 				for (int xder = 1; xder < 8; xder++) {
 					indice = j + 1 * xder;
-					xx = tablero.getCasilla_Ind(indice).getPos().x;
-					yy = tablero.getCasilla_Ind(indice).getPos().y;
-					if (tablero.estaDentroTablero(xx, yy) == true) {
-						if (listapiezas.piezas[indice].getColor() != listapiezas.piezas[i].getColor()) {
-							if (listapiezas.piezas[i].getColor() == 1)
-								casillas_amenazadas_por_blancas[indice] = true;
-							else if (listapiezas.piezas[i].getColor() == 2)
-								casillas_amenazadas_por_negras[indice] = true;
-						}
-							
-
-
-					}
+					if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy))
+						aux_DiscriminaAmenaza(i, indice);
 				}
 				//hacia la izquierda
 				for (int xizq = 1; xizq < 8; xizq++) {
 					indice = j - 1 * xizq;
-					/*xx = tablero.getCasilla_Ind(indice).getPos().x;
-					yy = tablero.getCasilla_Ind(indice).getPos().y;
-					if (tablero.estaDentroTablero(xx, yy) == true) {
-						if (listapiezas.piezas[indice].getColor() != listapiezas.piezas[i].getColor()) {*/
-					if ( aux_ExisteCeldaConEnemigo(i, indice, xx, yy) ){
-							if (listapiezas.piezas[i].getColor() == 1)
-								casillas_amenazadas_por_blancas[indice] = true;
-							else if (listapiezas.piezas[i].getColor() == 2)
-								casillas_amenazadas_por_negras[indice] = true;
-					} //}
-
-
-
+					if ( aux_ExisteCeldaConEnemigo(i, indice, xx, yy) )
+						aux_DiscriminaAmenaza(i, indice);
 				}
 				//hacia arriba
 				for (int y_arr = 1; y_arr < 8; y_arr++) {
 					indice = j +8 * y_arr;
-					/*xx = tablero.getCasilla_Ind(indice).getPos().x;
-					yy = tablero.getCasilla_Ind(indice).getPos().y;
-					if (tablero.estaDentroTablero(xx, yy) == true) {
-						if (listapiezas.piezas[indice].getColor() != listapiezas.piezas[i].getColor()) {*/
-					if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy)) {
-							if (listapiezas.piezas[i].getColor() == 1)
-								casillas_amenazadas_por_blancas[indice] = true;
-							else if (listapiezas.piezas[i].getColor() == 2)
-								casillas_amenazadas_por_negras[indice] = true;
-					}
-
-
-
-					}
+					if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy))
+						aux_DiscriminaAmenaza(i, indice);
+					
+				}
 				//hacia abajo
 				for (int y_aba = 1; y_aba < 8; y_aba++) {
 					indice = j - 8 * y_aba;
-					/*xx = tablero.getCasilla_Ind(indice).getPos().x;
-					yy = tablero.getCasilla_Ind(indice).getPos().y;
-					if (tablero.estaDentroTablero(xx, yy) == true) {
-						if (listapiezas.piezas[indice].getColor() != listapiezas.piezas[i].getColor()) {*/
-					if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy)) {
-							/*if (listapiezas.piezas[i].getColor() == 1)
-								casillas_amenazadas_por_blancas[indice] = true;
-							else if (listapiezas.piezas[i].getColor() == 2)
-								casillas_amenazadas_por_negras[indice] = true;*/
+					if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy)) 
 						aux_DiscriminaAmenaza(i, indice);
-					}
-
-
-
 				
 				}
 			}
@@ -982,17 +932,17 @@ void Movimientos::piezaAmenaza(int i) {
 
 				//amenaza arriba
 				for (int NN = 1; NN < 8; NN++) {
-				indice = j + 8*NN;
-				if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
-
+					indice = j + 8 * NN;
+					if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy))
+						aux_DiscriminaAmenaza(i, indice);
+				}
 				//amenaza abajo
 				for (int SS = 1; SS < 8; SS++) {
 					indice = j - 8 * SS;
 					if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy))
 						aux_DiscriminaAmenaza(i, indice);
 				}
-			}
+			
 			}	
 
 		}
