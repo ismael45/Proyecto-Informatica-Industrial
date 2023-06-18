@@ -571,7 +571,8 @@ bool Movimientos::movimiento_torre() {
 
 bool Movimientos::movimiento_alfil()
 {
-		if (raton.destino.x != raton.origen.x && raton.destino.y != raton.origen.y) {
+	int n = raton.destino.x - raton.origen.x;
+		if (raton.destino.y - raton.origen.y== n) {
 			return true;
 		}
 	return false;
