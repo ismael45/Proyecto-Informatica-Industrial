@@ -695,7 +695,7 @@ void Movimientos::aux_DiscriminaAmenaza(int i, int indice) {
 void Movimientos::piezaAmenaza(int i) {
 	for (int j = 0; j < 64; j++) {
 		int indice;
-		float xx, yy;
+		float xx=0, yy=0;
 		//cuando la posición de la pieza elegida coincida con la posición de la casilla:
 		if ((listapiezas.piezas[i].getPos().x == tablero.getCasilla_Ind(j).getPos().x)
 			&& (listapiezas.piezas[i].getPos().y == tablero.getCasilla_Ind(j).getPos().y))
@@ -958,6 +958,7 @@ void Movimientos::piezaAmenaza(int i) {
 					if (aux_ExisteCeldaConEnemigo(i, indice, xx, yy))
 						aux_DiscriminaAmenaza(i, indice);
 				}
+				
 				//amenaza inf der
 				for (int SE = 1; SE < 8; SE++) {
 					indice = j - 7 * SE;
@@ -998,36 +999,40 @@ void Movimientos::piezaAmenaza(int i) {
 
 	}
 }
-	void Movimientos::celdasAmenazadas(){
+bool Movimientos::celdaAmenazada(int i){
 
-	//float  PosX, PosY; //coordenadas de la celda que va a evaluar las casillas que se amenazan desde ahí
-	for (int i = 0; i < 8; i++) {  //peones blancos
-		
-	}
-	for (int i = 8; i < 16; i++) {  //peones negros
-
-
-	}
-	for (int i = 16; i < 20; i++) {  //torres 
-
-
-	}
-	for (int i = 20; i < 24; i++) {  //caballos 
-	
-	}
-	for (int i = 24; i < 28; i++) {  //alfiles
-
-	}
-
-	for (int i = 28; i < 30; i++) {  //reyes
-
-	}
-	for (int i = 30; i < 32; i++) {  //reinas
-
-	}
-
-
-	//if (tablero.estaDentroTablero(posX, posY) == true)
-
+	//en el turno de las blancas, nos interesa saber las celdas amenazadas por las negras
+	if (t)
+		if (casillas_amenazadas_por_negras) return true;
+		else return false;
+	//en el turno de las negras, nos interesa saber las celdas amenazadas por las blancas
+	else if (t == 0)
+		if (casillas_amenazadas_por_blancas) return true;
+		else return false;
 }
 
+////float  PosX, PosY; //coordenadas de la celda que va a evaluar las casillas que se amenazan desde ahí
+	//for (int i = 0; i < 8; i++) {  //peones blancos
+	//	
+	//}
+	//for (int i = 8; i < 16; i++) {  //peones negros
+
+
+	//}
+	//for (int i = 16; i < 20; i++) {  //torres 
+
+
+	//}
+	//for (int i = 20; i < 24; i++) {  //caballos 
+	//
+	//}
+	//for (int i = 24; i < 28; i++) {  //alfiles
+
+	//}
+
+	//for (int i = 28; i < 30; i++) {  //reyes
+
+	//}
+	//for (int i = 30; i < 32; i++) {  //reinas
+
+	//}

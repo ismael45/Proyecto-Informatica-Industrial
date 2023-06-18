@@ -276,9 +276,6 @@ void ListaPiezas::asignar_piezas() {
 	piezas[31] = reina_negra;
 }
 
-//int getIndex(Pieza p) {
-//
-//}
 
 void ListaPiezas::borrar_piezas()
 {
