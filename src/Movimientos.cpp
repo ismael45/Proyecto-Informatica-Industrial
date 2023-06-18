@@ -47,12 +47,6 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 		}
 
 
-
-
-
-
-
-
 		//MOVIMIENTOS PIEZAS POR CLICKS
 		if (tablero.estaDentroTablero(posX, posY) == true) {
 
