@@ -134,7 +134,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento de la reina blanca si la casilla no está ocupada
-					if (!casilla_ocupada && raton.reina_blanca_seleccionada != -1 && turnos()) {
+					if (!casilla_ocupada && raton.reina_blanca_seleccionada != -1 && (movimiento_alfil() || movimiento_torre()) && turnos()) {
 						t = true;
 						listapiezas.reina_blanca.setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Reina blanca a la casilla " << tablero.casilla[i].getCodigo() << endl;
@@ -193,7 +193,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento de la reina negra si la casilla no está ocupada
-					if (!casilla_ocupada && raton.reina_negra_seleccionada != -1 && !turnos()) {
+					if (!casilla_ocupada && raton.reina_negra_seleccionada != -1 && ( movimiento_alfil()|| movimiento_torre() ) && !turnos()) {
 						t = false;
 						listapiezas.reina_negra.setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Reina negra a la casilla " << tablero.casilla[i].getCodigo() << endl;
