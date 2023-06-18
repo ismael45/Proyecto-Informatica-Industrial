@@ -20,11 +20,14 @@ private:
 	Vector2D pos_alfilN, pos_alfilB;
 
 	bool t;
+
+	bool casillas_amenazadas_por_blancas[63] = { false };// vector de booleanos para indicar qué casillas se encuentran bajo amenaza inminente
+	bool casillas_amenazadas_por_negras[63] = { false };
 public:
 
 
-	bool opcion[1];	//Bool de opciones de juego
-	bool casillas_amenazadas[63] = {false};  // vector de booleanos para indicar qué casillas se encuentran bajo amenaza inminente
+	bool opcion[2];	//Bool de opciones de juego
+	
 	void MouseButton(int x, int y, int button, bool down);
 	void dibuja();
 	
@@ -41,6 +44,12 @@ public:
 
 	void jaque();
 
-	void piezaAmenaza();
+	void piezaAmenaza(int i);
+
+	void celdasAmenazadas();
+
+	bool aux_ExisteCeldaConEnemigo(int i, int indice, float xx, float yy);
+	void aux_DiscriminaAmenaza(int i, int indice);
+
 	
 };

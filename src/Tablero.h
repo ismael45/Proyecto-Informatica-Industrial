@@ -9,7 +9,7 @@ public:
 	Tablero();
 	virtual ~Tablero();
 	
-private://********************
+private:
 	Casilla casilla[64];
 	ColorRGB color;
 
