@@ -51,7 +51,8 @@ protected:
     Vector2D posicion;
 
     float valor;
-    bool viviente; //para desactivar todas sus funciones cuando esté en el "cementerio".
+    bool viviente= true; //para desactivar todas sus funciones cuando esté en el "cementerio".
+    //por defecto, todas las piezas se crean vivas, excepto las damas en potencia
 
     ETSIDI::Sprite sprite{ "bin/imagenes/fondo.png", 0.0, 0.0, 3, 3.5 };
 };

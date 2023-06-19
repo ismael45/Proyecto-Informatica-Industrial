@@ -21,6 +21,7 @@ ListaPiezas::ListaPiezas()
 	reina_blanca[0].setPos(-2, -14);
 	for (int i = 1; i < 9; i++) {
 		reina_blanca[i].setPos(-18 + 4 * i, -24);
+		reina_blanca[i].resetViviente(); //estas piezas no son jugables hasta que no entren al tablero
 	}
 
 	//PIEZAS NEGRAS
@@ -41,6 +42,7 @@ ListaPiezas::ListaPiezas()
 	reina_negra[0].setPos(-2, 14);
 	for (int i = 1; i < 9; i++) {
 		reina_negra[i].setPos(-18 + 4 * i, -20);
+		reina_negra[i].resetViviente(); //estas piezas no son jugables hasta que no entren al tablero
 	}
 
 }
