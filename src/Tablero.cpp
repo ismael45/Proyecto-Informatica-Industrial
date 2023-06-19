@@ -82,7 +82,7 @@ Casilla Tablero::getCasilla_Pos(float x, float y) {
 	int num;
 	for (int i = 0; i < 8; i++) {//cambio fila
 		for (int j = 0; j < 8; j++) {//cambio columna
-			if (x > (4 * j - 16.0f) && x < (4 * j - 12.0f) && y > (4 * i - 16.0f) && y < (4 * i - 12.0f))
+			if (x >= (4 * j - 16.0f) && x <= (4 * j - 12.0f) && y >= (4 * i - 16.0f) && y <= (4 * i - 12.0f))
 				num = 8 * i + j;
 		}		
 	}

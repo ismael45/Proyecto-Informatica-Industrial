@@ -136,7 +136,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					// Realizar el movimiento de la reina blanca si la casilla no está ocupada
 					if (!casilla_ocupada && raton.reina_blanca_seleccionada != -1 && (movimiento_alfil() || movimiento_torre()) && turnos()) {
 						t = true;
-						listapiezas.reina_blanca.setPos(raton.destino.x, raton.destino.y);
+						listapiezas.reina_blanca[raton.reina_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Reina blanca a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
 					}
@@ -195,7 +195,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					// Realizar el movimiento de la reina negra si la casilla no está ocupada
 					if (!casilla_ocupada && raton.reina_negra_seleccionada != -1 && ( movimiento_alfil()|| movimiento_torre() ) && !turnos()) {
 						t = false;
-						listapiezas.reina_negra.setPos(raton.destino.x, raton.destino.y);
+						listapiezas.reina_negra[raton.reina_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Reina negra a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
 					}
@@ -332,20 +332,22 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			int reina_blanca_seleccionada_previa = raton.reina_blanca_seleccionada; // Almacenar el índice de la reina blanca previamente seleccionada
 			raton.reina_blanca_seleccionada = -1; // Desseleccionar la reina blanca por defecto
 
-			// Solo hay una reina blanca
-			if (posX > listapiezas.reina_blanca.getPos().x - tolerancia &&
-				posX < listapiezas.reina_blanca.getPos().x + tolerancia &&
-				posY > listapiezas.reina_blanca.getPos().y - tolerancia &&
-				posY < listapiezas.reina_blanca.getPos().y + tolerancia) {
-				if (reina_blanca_seleccionada_previa == 0) {
-					// Hacer clic por segunda vez en la misma reina blanca: deseleccionar
-					raton.reina_blanca_seleccionada = -1;
-					cout << "Reina blanca deseleccionada" << endl;
-				}
-				else {
-					// Hacer clic en una reina blanca diferente: seleccionar la nueva reina blanca
-					raton.reina_blanca_seleccionada = 0;
-					cout << "Reina blanca seleccionada" << endl;
+			// Solo hay una reina blanca!!!!!!!!!! NO!! Puedeb haber hasta 9 , aunque normalmente no se conseguirán más de 2 - 3
+			for (int i = 0; i < 9; i++) {
+				if (posX > listapiezas.reina_blanca[i].getPos().x - tolerancia &&
+					posX < listapiezas.reina_blanca[i].getPos().x + tolerancia &&
+					posY > listapiezas.reina_blanca[i].getPos().y - tolerancia &&
+					posY < listapiezas.reina_blanca[i].getPos().y + tolerancia) {
+					if (reina_blanca_seleccionada_previa == 0) {
+						// Hacer clic por segunda vez en la misma reina blanca: deseleccionar
+						raton.reina_blanca_seleccionada = -1;
+						cout << "Reina blanca deseleccionada" << endl;
+					}
+					else {
+						// Hacer clic en una reina blanca diferente: seleccionar la nueva reina blanca
+						raton.reina_blanca_seleccionada = 0;
+						cout << "Reina blanca seleccionada" << endl;
+					}
 				}
 			}
 			/////////////////////////
@@ -471,20 +473,22 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			int reina_negra_seleccionada_previa = raton.reina_negra_seleccionada; // Almacenar el índice de la reina negra previamente seleccionada
 			raton.reina_negra_seleccionada = -1; // Desseleccionar la reina negra por defecto
 
-			// Solo hay una reina negra
-			if (posX > listapiezas.reina_negra.getPos().x - tolerancia &&
-				posX < listapiezas.reina_negra.getPos().x + tolerancia &&
-				posY > listapiezas.reina_negra.getPos().y - tolerancia &&
-				posY < listapiezas.reina_negra.getPos().y + tolerancia) {
-				if (reina_negra_seleccionada_previa == 0) {
-					// Hacer clic por segunda vez en la misma reina negra: deseleccionar
-					raton.reina_negra_seleccionada = -1;
-					cout << "Reina negra deseleccionada" << endl;
-				}
-				else {
-					// Hacer clic en una reina negra diferente: seleccionar la nueva reina negra
-					raton.reina_negra_seleccionada = 0;
-					cout << "Reina negra seleccionada" << endl;
+			// Solo hay una reina negra? FALSO, Pueden haber hasta 8 adicionales
+			for (int i = 0; i < 9; i++) {
+				if (posX > listapiezas.reina_negra[i].getPos().x - tolerancia &&
+					posX < listapiezas.reina_negra[i].getPos().x + tolerancia &&
+					posY > listapiezas.reina_negra[i].getPos().y - tolerancia &&
+					posY < listapiezas.reina_negra[i].getPos().y + tolerancia) {
+					if (reina_negra_seleccionada_previa == 0) {
+						// Hacer clic por segunda vez en la misma reina negra: deseleccionar
+						raton.reina_negra_seleccionada = -1;
+						cout << "Reina negra deseleccionada" << endl;
+					}
+					else {
+						// Hacer clic en una reina negra diferente: seleccionar la nueva reina negra
+						raton.reina_negra_seleccionada = 0;
+						cout << "Reina negra seleccionada" << endl;
+					}
 				}
 			}
 			/////////////////////////

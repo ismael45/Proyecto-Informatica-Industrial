@@ -17,7 +17,7 @@ ListaPiezas::ListaPiezas()
 	alfiles_blancos[1].setPos(6, -14);
 
 	rey_blanco.setPos(2, -14);
-	reina_blanca.setPos(-2, -14);
+	reina_blanca[0].setPos(-2, -14);
 
 
 	//PIEZAS NEGRAS
@@ -34,7 +34,7 @@ ListaPiezas::ListaPiezas()
 	alfiles_negros[1].setPos(6, 14);
 
 	rey_negro.setPos(2, 14);
-	reina_negra.setPos(-2, 14);
+	reina_negra[0].setPos(-2, 14);
 
 }
 
@@ -83,10 +83,10 @@ void ListaPiezas::actualizar_flores()
 	rey_blanco.dibuja();
 
 	// REINA
-	reina_blanca.setPos(reina_blanca.getPos().x, reina_blanca.getPos().y);
-	reina_blanca.setColor(BLANCAS);
-	reina_blanca.setTipo(FLORES);
-	reina_blanca.dibuja();
+	reina_blanca[0].setPos(reina_blanca[0].getPos().x, reina_blanca[0].getPos().y);
+	reina_blanca[0].setColor(BLANCAS);
+	reina_blanca[0].setTipo(FLORES);
+	reina_blanca[0].dibuja();
 
 
 
@@ -130,10 +130,10 @@ void ListaPiezas::actualizar_flores()
 	rey_negro.dibuja();
 
 	// REINA
-	reina_negra.setPos(reina_negra.getPos().x, reina_negra.getPos().y);
-	reina_negra.setColor(NEGRAS);
-	reina_negra.setTipo(FLORES);
-	reina_negra.dibuja();
+	reina_negra[0].setPos(reina_negra[0].getPos().x, reina_negra[0].getPos().y);
+	reina_negra[0].setColor(NEGRAS);
+	reina_negra[0].setTipo(FLORES);
+	reina_negra[0].dibuja();
 
 
 }
@@ -184,10 +184,10 @@ void ListaPiezas::actualizar_clasico()
 	rey_blanco.dibuja();
 
 	// REINA
-	reina_blanca.setPos(reina_blanca.getPos().x, reina_blanca.getPos().y);
-	reina_blanca.setColor(BLANCAS);
-	reina_blanca.setTipo(CLASICAS);
-	reina_blanca.dibuja();
+	reina_blanca[0].setPos(reina_blanca[0].getPos().x, reina_blanca[0].getPos().y);
+	reina_blanca[0].setColor(BLANCAS);
+	reina_blanca[0].setTipo(CLASICAS);
+	reina_blanca[0].dibuja();
 
 
 
@@ -231,10 +231,10 @@ void ListaPiezas::actualizar_clasico()
 	rey_negro.dibuja();
 
 	// REINA
-	reina_negra.setPos(reina_negra.getPos().x, reina_negra.getPos().y);
-	reina_negra.setColor(NEGRAS);
-	reina_negra.setTipo(CLASICAS);
-	reina_negra.dibuja();
+	reina_negra[0].setPos(reina_negra[0].getPos().x, reina_negra[0].getPos().y);
+	reina_negra[0].setColor(NEGRAS);
+	reina_negra[0].setTipo(CLASICAS);
+	reina_negra[0].dibuja();
 }
 
 
@@ -256,7 +256,12 @@ void ListaPiezas::asignar_piezas() {
 	piezas[13] = alfiles_blancos[1];
 
 	piezas[14] = rey_blanco;
-	piezas[15] = reina_blanca;
+
+	piezas[15] = reina_blanca[0];
+
+	for (int i = 1; i < 9; i++) {
+		piezas[31+i] = reina_blanca[i];
+	}
 
 	// Piezas negras
 	for (int i = 0; i < 8; i++) {
@@ -273,7 +278,11 @@ void ListaPiezas::asignar_piezas() {
 	piezas[29] = alfiles_negros[1];
 
 	piezas[30] = rey_negro;
-	piezas[31] = reina_negra;
+
+	piezas[31] = reina_negra[0];
+	for (int i = 1; i < 9; i++) {
+		piezas[39+i] = reina_negra[i];
+	}
 }
 
 

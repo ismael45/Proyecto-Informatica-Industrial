@@ -1,11 +1,15 @@
-﻿  Ajedrez.cpp
+﻿  ListaPiezas.cpp
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\ListaPiezas.cpp(8,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\ListaPiezas.cpp(25,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Movimientos.cpp
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(56,39): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(56,33): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(139,32): error C2228: el operando izquierdo de '.setPos' debe tener class/struct/union
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(139,32): message : el tipo es 'Reina [9]'
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(574,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(594,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(595,21): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
@@ -19,11 +23,9 @@ C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimien
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(617,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(723,13): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(748,13): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
-  Mundo.cpp
+  Rey.cpp
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Mundo.cpp(53,23): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
   Generando código...
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(689): warning C4715: 'Movimientos::aux_ExisteCeldaConEnemigo': no todas las rutas de acceso de control devuelven un valor
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(970): warning C4715: 'Movimientos::celdaAmenazada': no todas las rutas de acceso de control devuelven un valor
-  Pang.vcxproj -> C:\Users\Realorth\source\repos\Proyecto-Informatica-Industrial_1806\bin\Ajedrez.exe
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Rey.cpp(30): warning C4715: 'Rey::checkJaque': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Rey.cpp(41): warning C4715: 'Rey::checkMovido': no todas las rutas de acceso de control devuelven un valor
