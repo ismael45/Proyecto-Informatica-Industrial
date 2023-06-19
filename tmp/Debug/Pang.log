@@ -1,21 +1,21 @@
 ﻿  Movimientos.cpp
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(51,39): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(51,33): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(568,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(586,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(587,21): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(598,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(599,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(601,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(602,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(605,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(56,39): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(56,33): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(573,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(591,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(592,21): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(603,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(604,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(606,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(608,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(609,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(715,13): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(740,13): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(681): warning C4715: 'Movimientos::aux_ExisteCeldaConEnemigo': no todas las rutas de acceso de control devuelven un valor
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(962): warning C4715: 'Movimientos::celdaAmenazada': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(607,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(610,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(611,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(613,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(614,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(720,13): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(745,13): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(686): warning C4715: 'Movimientos::aux_ExisteCeldaConEnemigo': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(967): warning C4715: 'Movimientos::celdaAmenazada': no todas las rutas de acceso de control devuelven un valor
   Pang.vcxproj -> C:\Users\Realorth\source\repos\Proyecto-Informatica-Industrial_1806\bin\Ajedrez.exe
