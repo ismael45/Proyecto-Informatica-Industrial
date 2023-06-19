@@ -23,12 +23,12 @@ private:
 
 	bool casillas_amenazadas_por_blancas[63] = { false };// vectores de booleanos para indicar qué casillas se encuentran bajo amenaza inminente
 	bool casillas_amenazadas_por_negras[63] = { false };
-	bool casilla_ocupada = false;
+	//bool casilla_ocupada = false;
 public:
 
-	void set_casillaOcupada();
+	/*void set_casillaOcupada();
 	void reset_casillaOcupada();
-	bool check_casillaOcupada();
+	bool check_casillaOcupada();*/
 
 	bool opcion[2];	//Bool de opciones de juego
 	

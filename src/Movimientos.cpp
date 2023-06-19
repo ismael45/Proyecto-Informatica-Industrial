@@ -1,11 +1,11 @@
 ﻿#include "Movimientos.h"
 
-void Movimientos::set_casillaOcupada() {
-	casilla_ocupada = false;
-}
-void Movimientos::reset_casillaOcupada() {
-	casilla_ocupada = true;
-}
+//void Movimientos::set_casillaOcupada() {
+//	casilla_ocupada = false;
+//}
+//void Movimientos::reset_casillaOcupada() {
+//	casilla_ocupada = true;
+//}
 
 void Movimientos::MouseButton(int x, int y, int button, bool down) {
 	int movimiento = 0;
@@ -72,7 +72,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						if (raton.pieza_seleccionada != j &&
 							raton.destino.x == listapiezas.piezas[j].getPos().x &&
 							raton.destino.y == listapiezas.piezas[j].getPos().y) {
-							set_casillaOcupada();
+							//set_casillaOcupada();
+							casilla_ocupada = true;
 							raton.origen= { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
 							//cout << "Origen:" << raton.origen.x << "," << raton.origen.y << endl;
 							break;
@@ -571,7 +572,9 @@ bool Movimientos::movimiento_torre() {
 bool Movimientos::movimiento_alfil()
 {
 	int n = raton.destino.x - raton.origen.x;
-		if (raton.destino.y - raton.origen.y== n) {
+		if ( (raton.destino.y - raton.origen.y== n) || 
+			 (raton.destino.y - raton.origen.y == -n))
+		{
 			return true;
 		}
 	return false;
