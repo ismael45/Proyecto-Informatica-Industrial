@@ -42,7 +42,8 @@ Vector2D Pieza::getPos() const {
 }
 
 float Pieza::getValor() {
-    return valor;
+    if (checkViviente()) return valor;
+    else return 0.0;
 }
 
 
