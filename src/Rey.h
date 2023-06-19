@@ -5,6 +5,7 @@ class Rey : public Pieza
 {
     bool enJaque;
     bool movido;
+
 public:
     Rey() : Pieza() {}
     void dibuja();
