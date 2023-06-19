@@ -5,7 +5,7 @@ ListaPiezas::ListaPiezas()
 
 	//PIEZAS BLANCAS
 	for (int i = 0; i < 8; i++) {
-		peones_blancos[i].setPos(-14 + 4 * i, -10);
+		peones_blancos[i].setPos(-14 + 4 * i, -10);;
 	}
 	torres_blancas[0].setPos(-14, -14);
 	torres_blancas[1].setPos(14, -14);
@@ -17,8 +17,11 @@ ListaPiezas::ListaPiezas()
 	alfiles_blancos[1].setPos(6, -14);
 
 	rey_blanco.setPos(2, -14);
-	reina_blanca[0].setPos(-2, -14);
 
+	reina_blanca[0].setPos(-2, -14);
+	for (int i = 1; i < 9; i++) {
+		reina_blanca[i].setPos(-18 + 4 * i, -24);
+	}
 
 	//PIEZAS NEGRAS
 	for (int i = 0; i < 8; i++) {
@@ -34,7 +37,11 @@ ListaPiezas::ListaPiezas()
 	alfiles_negros[1].setPos(6, 14);
 
 	rey_negro.setPos(2, 14);
+
 	reina_negra[0].setPos(-2, 14);
+	for (int i = 1; i < 9; i++) {
+		reina_negra[i].setPos(-18 + 4 * i, -20);
+	}
 
 }
 
@@ -82,11 +89,19 @@ void ListaPiezas::actualizar_flores()
 	rey_blanco.setTipo(FLORES);
 	rey_blanco.dibuja();
 
-	// REINA
-	reina_blanca[0].setPos(reina_blanca[0].getPos().x, reina_blanca[0].getPos().y);
-	reina_blanca[0].setColor(BLANCAS);
-	reina_blanca[0].setTipo(FLORES);
-	reina_blanca[0].dibuja();
+	// REINA Principal
+	//reina_blanca[0].setPos(reina_blanca[0].getPos().x, reina_blanca[0].getPos().y);
+	//reina_blanca[0].setColor(BLANCAS);
+	//reina_blanca[0].setTipo(FLORES);
+	//reina_blanca[0].dibuja();
+	
+	//// REINAS Potenciales por promoción
+	for (int i = 0; i < 9; i++) {
+		reina_blanca[i].setPos(reina_blanca[i].getPos().x, reina_blanca[i].getPos().y);
+		reina_blanca[i].setColor(BLANCAS);
+		reina_blanca[i].setTipo(FLORES);
+		reina_blanca[i].dibuja();
+	}
 
 
 
@@ -129,11 +144,19 @@ void ListaPiezas::actualizar_flores()
 	rey_negro.setTipo(FLORES);
 	rey_negro.dibuja();
 
-	// REINA
-	reina_negra[0].setPos(reina_negra[0].getPos().x, reina_negra[0].getPos().y);
+	// REINA Principal
+	/*reina_negra[0].setPos(reina_negra[0].getPos().x, reina_negra[0].getPos().y);
 	reina_negra[0].setColor(NEGRAS);
 	reina_negra[0].setTipo(FLORES);
-	reina_negra[0].dibuja();
+	reina_negra[0].dibuja();*/
+
+	// REINAS Potenciales por promoción
+	for (int i = 0; i < 9; i++) {
+		reina_negra[i].setPos(reina_negra[i].getPos().x, reina_negra[i].getPos().y);
+		reina_negra[i].setColor(NEGRAS);
+		reina_negra[i].setTipo(FLORES);
+		reina_negra[i].dibuja();
+	}
 
 
 }
@@ -183,11 +206,19 @@ void ListaPiezas::actualizar_clasico()
 	rey_blanco.setTipo(CLASICAS);
 	rey_blanco.dibuja();
 
-	// REINA
-	reina_blanca[0].setPos(reina_blanca[0].getPos().x, reina_blanca[0].getPos().y);
-	reina_blanca[0].setColor(BLANCAS);
-	reina_blanca[0].setTipo(CLASICAS);
-	reina_blanca[0].dibuja();
+	//// REINA
+	//reina_blanca[0].setPos(reina_blanca[0].getPos().x, reina_blanca[0].getPos().y);
+	//reina_blanca[0].setColor(BLANCAS);
+	//reina_blanca[0].setTipo(CLASICAS);
+	//reina_blanca[0].dibuja();
+
+	//// REINAS Potenciales por promoción
+	for (int i = 0; i < 9; i++) {
+		reina_blanca[i].setPos(reina_blanca[i].getPos().x, reina_blanca[i].getPos().y);
+		reina_blanca[i].setColor(BLANCAS);
+		reina_blanca[i].setTipo(CLASICAS);
+		reina_blanca[i].dibuja();
+	}
 
 
 
@@ -231,10 +262,18 @@ void ListaPiezas::actualizar_clasico()
 	rey_negro.dibuja();
 
 	// REINA
-	reina_negra[0].setPos(reina_negra[0].getPos().x, reina_negra[0].getPos().y);
+	/*reina_negra[0].setPos(reina_negra[0].getPos().x, reina_negra[0].getPos().y);
 	reina_negra[0].setColor(NEGRAS);
 	reina_negra[0].setTipo(CLASICAS);
-	reina_negra[0].dibuja();
+	reina_negra[0].dibuja();*/
+
+	// REINAS Potenciales por promoción
+	for (int i = 0; i < 9; i++) {
+		reina_negra[i].setPos(reina_negra[i].getPos().x, reina_negra[i].getPos().y);
+		reina_negra[i].setColor(NEGRAS);
+		reina_negra[i].setTipo(CLASICAS);
+		reina_negra[i].dibuja();
+	}
 }
 
 
