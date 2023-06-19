@@ -943,19 +943,19 @@ void Movimientos::piezaAmenaza(int i) {
 
 	}
 }
-bool Movimientos::celdaAmenazada(int i){
+bool Movimientos::celdaAmenazada(int n){
 
 	//en el turno de las blancas, nos interesa saber las celdas amenazadas por las negras
 	if (t)
-		if (casillas_amenazadas_por_negras) {
-			cout << "La Casilla " << tablero.getCasilla_Ind(i).getCodigo() << " está siendo amenazada " << endl;
+		if (casillas_amenazadas_por_negras[n]) {
+			cout << "La Casilla " << tablero.getCasilla_Ind(n).getCodigo() << " está siendo amenazada " << endl;
 			return true;
 		}
 		else return false;
 	//en el turno de las negras, nos interesa saber las celdas amenazadas por las blancas
 	else if (t == 0)
-		if (casillas_amenazadas_por_blancas) {
-			cout << "La Casilla " << tablero.getCasilla_Ind(i).getCodigo() << " está siendo amenazada " << endl;
+		if (casillas_amenazadas_por_blancas[n]) {
+			cout << "La Casilla " << tablero.getCasilla_Ind(n).getCodigo() << " está siendo amenazada " << endl;
 			return true;
 		}
 		else return false;

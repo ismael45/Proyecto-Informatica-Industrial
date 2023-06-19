@@ -24,3 +24,13 @@ void Rey::dibuja() {
 	glPopMatrix();
 }
 
+bool Rey::checkJaque() {
+	if (enJaque) return true;
+}
+bool Rey::checkMovido() {
+	if (movido) return true;
+}
+
+void Rey::setMovido() {
+	movido = true;
+}
