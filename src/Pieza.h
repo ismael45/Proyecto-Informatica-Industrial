@@ -29,8 +29,9 @@ public:
     Vector2D getPos() const;
 
     float getValor();
-
-    
+    bool checkViviente();
+    void resetViviente();
+    void setViviente();
 
     
     //virtual void dibuja()=0;
@@ -50,6 +51,7 @@ protected:
     Vector2D posicion;
 
     float valor;
+    bool viviente; //para desactivar todas sus funciones cuando esté en el "cementerio".
 
     ETSIDI::Sprite sprite{ "bin/imagenes/fondo.png", 0.0, 0.0, 3, 3.5 };
 };
