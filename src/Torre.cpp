@@ -24,3 +24,10 @@ void Torre::dibuja() {
 	glPopMatrix();
 }
 
+bool Torre::checkMovido() {
+	if (movido) return true;
+}
+
+void Torre::setMovido() {
+	movido = true;
+}
