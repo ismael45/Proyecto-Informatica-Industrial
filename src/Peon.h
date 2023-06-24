@@ -4,7 +4,7 @@
 class Peon : public Pieza
 {
   public:
-    Peon() : Pieza() {}
+    Peon() : Pieza() { setValor(1.0f); }
     void dibuja();
    
 
