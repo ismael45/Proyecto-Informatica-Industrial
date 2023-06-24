@@ -711,7 +711,7 @@ void Movimientos::piezaAmenaza(int i) {
 		//y se procede, en función de qué pieza sea, a activar como amenazadas las casillas de influencia
 		
 		
-			//peones blancos*************************************************************************************************
+			//peones blancos
 			if (i >= 0 && i < 8)
 			{
 
@@ -728,13 +728,24 @@ void Movimientos::piezaAmenaza(int i) {
 				
 					//amenaza lateral a peones que con salto doble se han puesto en cualquiera de sus laterales
 					if (32 <= j <= 39) {
-						for (int pN = 16; pN < 24; pN++) {//indice del peón oponente
+						for (int pB = 16; pB < 24; pB++) {//indice del peón oponente
+
+							//amenaza a peón izquierdo
 							indice = j - 1;
 
-							if (aux_ExisteCeldaSinAliado(i, indice, xx, yy) && 
-							(listapiezas.piezas[pN].getPos().x == tablero.getCasilla_Ind(indice).getPos().x) &&
-							(listapiezas.piezas[pN].getPos().y == tablero.getCasilla_Ind(indice).getPos().y) )
+							if (aux_ExisteCeldaSinAliado(i, indice, xx, yy) && (listapiezas.piezas[pB].getDoble()) &&
+							(listapiezas.piezas[pB].getPos().x == tablero.getCasilla_Ind(indice).getPos().x) &&
+							(listapiezas.piezas[pB].getPos().y == tablero.getCasilla_Ind(indice).getPos().y) )
 								casillas_amenazadas_por_blancas[indice] = true;
+
+							//amenaza a peón derecho
+							indice = j + 1;
+
+							if (aux_ExisteCeldaSinAliado(i, indice, xx, yy) && (listapiezas.piezas[pB].getDoble()) &&
+								(listapiezas.piezas[pB].getPos().x == tablero.getCasilla_Ind(indice).getPos().x) &&
+								(listapiezas.piezas[pB].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								casillas_amenazadas_por_blancas[indice] = true;
+
 						}
 							
 					}
@@ -758,9 +769,26 @@ void Movimientos::piezaAmenaza(int i) {
 
 					////amenaza lateral a peones que con salto doble se han puesto en cualquiera de sus laterales
 					if (24 <= j <= 31) {
-						// *****
-						// TO-DO
-						// *****
+
+						for (int pN = 0; pN < 8; pN++) {//indice del peón oponente (blanco)
+
+							//amenaza a peón izquierdo
+							indice = j - 1;
+
+							if (aux_ExisteCeldaSinAliado(i, indice, xx, yy) && (listapiezas.piezas[pN].getDoble()) &&
+								(listapiezas.piezas[pN].getPos().x == tablero.getCasilla_Ind(indice).getPos().x) &&
+								(listapiezas.piezas[pN].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								casillas_amenazadas_por_blancas[indice] = true;
+
+							//amenaza a peón derecho
+							indice = j + 1;
+
+							if (aux_ExisteCeldaSinAliado(i, indice, xx, yy) && (listapiezas.piezas[pN].getDoble()) &&
+								(listapiezas.piezas[pN].getPos().x == tablero.getCasilla_Ind(indice).getPos().x) &&
+								(listapiezas.piezas[pN].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								casillas_amenazadas_por_blancas[indice] = true;
+
+						}
 					}
 				}
 			}
