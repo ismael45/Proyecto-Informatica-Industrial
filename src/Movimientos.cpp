@@ -120,6 +120,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_peonB = { raton.destino };
 						jaque();
 						t = true;
+						ResetDobles();
 						listapiezas.peones_blancos[raton.peon_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Peón blanco " << raton.peon_blanco_seleccionado << " a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
@@ -131,6 +132,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_torreB = { raton.destino };
 						jaque();
 						t = true;
+						ResetDobles();
 						listapiezas.torres_blancas[raton.torre_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Torre blanca " << raton.torre_blanca_seleccionada << " a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
@@ -142,6 +144,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_caballoB = { raton.destino };
 						jaque();
 						t = true;
+						ResetDobles();
 						listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Caballo blanco " << raton.caballo_blanco_seleccionado << " a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
@@ -153,6 +156,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_alfilB = { raton.destino };
 						jaque();
 						t = true;
+						ResetDobles();
 						listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Alfil blanco " << raton.alfil_blanco_seleccionado << " a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
@@ -163,6 +167,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						//if (!casilla_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey() && turnos()) {
 						pos_reyBlanco = { raton.destino };
 						t = true;
+						ResetDobles();
 						listapiezas.rey_blanco.setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Rey blanco a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
@@ -172,6 +177,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					if (!casilla_blanca_ocupada && raton.reina_blanca_seleccionada != -1 && (movimiento_alfil() || movimiento_torre())) {
 						//if (!casilla_ocupada && raton.reina_blanca_seleccionada != -1 && (movimiento_alfil() || movimiento_torre()) && turnos()) {
 						t = true;
+						ResetDobles();
 						listapiezas.reina_blanca[raton.reina_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Reina blanca a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
@@ -185,6 +191,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_peonN = { raton.destino };
 						jaque();
 						t = false;
+						ResetDobles();
 						listapiezas.peones_negros[raton.peon_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Peón negro " << raton.peon_negro_seleccionado << " a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
@@ -196,6 +203,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_torreN = { raton.destino };
 						jaque();
 						t = false;
+						ResetDobles();
 						listapiezas.torres_negras[raton.torre_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Torre negra " << raton.torre_negra_seleccionada << " a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
@@ -207,6 +215,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_caballoN = { raton.destino };
 						jaque();
 						t = false;
+						ResetDobles();
 						listapiezas.caballos_negros[raton.caballo_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Caballo negro " << raton.caballo_negro_seleccionado << " a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
@@ -218,6 +227,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_alfilN = { raton.destino };
 						jaque();
 						t = false;
+						ResetDobles();
 						listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Alfil negro " << raton.alfil_negro_seleccionado << " a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
@@ -228,6 +238,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					//if (!casilla_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey() && !turnos()) {
 						pos_reyNegro = { raton.destino };
 						t = false;
+						ResetDobles();
 						listapiezas.rey_negro.setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Rey negro a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
@@ -237,6 +248,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					if (!casilla_negra_ocupada && raton.reina_negra_seleccionada != -1 && (movimiento_alfil() || movimiento_torre())){
 					//if (!casilla_ocupada && raton.reina_negra_seleccionada != -1 && ( movimiento_alfil()|| movimiento_torre() ) && !turnos()) {
 						t = false;
+						ResetDobles();
 						listapiezas.reina_negra[raton.reina_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Reina negra a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
@@ -1040,14 +1052,14 @@ void Movimientos::piezaAmenaza(int i) {
 }
 bool Movimientos::celdaAmenazada(int n){
 
-	//en el turno de las blancas, nos interesa saber las celdas amenazadas por las negras
+	//en el turno de las blancas, nos interesa saber si nuestra celda está amenazada por las negras
 	if (t)
 		if (casillas_amenazadas_por_negras[n]) {
 			cout << "La Casilla " << tablero.getCasilla_Ind(n).getCodigo() << " está siendo amenazada " << endl;
 			return true;
 		}
 		else return false;
-	//en el turno de las negras, nos interesa saber las celdas amenazadas por las blancas
+	//en el turno de las negras, nos interesa saber si nuestra celda está amenazada por las blancas
 	else if (t == 0)
 		if (casillas_amenazadas_por_blancas[n]) {
 			cout << "La Casilla " << tablero.getCasilla_Ind(n).getCodigo() << " está siendo amenazada " << endl;
@@ -1055,6 +1067,53 @@ bool Movimientos::celdaAmenazada(int n){
 		}
 		else return false;
 }
+
+//Codigo para activar la bandera de pieza movida, para evaluar enroques
+
+void Movimientos::BanderasMovimiento() {
+	for (int i = 0; i < 48; i++) {
+		if ((i == 8) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(0).getPos().x
+			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(0).getPos().y))
+				listapiezas.piezas[i].setMovido();//torreBlancaIzq
+
+		if ((i == 9) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(7).getPos().x
+			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(7).getPos().y))
+				listapiezas.piezas[i].setMovido();//TorreBlancaDer
+
+		if ((i == 14) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(4).getPos().x
+			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(4).getPos().y))
+				listapiezas.piezas[i].setMovido();//ReyBlanco
+
+		if ((i == 24) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(56).getPos().x
+			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(56).getPos().y))
+				listapiezas.piezas[i].setMovido();//TorreNegraIzq
+
+		if ((i == 25) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(63).getPos().x
+			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(63).getPos().y))
+				listapiezas.piezas[i].setMovido();//TorreNegraDer
+
+		if ((i == 30) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(60).getPos().x
+			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(60).getPos().y))
+				listapiezas.piezas[i].setMovido();//ReyNegro
+
+	}
+}
+
+void Movimientos::ResetDobles() {
+	if (turnos()) { //Resetea la bandera del último movivimiento de salida doble de peón BLANCO
+		for (int i = 0; i < 8; i++) { 
+			listapiezas.piezas[i].resetDoble();
+		}
+	}
+	else { //Resetea la bandera del último movivimiento de salida doble de peón NEGRO
+		for (int i = 8; i < 16; i++) { 
+			listapiezas.piezas[i].resetDoble();
+		}
+	}
+	// Hay que cerciorarse que la llamada a la función se llama en el lugar adecuado
+}
+
+
 
 /*////float  PosX, PosY; //coordenadas de la celda que va a evaluar las casillas que se amenazan desde ahí
 	//for (int i = 0; i < 8; i++) {  //peones blancos

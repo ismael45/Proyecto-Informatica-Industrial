@@ -55,5 +55,6 @@ public:
 	bool aux_ExisteCeldaSinAliado(int i, int indice, float xx, float yy);
 	void aux_DiscriminaAmenaza(int i, int indice);
 
-	
+	void ResetDobles();
+	void BanderasMovimiento();
 };
