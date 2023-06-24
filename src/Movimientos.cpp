@@ -60,32 +60,63 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > tablero.getPos_Casilla(i).x - tolerancia &&
 					posX < tablero.getPos_Casilla(i).x + tolerancia &&
 					posY > tablero.getPos_Casilla(i).y - tolerancia &&
-					posY < tablero.getPos_Casilla(i).y + tolerancia) 
+					posY < tablero.getPos_Casilla(i).y + tolerancia)
 				{
 					raton.casilla_seleccionada = i;
 					raton.destino = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
 					//cout << raton.destino.x << ", " << raton.destino.y << endl;
 
+
 					// Verificar si la casilla seleccionada está ocupada por otra pieza
-					bool casilla_ocupada = false;
-					for (int j = 0; j < 32; j++) {
+					bool casilla_blanca_ocupada = false;
+					bool casilla_negra_ocupada = false;
+					for (int j = 0; j < 16; j++) {
 						if (raton.pieza_seleccionada != j &&
 							raton.destino.x == listapiezas.piezas[j].getPos().x &&
 							raton.destino.y == listapiezas.piezas[j].getPos().y) {
 							//set_casillaOcupada();
-							casilla_ocupada = true;
-							raton.origen= { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
+							casilla_blanca_ocupada = true;
+							raton.origen = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
 							//cout << "Origen:" << raton.origen.x << "," << raton.origen.y << endl;
 							break;
 						}
-						
+
 					}
+
+					for (int j = 16; j < 32; j++) {
+						if (raton.pieza_seleccionada != j &&
+							raton.destino.x == listapiezas.piezas[j].getPos().x &&
+							raton.destino.y == listapiezas.piezas[j].getPos().y) {
+							//set_casillaOcupada();
+							casilla_negra_ocupada = true;
+							raton.origen = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
+							//cout << "Origen:" << raton.origen.x << "," << raton.origen.y << endl;
+							break;
+						}
+
+					}
+					//// Verificar si la casilla seleccionada está ocupada por otra pieza
+					//bool casilla_ocupada = false;
+					//for (int j = 0; j < 32; j++) {
+					//	if (raton.pieza_seleccionada != j &&
+					//		raton.destino.x == listapiezas.piezas[j].getPos().x &&
+					//		raton.destino.y == listapiezas.piezas[j].getPos().y) {
+					//		//set_casillaOcupada();
+					//		casilla_ocupada = true;
+					//		raton.origen= { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
+					//		//cout << "Origen:" << raton.origen.x << "," << raton.origen.y << endl;
+					//		break;
+					//	}
+					//	
+					//}
+
 
 					//PIEZAS BLANCAS//
 
 
 					// Realizar el movimiento del peón si la casilla no está ocupada
-					if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon_blanco()&& turnos()) {
+					if (!casilla_blanca_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon_blanco()) {
+						//if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon_blanco()&& turnos()) {
 						pos_peonB = { raton.destino };
 						jaque();
 						t = true;
@@ -95,7 +126,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento de la torre si la casilla no está ocupada
-					if (!casilla_ocupada && raton.torre_blanca_seleccionada != -1 && movimiento_torre()&& turnos()) {
+					if (!casilla_blanca_ocupada && raton.torre_blanca_seleccionada != -1 && movimiento_torre()) {
+						//if (!casilla_ocupada && raton.torre_blanca_seleccionada != -1 && movimiento_torre()&& turnos()) {
 						pos_torreB = { raton.destino };
 						jaque();
 						t = true;
@@ -105,7 +137,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento del caballo blanco si la casilla no está ocupada
-					if (!casilla_ocupada && raton.caballo_blanco_seleccionado != -1 && movimiento_caballo() && turnos()) {
+					if (!casilla_blanca_ocupada && raton.caballo_blanco_seleccionado != -1 && movimiento_caballo()) {
+						//if (!casilla_ocupada && raton.caballo_blanco_seleccionado != -1 && movimiento_caballo() && turnos()) {
 						pos_caballoB = { raton.destino };
 						jaque();
 						t = true;
@@ -115,7 +148,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento del alfil blanco si la casilla no está ocupada
-					if (!casilla_ocupada && raton.alfil_blanco_seleccionado != -1 && movimiento_alfil() && turnos()) {
+					if (!casilla_blanca_ocupada && raton.alfil_blanco_seleccionado != -1 && movimiento_alfil()) {
+						//if (!casilla_ocupada && raton.alfil_blanco_seleccionado != -1 && movimiento_alfil() && turnos()) {
 						pos_alfilB = { raton.destino };
 						jaque();
 						t = true;
@@ -125,7 +159,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento del rey blanco si la casilla no está ocupada
-					if (!casilla_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey() && turnos()) {
+					if (!casilla_blanca_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey()) {
+						//if (!casilla_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey() && turnos()) {
 						pos_reyBlanco = { raton.destino };
 						t = true;
 						listapiezas.rey_blanco.setPos(raton.destino.x, raton.destino.y);
@@ -134,7 +169,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento de la reina blanca si la casilla no está ocupada
-					if (!casilla_ocupada && raton.reina_blanca_seleccionada != -1 && (movimiento_alfil() || movimiento_torre()) && turnos()) {
+					if (!casilla_blanca_ocupada && raton.reina_blanca_seleccionada != -1 && (movimiento_alfil() || movimiento_torre())) {
+						//if (!casilla_ocupada && raton.reina_blanca_seleccionada != -1 && (movimiento_alfil() || movimiento_torre()) && turnos()) {
 						t = true;
 						listapiezas.reina_blanca[raton.reina_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Reina blanca a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
@@ -144,7 +180,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					//PIEZAS NEGRAS//
 
 					// Realizar el movimiento del peón negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.peon_negro_seleccionado != -1 && movimiento_peon_negro() && !turnos()) {
+					if (!casilla_negra_ocupada && raton.peon_negro_seleccionado != -1 && movimiento_peon_negro()) {
+						//if (!casilla_ocupada && raton.peon_negro_seleccionado != -1 && movimiento_peon_negro() && !turnos()) {
 						pos_peonN = { raton.destino };
 						jaque();
 						t = false;
@@ -154,7 +191,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento de la torre negra si la casilla no está ocupada
-					if (!casilla_ocupada && raton.torre_negra_seleccionada != -1 && movimiento_torre()&&!turnos()) {
+					if (!casilla_negra_ocupada && raton.torre_negra_seleccionada != -1 && movimiento_torre()) {
+						//if (!casilla_ocupada && raton.torre_negra_seleccionada != -1 && movimiento_torre()&&!turnos()) {
 						pos_torreN = { raton.destino };
 						jaque();
 						t = false;
@@ -164,7 +202,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento del caballo negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()&&!turnos()) {
+					if (!casilla_negra_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()){
+					 //if (!casilla_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()&&!turnos()) {
 						pos_caballoN = { raton.destino };
 						jaque();
 						t = false;
@@ -174,7 +213,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento del alfil negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()&&!turnos()) {
+					if (!casilla_negra_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()){
+					//if (!casilla_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()&&!turnos()) {
 						pos_alfilN = { raton.destino };
 						jaque();
 						t = false;
@@ -184,7 +224,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento del rey negro si la casilla no está ocupada
-					if (!casilla_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey() && !turnos()) {
+					if (!casilla_negra_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey()){
+					//if (!casilla_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey() && !turnos()) {
 						pos_reyNegro = { raton.destino };
 						t = false;
 						listapiezas.rey_negro.setPos(raton.destino.x, raton.destino.y);
@@ -193,7 +234,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento de la reina negra si la casilla no está ocupada
-					if (!casilla_ocupada && raton.reina_negra_seleccionada != -1 && ( movimiento_alfil()|| movimiento_torre() ) && !turnos()) {
+					if (!casilla_negra_ocupada && raton.reina_negra_seleccionada != -1 && (movimiento_alfil() || movimiento_torre())){
+					//if (!casilla_ocupada && raton.reina_negra_seleccionada != -1 && ( movimiento_alfil()|| movimiento_torre() ) && !turnos()) {
 						t = false;
 						listapiezas.reina_negra[raton.reina_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						cout << "Movimiento realizado: Reina negra a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
@@ -222,7 +264,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.peones_blancos[i].getPos().x - tolerancia &&
 					posX < listapiezas.peones_blancos[i].getPos().x + tolerancia &&
 					posY > listapiezas.peones_blancos[i].getPos().y - tolerancia &&
-					posY < listapiezas.peones_blancos[i].getPos().y + tolerancia) {
+					posY < listapiezas.peones_blancos[i].getPos().y + tolerancia && turnos())  {
 					if (peon_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo peón: deseleccionar
 						raton.peon_blanco_seleccionado = -1;
@@ -245,7 +287,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.torres_blancas[i].getPos().x - tolerancia &&
 					posX < listapiezas.torres_blancas[i].getPos().x + tolerancia &&
 					posY > listapiezas.torres_blancas[i].getPos().y - tolerancia &&
-					posY < listapiezas.torres_blancas[i].getPos().y + tolerancia) {
+					posY < listapiezas.torres_blancas[i].getPos().y + tolerancia && turnos()) {
 					if (torre_seleccionada_previa == i) {
 						// Hacer clic por segunda vez en la misma torre: deseleccionar
 						raton.torre_blanca_seleccionada = -1;
@@ -268,7 +310,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.caballos_blancos[i].getPos().x - tolerancia &&
 					posX < listapiezas.caballos_blancos[i].getPos().x + tolerancia &&
 					posY > listapiezas.caballos_blancos[i].getPos().y - tolerancia &&
-					posY < listapiezas.caballos_blancos[i].getPos().y + tolerancia) {
+					posY < listapiezas.caballos_blancos[i].getPos().y + tolerancia && turnos()) {
 					if (caballo_blanco_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo caballo blanco: deseleccionar
 						raton.caballo_blanco_seleccionado = -1;
@@ -291,7 +333,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.alfiles_blancos[i].getPos().x - tolerancia &&
 					posX < listapiezas.alfiles_blancos[i].getPos().x + tolerancia &&
 					posY > listapiezas.alfiles_blancos[i].getPos().y - tolerancia &&
-					posY < listapiezas.alfiles_blancos[i].getPos().y + tolerancia) {
+					posY < listapiezas.alfiles_blancos[i].getPos().y + tolerancia && turnos()) {
 					if (alfil_blanco_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo alfil blanco: deseleccionar
 						raton.alfil_blanco_seleccionado = -1;
@@ -314,7 +356,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			if (posX > listapiezas.rey_blanco.getPos().x - tolerancia &&
 				posX < listapiezas.rey_blanco.getPos().x + tolerancia &&
 				posY > listapiezas.rey_blanco.getPos().y - tolerancia &&
-				posY < listapiezas.rey_blanco.getPos().y + tolerancia) {
+				posY < listapiezas.rey_blanco.getPos().y + tolerancia && turnos()) {
 				if (rey_blanco_seleccionado_previo == 0) {
 					// Hacer clic por segunda vez en el mismo rey blanco: deseleccionar
 					raton.rey_blanco_seleccionado = -1;
@@ -337,7 +379,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.reina_blanca[i].getPos().x - tolerancia &&
 					posX < listapiezas.reina_blanca[i].getPos().x + tolerancia &&
 					posY > listapiezas.reina_blanca[i].getPos().y - tolerancia &&
-					posY < listapiezas.reina_blanca[i].getPos().y + tolerancia) {
+					posY < listapiezas.reina_blanca[i].getPos().y + tolerancia && turnos()) {
 					if (reina_blanca_seleccionada_previa == 0) {
 						// Hacer clic por segunda vez en la misma reina blanca: deseleccionar
 						raton.reina_blanca_seleccionada = -1;
@@ -363,7 +405,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.peones_negros[i].getPos().x - tolerancia &&
 					posX < listapiezas.peones_negros[i].getPos().x + tolerancia &&
 					posY > listapiezas.peones_negros[i].getPos().y - tolerancia &&
-					posY < listapiezas.peones_negros[i].getPos().y + tolerancia) {
+					posY < listapiezas.peones_negros[i].getPos().y + tolerancia && !turnos()) {
 					if (peon_negro_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo peón negro: deseleccionar
 						raton.peon_negro_seleccionado = -1;
@@ -386,7 +428,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.torres_negras[i].getPos().x - tolerancia &&
 					posX < listapiezas.torres_negras[i].getPos().x + tolerancia &&
 					posY > listapiezas.torres_negras[i].getPos().y - tolerancia &&
-					posY < listapiezas.torres_negras[i].getPos().y + tolerancia) {
+					posY < listapiezas.torres_negras[i].getPos().y + tolerancia && !turnos()) {
 					if (torre_negra_seleccionada_previa == i) {
 						// Hacer clic por segunda vez en la misma torre negra: deseleccionar
 						raton.torre_negra_seleccionada = -1;
@@ -409,7 +451,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.caballos_negros[i].getPos().x - tolerancia &&
 					posX < listapiezas.caballos_negros[i].getPos().x + tolerancia &&
 					posY > listapiezas.caballos_negros[i].getPos().y - tolerancia &&
-					posY < listapiezas.caballos_negros[i].getPos().y + tolerancia) {
+					posY < listapiezas.caballos_negros[i].getPos().y + tolerancia && !turnos()) {
 					if (caballo_negro_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo caballo negro: deseleccionar
 						raton.caballo_negro_seleccionado = -1;
@@ -432,7 +474,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.alfiles_negros[i].getPos().x - tolerancia &&
 					posX < listapiezas.alfiles_negros[i].getPos().x + tolerancia &&
 					posY > listapiezas.alfiles_negros[i].getPos().y - tolerancia &&
-					posY < listapiezas.alfiles_negros[i].getPos().y + tolerancia) {
+					posY < listapiezas.alfiles_negros[i].getPos().y + tolerancia && !turnos()) {
 					if (alfil_negro_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo alfil negro: deseleccionar
 						raton.alfil_negro_seleccionado = -1;
@@ -455,7 +497,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			if (posX > listapiezas.rey_negro.getPos().x - tolerancia &&
 				posX < listapiezas.rey_negro.getPos().x + tolerancia &&
 				posY > listapiezas.rey_negro.getPos().y - tolerancia &&
-				posY < listapiezas.rey_negro.getPos().y + tolerancia) {
+				posY < listapiezas.rey_negro.getPos().y + tolerancia && !turnos()) {
 				if (rey_negro_seleccionado_previo == 0) {
 					// Hacer clic por segunda vez en el mismo rey negro: deseleccionar
 					raton.rey_negro_seleccionado = -1;
@@ -478,7 +520,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.reina_negra[i].getPos().x - tolerancia &&
 					posX < listapiezas.reina_negra[i].getPos().x + tolerancia &&
 					posY > listapiezas.reina_negra[i].getPos().y - tolerancia &&
-					posY < listapiezas.reina_negra[i].getPos().y + tolerancia) {
+					posY < listapiezas.reina_negra[i].getPos().y + tolerancia && !turnos()) {
 					if (reina_negra_seleccionada_previa == 0) {
 						// Hacer clic por segunda vez en la misma reina negra: deseleccionar
 						raton.reina_negra_seleccionada = -1;
@@ -586,10 +628,15 @@ bool Movimientos::movimiento_alfil()
 
 bool Movimientos::movimiento_rey()
 {
-		if (raton.destino.x == raton.origen.x + 4 || raton.destino.y == raton.origen.y + 4 || 
-			raton.destino.x == raton.origen.x - 4 || raton.destino.y == raton.origen.y - 4) {
-			return true;
-		}
+	int diferencia_x = abs(raton.destino.x - raton.origen.x);
+	int diferencia_y = abs(raton.destino.y - raton.origen.y);
+
+	if ((diferencia_x == 4 && diferencia_y == 0) ||
+		(diferencia_x == 0 && diferencia_y == 4) ||
+		(diferencia_x == 4 && diferencia_y == 4)) {
+		return true;
+	}
+
 	return false;
 }
 
