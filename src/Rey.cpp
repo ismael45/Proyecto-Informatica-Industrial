@@ -25,21 +25,21 @@ void Rey::dibuja() {
 }
 
 
-bool Rey::checkJaque() {
-	if (enJaque) return true;
-}
-void Rey::setJaque() {
-	enJaque = true;
-}
-void Rey::resetJaque() {
-	enJaque = false;
-}
-
-
-bool Rey::checkMovido() {
-	if (movido) return true;
-}
-
-void Rey::setMovido() {
-	movido = true;
-}
+//bool Rey::checkJaque() {
+//	if (enJaque) return true;
+//}
+//void Rey::setJaque() {
+//	enJaque = true;
+//}
+//void Rey::resetJaque() {
+//	enJaque = false;
+//}
+//
+//
+//bool Rey::checkMovido() {
+//	if (movido) return true;
+//}
+//
+//void Rey::setMovido() {
+//	movido = true;
+//}

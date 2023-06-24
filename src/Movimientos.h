@@ -52,7 +52,7 @@ public:
 
 	bool celdaAmenazada(int i); //se le pasa el numero de celda, y devuelve estado de "peligro inminente" o "calma"
 
-	bool aux_ExisteCeldaConEnemigo(int i, int indice, float xx, float yy);
+	bool aux_ExisteCeldaSinAliado(int i, int indice, float xx, float yy);
 	void aux_DiscriminaAmenaza(int i, int indice);
 
 	

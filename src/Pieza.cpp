@@ -83,3 +83,37 @@ void Pieza::mover_derecha() {
     setPos(x, y);
 }
 
+//Metodos para la captura "En Passant"
+
+void Pieza::setDoble() {
+	SalidaDobleReciente = true;
+}
+void Pieza::resetDoble() {
+	SalidaDobleReciente = false;
+}
+bool Pieza::getDoble() {
+	if (SalidaDobleReciente)
+        return true;
+}
+
+//Métodos para el enroque y jaque
+
+bool Pieza::checkJaque() {
+    if (enJaque) return true;
+}
+void Pieza::setJaque() {
+    enJaque = true;
+}
+void Pieza::resetJaque() {
+    enJaque = false;
+}
+    
+    
+bool Pieza::checkMovido() {
+    if (movido) return true;
+}
+    
+void Pieza::setMovido() {
+    movido = true;
+}
+
