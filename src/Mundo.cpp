@@ -17,8 +17,6 @@ void Mundo::rotarOjo()
 }
 void Mundo::dibuja()
 {
-
-
 	gluLookAt(0.0, 0.0, 40,  // posicion del ojo
 		0.0, 0, 0.0,      // hacia que punto mira  (0,0,0) 
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
@@ -34,7 +32,6 @@ void Mundo::dibuja()
 
 	movimientos.dibuja();
 
-	
 
 	glFlush();
 	//glutSwapBuffers();

@@ -25,6 +25,17 @@ void Peon::dibuja() {
 }
 
 
+//void Peon::setDoble() {
+//	SalidaDobleReciente = true;
+//}
+//void Peon::resetDoble() {
+//	SalidaDobleReciente = false;
+//}
+//bool Peon::getDoble() {
+//	if (SalidaDobleReciente)
+// return true;
+//}
+
 
 
 

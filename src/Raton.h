@@ -13,7 +13,8 @@ struct Raton {
 
 
 	int casilla_seleccionada = -1;
-
+	//int casilla_vacia_seleccionada = -1; ??
+	
 	int pieza_seleccionada = -1;
 
 	int peon_blanco_seleccionado = -1;
@@ -28,4 +29,5 @@ struct Raton {
 	int rey_negro_seleccionado = -1;
 	int reina_blanca_seleccionada = -1;
 	int reina_negra_seleccionada = -1;
+
 };

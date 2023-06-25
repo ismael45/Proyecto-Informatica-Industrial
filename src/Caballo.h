@@ -5,6 +5,6 @@ class Caballo : public Pieza
 {
 
 public:
-    Caballo() : Pieza() {}
+    Caballo() : Pieza() { setValor(3.0f); }
     void dibuja();
 };

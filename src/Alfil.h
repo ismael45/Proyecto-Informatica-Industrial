@@ -5,7 +5,7 @@ class Alfil : public Pieza
 {
 public:
 public:
-    Alfil() : Pieza() {}
+    Alfil() : Pieza() { setValor(3.3f); }
     void dibuja();
 
 };
