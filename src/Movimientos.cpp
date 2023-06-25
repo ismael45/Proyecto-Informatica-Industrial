@@ -866,33 +866,66 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 				//hacia la derecha
 				for (int xder = 1; xder < 8; xder++) {
 					indice = j + 1 * xder;
+					bool salto = 0;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
 					{
 						aux_DiscriminaQuienAmenaza(i, indice);
-						/*for (int obj = 0; obj < 48; obj++) {
-
-						}*/
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+							&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+							//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto=true;
+						}
 					}
-
+					if (salto) break;
 				}
 				//hacia la izquierda
 				for (int xizq = 1; xizq < 8; xizq++) {
 					indice = j - 1 * xizq;
-					if ( aux_ExisteCeldaSinAliado(i, indice, xx, yy) )
+					bool salto = 0;
+					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 				//hacia arriba
 				for (int y_arr = 1; y_arr < 8; y_arr++) {
 					indice = j +8 * y_arr;
-					if ( aux_ExisteCeldaSinAliado(i, indice, xx, yy) )
-						aux_DiscriminaQuienAmenaza(i, indice);					
+					bool salto = 0;
+					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
+						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 				//hacia abajo
 				for (int y_aba = 1; y_aba < 8; y_aba++) {
 					indice = j - 8 * y_aba;
-					if ( aux_ExisteCeldaSinAliado(i, indice, xx, yy) )
+					bool salto = 0;
+					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
-				
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 			}
 			
@@ -930,30 +963,66 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 				//hacia nor-este
 				for (int NE = 1; NE < 8; NE++) {
 					indice = j + 18 * NE;
-					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy)) {
+					bool salto = 0;
+					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
 					}
+					if (salto) break;
 				}
 				//hacia nor-oeste
 				for (int NO = 1; NO < 8; NO++) {
 					indice = j + 18 * NO;
-					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy)) {
+					bool salto = 0;
+					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
 					}
+					if (salto) break;
 				}
 				//hacia sur-este
 				for (int SE = 1; SE < 8; SE++) {
 					indice = j + 18 * SE;
-					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy)) {
+					bool salto = 0;
+					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
 					}
+					if (salto) break;
 				}
 				//hacia sur-oeste
 				for (int SO = 1; SO < 8; SO++) {
 					indice = j + 18 * SO;
-					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy)) {
+					bool salto = 0;
+					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
 					}
+					if (salto) break;
 				}
 			}
 
@@ -1006,56 +1075,136 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 				//amenaza sup izq
 				for (int NO = 1; NO < 8; NO++) {
 					indice = j + 7 * NO;
+					bool salto = 0;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 
 				//amenaza sup der
 				for (int NE = 1; NE < 8; NE++) {
 					indice = j + 9 * NE;
+					bool salto = 0;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 
 				//amenaza inf izq
 				for (int SO = 1; SO < 8; SO++) {
 					indice = j - 9 * SO;
+					bool salto = 0;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 				
 				//amenaza inf der
 				for (int SE = 1; SE < 8; SE++) {
 					indice = j - 7 * SE;
+					bool salto = 0;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 
 				//amenaza derecha
 				for (int EE = 1; EE < 8; EE++) {
 					indice = j + 1 * EE;
+					bool salto = 0;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 
 				//amenaza izquierda
 				for (int OO = 1; OO < 8; OO++) {
 					indice = j - 1 * OO;
+					bool salto = 0;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 
 				//amenaza arriba
 				for (int NN = 1; NN < 8; NN++) {
 					indice = j + 8 * NN;
+					bool salto = 0;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 				//amenaza abajo
 				for (int SS = 1; SS < 8; SS++) {
 					indice = j - 8 * SS;
+					bool salto = 0;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
 						aux_DiscriminaQuienAmenaza(i, indice);
+						for (int obj = 0; obj < 48; obj++) {
+							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
+						}
+					}
+					if (salto) break;
 				}
 			
 			}	
