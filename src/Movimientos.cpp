@@ -82,13 +82,36 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						}
 
 					}
-
 					for (int j = 16; j < 32; j++) {
 						if (raton.pieza_seleccionada != j &&
 							raton.destino.x == listapiezas.piezas[j].getPos().x &&
 							raton.destino.y == listapiezas.piezas[j].getPos().y) {
 							//set_casillaOcupada();
 							casilla_negra_ocupada = true;
+							raton.origen = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
+							//cout << "Origen:" << raton.origen.x << "," << raton.origen.y << endl;
+							break;
+						}
+
+					}
+					for (int j = 32; j < 40; j++) {
+						if (raton.pieza_seleccionada != j &&
+							raton.destino.x == listapiezas.piezas[j].getPos().x &&
+							raton.destino.y == listapiezas.piezas[j].getPos().y) {
+							//set_casillaOcupada();
+							casilla_blanca_ocupada = true;
+							raton.origen = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
+							//cout << "Origen:" << raton.origen.x << "," << raton.origen.y << endl;
+							break;
+						}
+
+					}
+					for (int j = 40; j < 48; j++) {
+						if (raton.pieza_seleccionada != j &&
+							raton.destino.x == listapiezas.piezas[j].getPos().x &&
+							raton.destino.y == listapiezas.piezas[j].getPos().y) {
+							//set_casillaOcupada();
+							casilla_blanca_ocupada = true;
 							raton.origen = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
 							//cout << "Origen:" << raton.origen.x << "," << raton.origen.y << endl;
 							break;
@@ -1310,13 +1333,13 @@ void Movimientos::enroqueLargo(int i) {
 }
 
 
-void Movimientos::alCementerio(int iv) {
-	if (iv == 0)
-		listapiezas.piezas[iv].setPos(14, 14);
-}
-void Movimientos::captura(Pieza atacante, Pieza victima) {
-
-}
-void Movimientos::captura(int indice, float destino_x, float destino_y) {
-
-}
+//void Movimientos::alCementerio(int iv) {
+//	if (iv == 0)
+//		listapiezas.piezas[iv].setPos(14, 14);
+//}
+//void Movimientos::captura(Pieza atacante, Pieza victima) {
+//
+//}
+//void Movimientos::captura(int indice, float destino_x, float destino_y) {
+//
+//}
