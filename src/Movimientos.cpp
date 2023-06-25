@@ -759,7 +759,7 @@ bool Movimientos::aux_ExisteCeldaSinAliado(int i, int indice, float xx, float yy
 		if (listapiezas.piezas[indice].getColor() != listapiezas.piezas[i].getColor())  //Si el color es de oponente o no hay color...
 			return true;
 }
-void Movimientos::aux_DiscriminaAmenaza(int i, int indice) {
+void Movimientos::aux_DiscriminaQuienAmenaza(int i, int indice) {
 	if (listapiezas.piezas[i].getColor() == 1)
 		casillas_amenazadas_por_blancas[indice] = true;
 	else if (listapiezas.piezas[i].getColor() == 2)
@@ -774,9 +774,9 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 		float xx=0, yy=0;
 		//cuando la posición de la pieza elegida coincida con la posición de la casilla, se ubica  en el tablero la pieza que queremos estudiar...
 		if ((listapiezas.piezas[i].getPos().x == tablero.getCasilla_Ind(j).getPos().x)
-			&& (listapiezas.piezas[i].getPos().y == tablero.getCasilla_Ind(j).getPos().y))
-		{
-		//y se procede, en función de qué pieza sea, a activar como amenazadas las casillas de influencia
+		&& (listapiezas.piezas[i].getPos().y == tablero.getCasilla_Ind(j).getPos().y)
+		&& listapiezas.piezas[i].checkViviente() ) {
+		// se procede, en función de qué pieza sea, a activar como amenazadas las casillas de influencia
 		
 		
 			//peones blancos
@@ -866,26 +866,32 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 				//hacia la derecha
 				for (int xder = 1; xder < 8; xder++) {
 					indice = j + 1 * xder;
-					if ( aux_ExisteCeldaSinAliado(i, indice, xx, yy) )
-						aux_DiscriminaAmenaza(i, indice);
+					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
+					{
+						aux_DiscriminaQuienAmenaza(i, indice);
+						/*for (int obj = 0; obj < 48; obj++) {
+
+						}*/
+					}
+
 				}
 				//hacia la izquierda
 				for (int xizq = 1; xizq < 8; xizq++) {
 					indice = j - 1 * xizq;
 					if ( aux_ExisteCeldaSinAliado(i, indice, xx, yy) )
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 				}
 				//hacia arriba
 				for (int y_arr = 1; y_arr < 8; y_arr++) {
 					indice = j +8 * y_arr;
 					if ( aux_ExisteCeldaSinAliado(i, indice, xx, yy) )
-						aux_DiscriminaAmenaza(i, indice);					
+						aux_DiscriminaQuienAmenaza(i, indice);					
 				}
 				//hacia abajo
 				for (int y_aba = 1; y_aba < 8; y_aba++) {
 					indice = j - 8 * y_aba;
 					if ( aux_ExisteCeldaSinAliado(i, indice, xx, yy) )
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 				
 				}
 			}
@@ -894,28 +900,28 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 			if (i == 10 || i == 11 || i == 26 || i == 27) {
 				indice = j + 6;		//Salto a la posición de las ~10:00
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 				indice = j + 15;	//Salto a la posición de las ~11:00
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 				indice = j + 17;	//Salto a la posición de la ~01:00
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 				indice = j + 10;	//Salto a la posición de las ~02:00
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 				indice = j - 6;		//Salto a la posición de las ~04:00
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 				indice = j - 15;	//Salto a la posición de las ~05:00
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 				indice = j - 17;	//Salto a la posición de las ~07:00
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 				indice = j - 10;	//Salto a la posición de las ~08:00
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 
 			}
 
@@ -925,28 +931,28 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 				for (int NE = 1; NE < 8; NE++) {
 					indice = j + 18 * NE;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy)) {
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 					}
 				}
 				//hacia nor-oeste
 				for (int NO = 1; NO < 8; NO++) {
 					indice = j + 18 * NO;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy)) {
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 					}
 				}
 				//hacia sur-este
 				for (int SE = 1; SE < 8; SE++) {
 					indice = j + 18 * SE;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy)) {
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 					}
 				}
 				//hacia sur-oeste
 				for (int SO = 1; SO < 8; SO++) {
 					indice = j + 18 * SO;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy)) {
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 					}
 				}
 			}
@@ -956,42 +962,42 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 				//amenaza sup izq
 				indice = j + 7;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 
 				//amenaza sup der
 				indice = j + 9;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 
 				//amenaza inf izq
 				indice = j - 9;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 
 				//amenaza inf der
 				indice = j - 7;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 				
 				//amenaza derecha
 				indice = j + 1;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 
 				//amenaza izquierda
 				indice = j - 1;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 
 				//amenaza arriba
 				indice = j + 8;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 
 				//amenaza abajo
 				indice = j - 8;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-					aux_DiscriminaAmenaza(i, indice);
+					aux_DiscriminaQuienAmenaza(i, indice);
 			}
 
 			//reinas
@@ -1001,55 +1007,55 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 				for (int NO = 1; NO < 8; NO++) {
 					indice = j + 7 * NO;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 				}
 
 				//amenaza sup der
 				for (int NE = 1; NE < 8; NE++) {
 					indice = j + 9 * NE;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 				}
 
 				//amenaza inf izq
 				for (int SO = 1; SO < 8; SO++) {
 					indice = j - 9 * SO;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 				}
 				
 				//amenaza inf der
 				for (int SE = 1; SE < 8; SE++) {
 					indice = j - 7 * SE;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 				}
 
 				//amenaza derecha
 				for (int EE = 1; EE < 8; EE++) {
 					indice = j + 1 * EE;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 				}
 
 				//amenaza izquierda
 				for (int OO = 1; OO < 8; OO++) {
 					indice = j - 1 * OO;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 				}
 
 				//amenaza arriba
 				for (int NN = 1; NN < 8; NN++) {
 					indice = j + 8 * NN;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 				}
 				//amenaza abajo
 				for (int SS = 1; SS < 8; SS++) {
 					indice = j - 8 * SS;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
-						aux_DiscriminaAmenaza(i, indice);
+						aux_DiscriminaQuienAmenaza(i, indice);
 				}
 			
 			}	

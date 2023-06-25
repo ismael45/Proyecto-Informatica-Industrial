@@ -53,7 +53,7 @@ public:
 	bool checkCasillaAmenazada(int i); //se le pasa el numero de celda, y devuelve estado de "peligro inminente"=1 o "calma"=0
 
 	bool aux_ExisteCeldaSinAliado(int i, int indice, float xx, float yy);
-	void aux_DiscriminaAmenaza(int i, int indice);
+	void aux_DiscriminaQuienAmenaza(int i, int indice);
 
 	void ResetDobles();
 	void BanderasMovimiento();
