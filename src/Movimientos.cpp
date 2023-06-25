@@ -1333,13 +1333,96 @@ void Movimientos::enroqueLargo(int i) {
 }
 
 
-//void Movimientos::alCementerio(int iv) {
-//	if (iv == 0)
-//		listapiezas.piezas[iv].setPos(14, 14);
-//}
+void Movimientos::aux_alCementerio(int iv) {
+
+	listapiezas.piezas[iv].resetViviente();
+
+	//Destinos en función de la pieza en cuestión
+	if (iv == 0)		listapiezas.piezas[iv].setPos(22, 8);
+	else if (iv == 1)		listapiezas.piezas[iv].setPos(22, 4);
+	else if (iv == 2)		listapiezas.piezas[iv].setPos(22, 0);
+	else if (iv == 3)		listapiezas.piezas[iv].setPos(22, -4);
+	else if (iv == 4)		listapiezas.piezas[iv].setPos(22, -8);
+	else if (iv == 5)		listapiezas.piezas[iv].setPos(22, -12);
+	else if (iv == 6)		listapiezas.piezas[iv].setPos(22, -16);
+	else if (iv == 7)		listapiezas.piezas[iv].setPos(22, -20);
+	else if (iv == 8)		listapiezas.piezas[iv].setPos(26, -16);
+	else if (iv == 9)		listapiezas.piezas[iv].setPos(26, -12);
+	else if (iv == 10)		listapiezas.piezas[iv].setPos(26, 0);
+	else if (iv == 11)		listapiezas.piezas[iv].setPos(26, 4);
+	else if (iv == 12)		listapiezas.piezas[iv].setPos(26, -8);
+	else if (iv == 13)		listapiezas.piezas[iv].setPos(26, -4);
+	//else if (iv == 14)		listapiezas.piezas[iv].setPos(, );
+	else if (iv == 15)		listapiezas.piezas[iv].setPos(26, -20);
+	else if (iv == 16)		listapiezas.piezas[iv].setPos(-22, 8);
+	else if (iv == 17)		listapiezas.piezas[iv].setPos(-22, 4);
+	else if (iv == 18)		listapiezas.piezas[iv].setPos(-22, 0);
+	else if (iv == 19)		listapiezas.piezas[iv].setPos(-22, -4);
+	else if (iv == 20)		listapiezas.piezas[iv].setPos(-22, -8);
+	else if (iv == 21)		listapiezas.piezas[iv].setPos(-22, -12);
+	else if (iv == 22)		listapiezas.piezas[iv].setPos(-22, -16);
+	else if (iv == 23)		listapiezas.piezas[iv].setPos(-22, -20);
+	else if (iv == 24)		listapiezas.piezas[iv].setPos(-26, -16);
+	else if (iv == 25)		listapiezas.piezas[iv].setPos(-26, -12);
+	else if (iv == 26)		listapiezas.piezas[iv].setPos(-26, 0);
+	else if (iv == 27)		listapiezas.piezas[iv].setPos(-26, 4);
+	else if (iv == 28)		listapiezas.piezas[iv].setPos(-26, -8);
+	else if (iv == 29)		listapiezas.piezas[iv].setPos(-26, -4);
+	//else if (iv == 30)		listapiezas.piezas[iv].setPos(, );
+	else if (iv == 31)		listapiezas.piezas[iv].setPos(-26, -20);
+	else if (iv == 32)		listapiezas.piezas[iv].setPos(30, 8);
+	else if (iv == 33)		listapiezas.piezas[iv].setPos(30, 4);
+	else if (iv == 34)		listapiezas.piezas[iv].setPos(30, 0);
+	else if (iv == 35)		listapiezas.piezas[iv].setPos(30, -4);
+	else if (iv == 36)		listapiezas.piezas[iv].setPos(30, -8);
+	else if (iv == 37)		listapiezas.piezas[iv].setPos(30, -12);
+	else if (iv == 38)		listapiezas.piezas[iv].setPos(30, -16);
+	else if (iv == 39)		listapiezas.piezas[iv].setPos(30, -20);
+	else if (iv == 40)		listapiezas.piezas[iv].setPos(-30, 8);
+	else if (iv == 41)		listapiezas.piezas[iv].setPos(-30, 4);
+	else if (iv == 42)		listapiezas.piezas[iv].setPos(-30, 0);
+	else if (iv == 43)		listapiezas.piezas[iv].setPos(-30, -4);
+	else if (iv == 44)		listapiezas.piezas[iv].setPos(-30, -8);
+	else if (iv == 45)		listapiezas.piezas[iv].setPos(-30, -12);
+	else if (iv == 46)		listapiezas.piezas[iv].setPos(-30, -16);
+	else if (iv == 47)		listapiezas.piezas[iv].setPos(-30, -20);
+    
+	else if (iv == 14) {
+		cout << "Fin del Juego!" << endl;
+		cout << "Ganan las Negras!" << endl;
+	}
+	else if (iv == 30) {
+		cout << "Fin del Juego!" << endl;
+		cout << "Ganan las Blancas!" << endl;
+	}
+}
 //void Movimientos::captura(Pieza atacante, Pieza victima) {
 //
 //}
-//void Movimientos::captura(int indice, float destino_x, float destino_y) {
-//
-//}
+void Movimientos::captura(int indice, float destino_x, float destino_y) {
+	if (listapiezas.piezas[indice].getColor() == 1) {
+		for (int victima = 0; victima < 48; victima++) {
+			if ((listapiezas.piezas[victima].getPos().x == tablero.getCasilla_Pos(destino_x, destino_y).getPos().x)
+				&& (listapiezas.piezas[victima].getPos().y == tablero.getCasilla_Pos(destino_x, destino_y).getPos().y)
+				&& listapiezas.piezas[victima].getColor() == 2) {
+
+				aux_alCementerio(victima);
+				cout << "Pieza Negra Eliminada!" << endl;
+			}
+				
+		}
+	}
+	if (listapiezas.piezas[indice].getColor() == 2) {
+		for (int victima = 0; victima < 48; victima++) {
+			if ((listapiezas.piezas[victima].getPos().x == tablero.getCasilla_Pos(destino_x, destino_y).getPos().x)
+				&& (listapiezas.piezas[victima].getPos().y == tablero.getCasilla_Pos(destino_x, destino_y).getPos().y)
+				&& listapiezas.piezas[victima].getColor() == 1) {
+
+				aux_alCementerio(victima);
+				cout << "Pieza Blanca Eliminada!" << endl;
+			}
+
+		}
+	}
+	
+}
