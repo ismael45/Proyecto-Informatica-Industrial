@@ -57,4 +57,7 @@ public:
 
 	void ResetDobles();
 	void BanderasMovimiento();
+	void enroqueCorto(int i);
+	void enroqueLargo(int i);
+
 };

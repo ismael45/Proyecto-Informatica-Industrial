@@ -587,8 +587,8 @@ void Movimientos::dibuja() {
 	}
 }
 
-//*****************************************************************************************************************************
-bool Movimientos::movimiento_peon_blanco() {//****************************************************************************************
+
+bool Movimientos::movimiento_peon_blanco() {
 	
 		if ( (raton.destino.x == raton.origen.x) && ( (raton.destino.y == raton.origen.y + 4 ) ) )
 		{
@@ -598,11 +598,17 @@ bool Movimientos::movimiento_peon_blanco() {//**********************************
 			&& (raton.origen.y < -8.0f) && (raton.origen.y > -12.0f)))
 		{
 			//activar la bandera de salto doble en el peón movido y..
+			for (int i = 0; i < 8; i++) {
+				if ( listapiezas.piezas[i].getPos().x == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().x
+				&& listapiezas.piezas[i].getPos().y == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().y )
+					listapiezas.piezas[i].setDoble();
+			}
 			return true;
 		}
 	return false;
 }
-bool Movimientos::movimiento_peon_negro() {//****************************************************************************************
+
+bool Movimientos::movimiento_peon_negro() {
 
 
 		if ((raton.destino.x == raton.origen.x) && ((raton.destino.y == raton.origen.y - 4)))
@@ -613,6 +619,12 @@ bool Movimientos::movimiento_peon_negro() {//***********************************
 			&& (raton.origen.y < 12.0f) && (raton.origen.y > 8.0f)))
 		{
 			//activar la bandera de salto doble y..
+
+			for (int i = 8; i < 16; i++) {
+				if (listapiezas.piezas[i].getPos().x == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().x
+					&& listapiezas.piezas[i].getPos().y == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().y)
+					listapiezas.piezas[i].setDoble();
+			}
 			return true;
 		}
 	return false;
@@ -759,7 +771,7 @@ void Movimientos::aux_DiscriminaAmenaza(int i, int indice) {
 
 
 //******************************************************************************************************************
-void Movimientos::piezaAmenaza(int i) {
+void Movimientos::piezaAmenaza(int i)  {
 	for (int j = 0; j < 64; j++) {  //Se recorren todas las casillas del tablero
 		int indice;
 		float xx=0, yy=0;
@@ -1050,7 +1062,7 @@ void Movimientos::piezaAmenaza(int i) {
 
 	}
 }
-bool Movimientos::celdaAmenazada(int n){
+bool Movimientos::celdaAmenazada(int n) {
 
 	//en el turno de las blancas, nos interesa saber si nuestra celda está amenazada por las negras
 	if (t)
@@ -1071,6 +1083,7 @@ bool Movimientos::celdaAmenazada(int n){
 //Codigo para activar la bandera de pieza movida, para evaluar enroques
 
 void Movimientos::BanderasMovimiento() {
+	
 	for (int i = 0; i < 48; i++) {
 		if ((i == 8) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(0).getPos().x
 			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(0).getPos().y))
@@ -1110,10 +1123,40 @@ void Movimientos::ResetDobles() {
 			listapiezas.piezas[i].resetDoble();
 		}
 	}
+
 	// Hay que cerciorarse que la llamada a la función se llama en el lugar adecuado
 }
 
 
+
+void Movimientos::enroqueCorto(int i) {
+	if (i == 14) { //Rey Blanco
+		if (listapiezas.piezas[i].checkMovido()==false && listapiezas.piezas[9].checkMovido() == false) {
+			listapiezas.piezas[i].setPos( tablero.getCasilla_Ind(6).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
+			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(5).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
+		}
+	}
+	if (i == 30) { //Rey Negro
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[25].checkMovido() == false) {
+			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(62).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
+			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(61).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
+		}
+	}
+}
+void Movimientos::enroqueLargo(int i) {
+	if (i == 14) { //Rey Blanco
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[8].checkMovido() == false) {
+			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(2).getPos().x, tablero.getCasilla_Ind(2).getPos().y);
+			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(3).getPos().x, tablero.getCasilla_Ind(3).getPos().y);
+		}
+	}
+	if (i == 30) { //Rey Negro
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[24].checkMovido() == false) {
+			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(58).getPos().x, tablero.getCasilla_Ind(58).getPos().y);
+			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(59).getPos().x, tablero.getCasilla_Ind(59).getPos().y);
+		}
+	}
+}
 
 /*////float  PosX, PosY; //coordenadas de la celda que va a evaluar las casillas que se amenazan desde ahí
 	//for (int i = 0; i < 8; i++) {  //peones blancos
