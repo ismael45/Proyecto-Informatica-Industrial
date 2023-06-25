@@ -546,9 +546,6 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				}
 			}
 			/////////////////////////
-
-
-
 		}
 
 	}
@@ -771,7 +768,7 @@ void Movimientos::aux_DiscriminaAmenaza(int i, int indice) {
 
 
 //******************************************************************************************************************
-void Movimientos::piezaAmenaza(int i)  {
+void Movimientos::piezaAmenazaACasillas(int i)  {
 	for (int j = 0; j < 64; j++) {  //Se recorren todas las casillas del tablero
 		int indice;
 		float xx=0, yy=0;
@@ -824,7 +821,7 @@ void Movimientos::piezaAmenaza(int i)  {
 			}
 
 			//peones negros
-			if (i >= 8 && i < 16)
+			if (i >= 16 && i < 24)
 			{
 				if (j > 7) { //solo hasta penúltima linea
 					
@@ -865,7 +862,7 @@ void Movimientos::piezaAmenaza(int i)  {
 			}
 
 			//torres
-			if (i >= 16 && i < 20) {
+			if (i == 8 || i == 9 || i == 24 || i == 25){
 				//hacia la derecha
 				for (int xder = 1; xder < 8; xder++) {
 					indice = j + 1 * xder;
@@ -882,8 +879,7 @@ void Movimientos::piezaAmenaza(int i)  {
 				for (int y_arr = 1; y_arr < 8; y_arr++) {
 					indice = j +8 * y_arr;
 					if ( aux_ExisteCeldaSinAliado(i, indice, xx, yy) )
-						aux_DiscriminaAmenaza(i, indice);
-					
+						aux_DiscriminaAmenaza(i, indice);					
 				}
 				//hacia abajo
 				for (int y_aba = 1; y_aba < 8; y_aba++) {
@@ -895,7 +891,7 @@ void Movimientos::piezaAmenaza(int i)  {
 			}
 			
 			//caballos
-			if (i >= 20 && i < 24) {
+			if (i == 10 || i == 11 || i == 26 || i == 27) {
 				indice = j + 6;		//Salto a la posición de las ~10:00
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
 					aux_DiscriminaAmenaza(i, indice);
@@ -924,7 +920,7 @@ void Movimientos::piezaAmenaza(int i)  {
 			}
 
 			//alfiles
-			if (i >= 24 && i < 28) {
+			if (i == 12 || i == 13 || i == 28 || i == 29) {
 				//hacia nor-este
 				for (int NE = 1; NE < 8; NE++) {
 					indice = j + 18 * NE;
@@ -956,7 +952,7 @@ void Movimientos::piezaAmenaza(int i)  {
 			}
 
 			//reyes
-			if (i >= 28 && i < 30) {
+			if (i == 14 || i == 30) {
 				//amenaza sup izq
 				indice = j + 7;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
@@ -999,7 +995,7 @@ void Movimientos::piezaAmenaza(int i)  {
 			}
 
 			//reinas
-			if (i >= 30 && i < 32) {
+			if ((i == 15) ||  (i >= 31 && i < 47)) {
 
 				//amenaza sup izq
 				for (int NO = 1; NO < 8; NO++) {
@@ -1062,7 +1058,7 @@ void Movimientos::piezaAmenaza(int i)  {
 
 	}
 }
-bool Movimientos::celdaAmenazada(int n) {
+bool Movimientos::checkCasillaAmenazada(int n) {
 
 	//en el turno de las blancas, nos interesa saber si nuestra celda está amenazada por las negras
 	if ( turnos() )
@@ -1119,7 +1115,7 @@ void Movimientos::ResetDobles() {
 		}
 	}
 	else { //Resetea la bandera del último movivimiento de salida doble de peón NEGRO
-		for (int i = 8; i < 16; i++) { 
+		for (int i = 16; i < 24; i++) { 
 			listapiezas.piezas[i].resetDoble();
 		}
 	}

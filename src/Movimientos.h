@@ -48,9 +48,9 @@ public:
 
 	void jaque();
 
-	void piezaAmenaza(int i); //activa los bool de los arrays, a partir del indice de una pieza
+	void piezaAmenazaACasillas(int i); //activa de los array, el bool de todas las casillas amenazadas, a partir del indice de una pieza
 
-	bool celdaAmenazada(int i); //se le pasa el numero de celda, y devuelve estado de "peligro inminente" o "calma"
+	bool checkCasillaAmenazada(int i); //se le pasa el numero de celda, y devuelve estado de "peligro inminente"=1 o "calma"=0
 
 	bool aux_ExisteCeldaSinAliado(int i, int indice, float xx, float yy);
 	void aux_DiscriminaAmenaza(int i, int indice);
@@ -59,5 +59,6 @@ public:
 	void BanderasMovimiento();
 	void enroqueCorto(int i);
 	void enroqueLargo(int i);
+	
 
 };
