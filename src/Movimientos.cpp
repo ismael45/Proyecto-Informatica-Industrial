@@ -1305,13 +1305,15 @@ void Movimientos::ResetDobles() {
 
 void Movimientos::enroqueCorto(int i) {
 	if (i == 14) { //Rey Blanco
-		if (listapiezas.piezas[i].checkMovido()==false && listapiezas.piezas[9].checkMovido() == false) {
-			listapiezas.piezas[i].setPos( tablero.getCasilla_Ind(6).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
+		if (listapiezas.piezas[i].checkMovido()==false && listapiezas.piezas[9].checkMovido() == false //si no se han movido
+		&& checkCasillaAmenazada(4) == checkCasillaAmenazada(5) == checkCasillaAmenazada(6) == false) { //ni el rey se pone en peligro
+			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(6).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(5).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 		}
 	}
 	if (i == 30) { //Rey Negro
-		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[25].checkMovido() == false) {
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[25].checkMovido() == false
+		&& checkCasillaAmenazada(60) == checkCasillaAmenazada(61) == checkCasillaAmenazada(62) == false) {
 			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(62).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(61).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 		}
@@ -1319,13 +1321,15 @@ void Movimientos::enroqueCorto(int i) {
 }
 void Movimientos::enroqueLargo(int i) {
 	if (i == 14) { //Rey Blanco
-		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[8].checkMovido() == false) {
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[8].checkMovido() == false
+			&& checkCasillaAmenazada(4) == checkCasillaAmenazada(3) == checkCasillaAmenazada(2) == false) {
 			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(2).getPos().x, tablero.getCasilla_Ind(2).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(3).getPos().x, tablero.getCasilla_Ind(3).getPos().y);
 		}
 	}
 	if (i == 30) { //Rey Negro
-		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[24].checkMovido() == false) {
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[24].checkMovido() == false
+		&& checkCasillaAmenazada(60) == checkCasillaAmenazada(59) == checkCasillaAmenazada(58) == false) {
 			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(58).getPos().x, tablero.getCasilla_Ind(58).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(59).getPos().x, tablero.getCasilla_Ind(59).getPos().y);
 		}
