@@ -1,13 +1,6 @@
 ﻿  Ajedrez.cpp
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-  ListaPiezas.cpp
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\ListaPiezas.cpp(8,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\ListaPiezas.cpp(23,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\ListaPiezas.cpp(29,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\ListaPiezas.cpp(44,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Movimientos.cpp
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
@@ -34,5 +27,5 @@ C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Pieza.h(
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Mundo.cpp(53,23): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
   Generando código...
 C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(761): warning C4715: 'Movimientos::aux_ExisteCeldaSinAliado': no todas las rutas de acceso de control devuelven un valor
-C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(1083): warning C4715: 'Movimientos::checkCasillaAmenazada': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Realorth\Source\Repos\Proyecto-Informatica-Industrial_1806\src\Movimientos.cpp(1232): warning C4715: 'Movimientos::checkCasillaAmenazada': no todas las rutas de acceso de control devuelven un valor
   Pang.vcxproj -> C:\Users\Realorth\source\repos\Proyecto-Informatica-Industrial_1806\bin\Ajedrez.exe

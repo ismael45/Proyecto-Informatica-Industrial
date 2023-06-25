@@ -12,7 +12,7 @@ class ListaPiezas
 public:
 	////////////////////
 
-	Peon peones_blancos[8];			//piezas 0 a 7
+	Peon peones_blancos[8];			//piezas 0 - 7
 	Peon peones_negros[8];			//piezas 16 - 23
 
 	Torre torres_blancas[2];		//piezas 8 - 9

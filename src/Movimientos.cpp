@@ -1309,29 +1309,14 @@ void Movimientos::enroqueLargo(int i) {
 	}
 }
 
-/*////float  PosX, PosY; //coordenadas de la celda que va a evaluar las casillas que se amenazan desde ahí
-	//for (int i = 0; i < 8; i++) {  //peones blancos
-	//	
-	//}
-	//for (int i = 8; i < 16; i++) {  //peones negros
 
+void Movimientos::alCementerio(int iv) {
+	if (iv == 0)
+		listapiezas.piezas[iv].setPos(14, 14);
+}
+void Movimientos::captura(Pieza atacante, Pieza victima) {
 
-	//}
-	//for (int i = 16; i < 20; i++) {  //torres 
+}
+void Movimientos::captura(int indice, float destino_x, float destino_y) {
 
-
-	//}
-	//for (int i = 20; i < 24; i++) {  //caballos 
-	//
-	//}
-	//for (int i = 24; i < 28; i++) {  //alfiles
-
-	//}
-
-	//for (int i = 28; i < 30; i++) {  //reyes
-
-	//}
-	//for (int i = 30; i < 32; i++) {  //reinas
-
-	//}
-	*/
+}
