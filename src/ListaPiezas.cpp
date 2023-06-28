@@ -339,3 +339,47 @@ void ListaPiezas::borrar_piezas()
 
 }
 
+void ListaPiezas::reinicia() {
+
+	//PIEZAS BLANCAS
+	for (int i = 0; i < 8; i++) {
+		peones_blancos[i].setPos(-14 + 4 * i, -10);;
+	}
+	torres_blancas[0].setPos(-14, -14);
+	torres_blancas[1].setPos(14, -14);
+
+	caballos_blancos[0].setPos(-10, -14);
+	caballos_blancos[1].setPos(10, -14);
+
+	alfiles_blancos[0].setPos(-6, -14);
+	alfiles_blancos[1].setPos(6, -14);
+
+	rey_blanco.setPos(2, -14);
+
+	reina_blanca[0].setPos(-2, -14);
+	for (int i = 1; i < 9; i++) {
+		reina_blanca[i].setPos(-18 + 4 * i, -30);
+		reina_blanca[i].resetViviente(); //estas piezas no son jugables hasta que no entren al tablero
+	}
+
+	//PIEZAS NEGRAS
+	for (int i = 0; i < 8; i++) {
+		peones_negros[i].setPos(-14 + 4 * i, 10);
+	}
+	torres_negras[0].setPos(-14, 14);
+	torres_negras[1].setPos(14, 14);
+
+	caballos_negros[0].setPos(-10, 14);
+	caballos_negros[1].setPos(10, 14);
+
+	alfiles_negros[0].setPos(-6, 14);
+	alfiles_negros[1].setPos(6, 14);
+
+	rey_negro.setPos(2, 14);
+
+	reina_negra[0].setPos(-2, 14);
+	for (int i = 1; i < 9; i++) {
+		reina_negra[i].setPos(-18 + 4 * i, -34);
+		reina_negra[i].resetViviente(); //estas piezas no son jugables hasta que no entren al tablero
+	}
+}

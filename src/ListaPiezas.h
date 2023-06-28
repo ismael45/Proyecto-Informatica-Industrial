@@ -42,9 +42,9 @@ public:
 	void actualizar_clasico();
 	void actualizar_flores();
 
-
 	void borrar_piezas();
 
-
 	void asignar_piezas();
+
+	void reinicia();
 };

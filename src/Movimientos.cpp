@@ -30,7 +30,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 
 	float tolerancia = 2;
 
-	
+
 
 
 	//cuando se produzca un click
@@ -40,15 +40,21 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 		//seleccionar opcion 1 
 		if (posX >= -25.7677 - 5 && posX <= -16.1491 - 5 && posY <= 21.5664 && posY >= 14.5947) {
 			cout << "Opcion 1" << endl;
+			listapiezas.reinicia();
+			t = false;
 			opcion[0] = true;
 			opcion[1] = false;
+
 		}
 
 		//seleccionar opcion 2
 		if (posX >= 16.8984 + 5 && posX <= 24.1805 + 5 && posY <= 21.5664 && posY >= 14.5947) {
 			cout << "Opcion 2" << endl;
+			listapiezas.reinicia();
+			t = false;
 			opcion[0] = false;
 			opcion[1] = true;
+
 		}
 
 
@@ -73,7 +79,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					for (int j = 0; j < 16; j++) {
 						if (raton.pieza_seleccionada != j &&
 							raton.destino.x == listapiezas.piezas[j].getPos().x &&
-							raton.destino.y == listapiezas.piezas[j].getPos().y) {
+							raton.destino.y == listapiezas.piezas[j].getPos().y && turnos()) {
 							//set_casillaOcupada();
 							casilla_blanca_ocupada = true;
 							raton.origen = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
@@ -85,7 +91,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					for (int j = 16; j < 32; j++) {
 						if (raton.pieza_seleccionada != j &&
 							raton.destino.x == listapiezas.piezas[j].getPos().x &&
-							raton.destino.y == listapiezas.piezas[j].getPos().y) {
+							raton.destino.y == listapiezas.piezas[j].getPos().y && !turnos()) {
 							//set_casillaOcupada();
 							casilla_negra_ocupada = true;
 							raton.origen = { tablero.getPos_Casilla(i).x, tablero.getPos_Casilla(i).y };
@@ -145,6 +151,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						t = true;
 						ResetDobles();
 						listapiezas.peones_blancos[raton.peon_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Peón blanco " << raton.peon_blanco_seleccionado << " a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
 					}
@@ -157,8 +164,10 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						t = true;
 						ResetDobles();
 						listapiezas.torres_blancas[raton.torre_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Torre blanca " << raton.torre_blanca_seleccionada << " a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
+
 					}
 
 					// Realizar el movimiento del caballo blanco si la casilla no está ocupada
@@ -169,6 +178,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						t = true;
 						ResetDobles();
 						listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Caballo blanco " << raton.caballo_blanco_seleccionado << " a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
 					}
@@ -181,6 +191,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						t = true;
 						ResetDobles();
 						listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Alfil blanco " << raton.alfil_blanco_seleccionado << " a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
 					}
@@ -192,6 +203,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						t = true;
 						ResetDobles();
 						listapiezas.rey_blanco.setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Rey blanco a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
 					}
@@ -202,6 +214,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						t = true;
 						ResetDobles();
 						listapiezas.reina_blanca[raton.reina_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Reina blanca a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
 					}
@@ -216,6 +229,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						t = false;
 						ResetDobles();
 						listapiezas.peones_negros[raton.peon_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Peón negro " << raton.peon_negro_seleccionado << " a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
 					}
@@ -228,51 +242,56 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						t = false;
 						ResetDobles();
 						listapiezas.torres_negras[raton.torre_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Torre negra " << raton.torre_negra_seleccionada << " a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
 					}
 
 					// Realizar el movimiento del caballo negro si la casilla no está ocupada
-					if (!casilla_negra_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()){
-					 //if (!casilla_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()&&!turnos()) {
+					if (!casilla_negra_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()) {
+						//if (!casilla_ocupada && raton.caballo_negro_seleccionado != -1 && movimiento_caballo()&&!turnos()) {
 						pos_caballoN = { raton.destino };
 						jaque();
 						t = false;
 						ResetDobles();
 						listapiezas.caballos_negros[raton.caballo_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Caballo negro " << raton.caballo_negro_seleccionado << " a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
 					}
 
 					// Realizar el movimiento del alfil negro si la casilla no está ocupada
-					if (!casilla_negra_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()){
-					//if (!casilla_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()&&!turnos()) {
+					if (!casilla_negra_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()) {
+						//if (!casilla_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()&&!turnos()) {
 						pos_alfilN = { raton.destino };
 						jaque();
 						t = false;
 						ResetDobles();
 						listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Alfil negro " << raton.alfil_negro_seleccionado << " a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
 					}
 
 					// Realizar el movimiento del rey negro si la casilla no está ocupada
-					if (!casilla_negra_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey()){
-					//if (!casilla_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey() && !turnos()) {
+					if (!casilla_negra_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey()) {
+						//if (!casilla_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey() && !turnos()) {
 						pos_reyNegro = { raton.destino };
 						t = false;
 						ResetDobles();
 						listapiezas.rey_negro.setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Rey negro a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
 					}
 
 					// Realizar el movimiento de la reina negra si la casilla no está ocupada
-					if (!casilla_negra_ocupada && raton.reina_negra_seleccionada != -1 && (movimiento_alfil() || movimiento_torre())){
-					//if (!casilla_ocupada && raton.reina_negra_seleccionada != -1 && ( movimiento_alfil()|| movimiento_torre() ) && !turnos()) {
+					if (!casilla_negra_ocupada && raton.reina_negra_seleccionada != -1 && (movimiento_alfil() || movimiento_torre())) {
+						//if (!casilla_ocupada && raton.reina_negra_seleccionada != -1 && ( movimiento_alfil()|| movimiento_torre() ) && !turnos()) {
 						t = false;
 						ResetDobles();
 						listapiezas.reina_negra[raton.reina_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
+						comer();
 						cout << "Movimiento realizado: Reina negra a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
 					}
@@ -299,7 +318,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 				if (posX > listapiezas.peones_blancos[i].getPos().x - tolerancia &&
 					posX < listapiezas.peones_blancos[i].getPos().x + tolerancia &&
 					posY > listapiezas.peones_blancos[i].getPos().y - tolerancia &&
-					posY < listapiezas.peones_blancos[i].getPos().y + tolerancia && turnos())  {
+					posY < listapiezas.peones_blancos[i].getPos().y + tolerancia && turnos()) {
 					if (peon_seleccionado_previo == i) {
 						// Hacer clic por segunda vez en el mismo peón: deseleccionar
 						raton.peon_blanco_seleccionado = -1;
@@ -309,6 +328,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						// Hacer clic en un peón diferente: seleccionar el nuevo peón
 						raton.peon_blanco_seleccionado = i;
 						cout << "Peón blanco " << i << " seleccionado" << endl;
+
 					}
 				}
 			}
@@ -609,66 +629,173 @@ void Movimientos::dibuja() {
 
 
 bool Movimientos::movimiento_peon_blanco() {
-	
-		if ( (raton.destino.x == raton.origen.x) && ( (raton.destino.y == raton.origen.y + 4 ) ) )
-		{
-			return true;
-		}
-		else if ((raton.destino.x == raton.origen.x) && ((raton.destino.y == raton.origen.y + 8)
-			&& (raton.origen.y < -8.0f) && (raton.origen.y > -12.0f)))
-		{
-			//activar la bandera de salto doble en el peón movido y..
-			for (int i = 0; i < 8; i++) {
-				if ( listapiezas.piezas[i].getPos().x == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().x
-				&& listapiezas.piezas[i].getPos().y == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().y )
-					listapiezas.piezas[i].setDoble();
+	// Verificar movimiento hacia adelante sin captura
+	if (raton.destino.x == raton.origen.x && raton.destino.y == raton.origen.y + 4) {
+		// Verificar si hay alguna pieza en la casilla de destino
+		for (int i = 0; i < 48; i++) {
+			if (listapiezas.piezas[i].getPos().x == raton.destino.x &&
+				listapiezas.piezas[i].getPos().y == raton.destino.y) {
+				// Hay una pieza en la casilla de destino, movimiento no válido
+				return false;
 			}
-			return true;
 		}
+
+		return true;
+	}
+
+	// Verificar movimiento hacia adelante
+	if (raton.destino.x == raton.origen.x && raton.destino.y == raton.origen.y + 4) {
+		return true;
+	}
+
+	// Resto de las comprobaciones de movimiento
+	if ((raton.destino.x == raton.origen.x) && ((raton.destino.y == raton.origen.y + 8)
+		&& (raton.origen.y < -8.0f) && (raton.origen.y > -12.0f))) {
+		// Activar la bandera de salto doble en el peón movido y..
+		for (int i = 0; i < 8; i++) {
+			if (listapiezas.piezas[i].getPos().x == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().x
+				&& listapiezas.piezas[i].getPos().y == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().y)
+				listapiezas.piezas[i].setDoble();
+		}
+		return true;
+	}
+
+	for (int i = 0; i < 48; i++) {
+		for (int j = 0; j < 8; j++) {
+			if ((listapiezas.piezas[i].getPos().x == raton.origen.x + 4 &&
+				listapiezas.piezas[i].getPos().y == raton.origen.y + 4) ||
+				(listapiezas.piezas[i].getPos().x == raton.origen.x - 4 &&
+					listapiezas.piezas[i].getPos().y == raton.origen.y + 4)) {
+				return true;
+
+			}
+		}
+	}
+
 	return false;
 }
+
+
 
 bool Movimientos::movimiento_peon_negro() {
-
-
-		if ((raton.destino.x == raton.origen.x) && ((raton.destino.y == raton.origen.y - 4)))
-		{
-			return true;
-		}
-		else if ((raton.destino.x == raton.origen.x) && ((raton.destino.y == raton.origen.y - 8)
-			&& (raton.origen.y < 12.0f) && (raton.origen.y > 8.0f)))
-		{
-			//activar la bandera de salto doble y..
-
-			for (int i = 8; i < 16; i++) {
-				if (listapiezas.piezas[i].getPos().x == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().x
-					&& listapiezas.piezas[i].getPos().y == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().y)
-					listapiezas.piezas[i].setDoble();
+	// Verificar movimiento hacia adelante sin captura
+	if (raton.destino.x == raton.origen.x && raton.destino.y == raton.origen.y - 4) {
+		// Verificar si hay alguna pieza en la casilla de destino
+		for (int i = 0; i < 48; i++) {
+			if (listapiezas.piezas[i].getPos().x == raton.destino.x &&
+				listapiezas.piezas[i].getPos().y == raton.destino.y) {
+				// Hay una pieza en la casilla de destino, movimiento no válido
+				return false;
 			}
+		}
+
+		return true;
+	}
+
+	// Verificar movimiento hacia adelante
+	if (raton.destino.x == raton.origen.x && raton.destino.y == raton.origen.y - 4) {
+		return true;
+	}
+
+	// Resto de las comprobaciones de movimiento
+	if ((raton.destino.x == raton.origen.x) && ((raton.destino.y == raton.origen.y - 8)
+		&& (raton.origen.y < 12.0f) && (raton.origen.y > 8.0f))) {
+		// Activar la bandera de salto doble en el peón movido y..
+		for (int i = 8; i < 16; i++) {
+			if (listapiezas.piezas[i].getPos().x == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().x
+				&& listapiezas.piezas[i].getPos().y == tablero.getCasilla_Pos(raton.destino.x, raton.destino.y).getPos().y)
+				listapiezas.piezas[i].setDoble();
+		}
+		return true;
+	}
+
+	for (int i = 0; i < 48; i++) {
+		if ((raton.origen.x + 4 == listapiezas.piezas[i].getPos().x &&
+			raton.origen.y - 4 == listapiezas.piezas[i].getPos().y) ||
+			(raton.origen.x - 4 == listapiezas.piezas[i].getPos().x &&
+				raton.origen.y - 4 == listapiezas.piezas[i].getPos().y)) {
 			return true;
 		}
+	}
+
 	return false;
 }
+
 
 bool Movimientos::movimiento_torre() {
-	 
-		if ((raton.destino.x == raton.origen.x && raton.destino.y!= raton.origen.y)|| 
-			(raton.destino.x != raton.origen.x && raton.destino.y == raton.origen.y)) {
-			return true;
-		}	
+	// Verificar si hay obstáculos en la trayectoria horizontal
+	if (raton.destino.x == raton.origen.x && raton.destino.y != raton.origen.y) {
+		int deltaY = (raton.destino.y > raton.origen.y) ? 1 : -1;
+		int y = raton.origen.y + deltaY;
+
+		while (y != raton.destino.y) {
+			for (int i = 0; i < 48; i++) {
+				if (listapiezas.piezas[i].getPos().x == raton.origen.x &&
+					listapiezas.piezas[i].getPos().y == y) {
+					// Hay un obstáculo en la trayectoria, movimiento no válido
+					return false;
+				}
+			}
+			y += deltaY;
+		}
+
+		return true;
+	}
+
+	// Verificar si hay obstáculos en la trayectoria vertical
+	if (raton.destino.x != raton.origen.x && raton.destino.y == raton.origen.y) {
+		int deltaX = (raton.destino.x > raton.origen.x) ? 1 : -1;
+		int x = raton.origen.x + deltaX;
+
+		while (x != raton.destino.x) {
+			for (int i = 0; i < 48; i++) {
+				if (listapiezas.piezas[i].getPos().x == x &&
+					listapiezas.piezas[i].getPos().y == raton.origen.y) {
+					// Hay un obstáculo en la trayectoria, movimiento no válido
+					return false;
+				}
+			}
+			x += deltaX;
+		}
+
+		return true;
+	}
+
 	return false;
 }
+
 
 bool Movimientos::movimiento_alfil()
 {
-	int n = raton.destino.x - raton.origen.x;
-		if ( (raton.destino.y - raton.origen.y== n) || 
-			 (raton.destino.y - raton.origen.y == -n))
-		{
-			return true;
+	int deltaX = raton.destino.x - raton.origen.x;
+	int deltaY = raton.destino.y - raton.origen.y;
+
+	// Verificar si el movimiento es en diagonal
+	if (abs(deltaX) == abs(deltaY)) {
+		int stepX = (deltaX > 0) ? 1 : -1;
+		int stepY = (deltaY > 0) ? 1 : -1;
+
+		int x = raton.origen.x + stepX;
+		int y = raton.origen.y + stepY;
+
+		while (x != raton.destino.x) {
+			for (int i = 0; i < 48; i++) {
+				if (listapiezas.piezas[i].getPos().x == x &&
+					listapiezas.piezas[i].getPos().y == y) {
+					// Hay un obstáculo en la trayectoria, movimiento no válido
+					return false;
+				}
+			}
+			x += stepX;
+			y += stepY;
 		}
+
+		return true;
+	}
+
 	return false;
 }
+
 
 bool Movimientos::movimiento_rey()
 {
@@ -686,8 +813,8 @@ bool Movimientos::movimiento_rey()
 
 bool Movimientos::movimiento_caballo()
 {
-	int delta_filas = std::abs((raton.destino.x - raton.origen.x)/4);
-	int delta_columnas = std::abs((raton.destino.y - raton.origen.y)/4);
+	int delta_filas = std::abs((raton.destino.x - raton.origen.x) / 4);
+	int delta_columnas = std::abs((raton.destino.y - raton.origen.y) / 4);
 
 	return ((delta_filas == 1 && delta_columnas == 2) || (delta_filas == 2 && delta_columnas == 1));
 
@@ -713,23 +840,23 @@ void Movimientos::jaque()
 
 	//Jaque del peon negro al rey blanco
 	if ((pos_peonN.x - 4 == pos_reyBlanco.x && pos_peonN.y + 4 == pos_reyBlanco.y) ||
-		(pos_peonN.x - 4 == pos_reyBlanco.x && pos_peonN.y - 4 == pos_reyBlanco.y)  )
+		(pos_peonN.x - 4 == pos_reyBlanco.x && pos_peonN.y - 4 == pos_reyBlanco.y))
 	{
 		cout << "EQUIPO NEGRO: JAQUE " << endl;
 	}
 
 	//Jaque del peon blanco al rey negro
 	if ((pos_peonB.x + 4 == pos_reyNegro.x && pos_peonB.y + 4 == pos_reyNegro.y) ||
-		(pos_peonB.x + 4 == pos_reyNegro.x && pos_peonB.y - 4 == pos_reyNegro.y)  )
+		(pos_peonB.x + 4 == pos_reyNegro.x && pos_peonB.y - 4 == pos_reyNegro.y))
 	{
 		cout << "EQUIPO BLANCO: JAQUE " << endl;
 	}
 
 	//Jaque de la torre negra al rey blanco
-	if ((pos_torreN.x == pos_reyBlanco.x && pos_torreN.y != pos_reyBlanco.y)||
+	if ((pos_torreN.x == pos_reyBlanco.x && pos_torreN.y != pos_reyBlanco.y) ||
 		(pos_torreN.x != pos_reyBlanco.x && pos_torreN.y == pos_reyBlanco.y))
 	{
-		cout << "EQUIPO NEGRO: JAQUE " << endl;	
+		cout << "EQUIPO NEGRO: JAQUE " << endl;
 	}
 
 	//Jaque de la torre blanca al rey negro
@@ -770,8 +897,8 @@ void Movimientos::jaque()
 
 bool Movimientos::turnos()
 {
-	if (t == true)  { return false;}  //turno() == false -> turno de negras
-	else			{ return true; }  //turno() == true  -> turno de blancas
+	if (t == true) { return false; }  //turno() == false -> turno de negras
+	else { return true; }  //turno() == true  -> turno de blancas
 }
 
 
@@ -791,18 +918,18 @@ void Movimientos::aux_DiscriminaQuienAmenaza(int i, int indice) {
 
 
 //******************************************************************************************************************
-void Movimientos::piezaAmenazaACasillas(int i)  {
+void Movimientos::piezaAmenazaACasillas(int i) {
 	for (int j = 0; j < 64; j++) {  //Se recorren todas las casillas del tablero
 		int indice;
-		float xx=0, yy=0;
+		float xx = 0, yy = 0;
 		//cuando la posición de la pieza elegida coincida con la posición de la casilla, se ubica  en el tablero la pieza que queremos estudiar...
 		if ((listapiezas.piezas[i].getPos().x == tablero.getCasilla_Ind(j).getPos().x)
-		&& (listapiezas.piezas[i].getPos().y == tablero.getCasilla_Ind(j).getPos().y)
-		&& listapiezas.piezas[i].checkViviente() ) {
-		// se procede, en función de qué pieza sea, a activar como amenazadas las casillas de influencia
-		
-		
-			//peones blancos
+			&& (listapiezas.piezas[i].getPos().y == tablero.getCasilla_Ind(j).getPos().y)
+			&& listapiezas.piezas[i].checkViviente()) {
+			// se procede, en función de qué pieza sea, a activar como amenazadas las casillas de influencia
+
+
+				//peones blancos
 			if (i >= 0 && i < 8)
 			{
 
@@ -816,7 +943,7 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 					indice = j + 9;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
 						casillas_amenazadas_por_blancas[indice] = true;
-				
+
 					//amenaza lateral a peones que con salto doble se han puesto en cualquiera de sus laterales
 					if (32 <= j <= 39) {
 						for (int pB = 16; pB < 24; pB++) {//indice del peón oponente
@@ -825,8 +952,8 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 							indice = j - 1;
 
 							if (aux_ExisteCeldaSinAliado(i, indice, xx, yy) && (listapiezas.piezas[pB].getDoble()) &&
-							(listapiezas.piezas[pB].getPos().x == tablero.getCasilla_Ind(indice).getPos().x) &&
-							(listapiezas.piezas[pB].getPos().y == tablero.getCasilla_Ind(indice).getPos().y) )
+								(listapiezas.piezas[pB].getPos().x == tablero.getCasilla_Ind(indice).getPos().x) &&
+								(listapiezas.piezas[pB].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
 								casillas_amenazadas_por_blancas[indice] = true;
 
 							//amenaza a peón derecho
@@ -838,7 +965,7 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 								casillas_amenazadas_por_blancas[indice] = true;
 
 						}
-							
+
 					}
 				}
 			}
@@ -847,14 +974,14 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 			if (i >= 16 && i < 24)
 			{
 				if (j > 7) { //solo hasta penúltima linea
-					
+
 					//amenaza inf izq
-					indice = j - 9; 
+					indice = j - 9;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
 						casillas_amenazadas_por_negras[indice] = true;
 
 					//amenaza inf der
-					indice = j - 7;  
+					indice = j - 7;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
 						casillas_amenazadas_por_negras[indice] = true;
 
@@ -885,7 +1012,7 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 			}
 
 			//torres
-			if (i == 8 || i == 9 || i == 24 || i == 25){
+			if (i == 8 || i == 9 || i == 24 || i == 25) {
 				//hacia la derecha
 				for (int xder = 1; xder < 8; xder++) {
 					indice = j + 1 * xder;
@@ -895,9 +1022,9 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 						aux_DiscriminaQuienAmenaza(i, indice);
 						for (int obj = 0; obj < 48; obj++) {
 							if ((listapiezas.piezas[obj].getPos().x == tablero.getCasilla_Ind(indice).getPos().x)
-							&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
-							//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
-								salto=true;
+								&& (listapiezas.piezas[obj].getPos().y == tablero.getCasilla_Ind(indice).getPos().y))
+								//Si se ha llegado aquí, es porque hay una pieza del oponente en la casilla objetivo
+								salto = true;
 						}
 					}
 					if (salto) break;
@@ -920,7 +1047,7 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 				}
 				//hacia arriba
 				for (int y_arr = 1; y_arr < 8; y_arr++) {
-					indice = j +8 * y_arr;
+					indice = j + 8 * y_arr;
 					bool salto = 0;
 					if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
 					{
@@ -951,7 +1078,7 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 					if (salto) break;
 				}
 			}
-			
+
 			//caballos
 			if (i == 10 || i == 11 || i == 26 || i == 27) {
 				indice = j + 6;		//Salto a la posición de las ~10:00
@@ -1070,7 +1197,7 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 				indice = j - 7;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
 					aux_DiscriminaQuienAmenaza(i, indice);
-				
+
 				//amenaza derecha
 				indice = j + 1;
 				if (aux_ExisteCeldaSinAliado(i, indice, xx, yy))
@@ -1093,7 +1220,7 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 			}
 
 			//reinas
-			if ((i == 15) ||  (i >= 31 && i < 47)) {
+			if ((i == 15) || (i >= 31 && i < 47)) {
 
 				//amenaza sup izq
 				for (int NO = 1; NO < 8; NO++) {
@@ -1145,7 +1272,7 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 					}
 					if (salto) break;
 				}
-				
+
 				//amenaza inf der
 				for (int SE = 1; SE < 8; SE++) {
 					indice = j - 7 * SE;
@@ -1229,8 +1356,8 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 					}
 					if (salto) break;
 				}
-			
-			}	
+
+			}
 
 		}
 
@@ -1239,14 +1366,14 @@ void Movimientos::piezaAmenazaACasillas(int i)  {
 bool Movimientos::checkCasillaAmenazada(int n) {
 
 	//en el turno de las blancas, nos interesa saber si nuestra celda está amenazada por las negras
-	if ( turnos() )
+	if (turnos())
 		if (casillas_amenazadas_por_negras[n]) {
 			cout << "La Casilla " << tablero.getCasilla_Ind(n).getCodigo() << " está siendo amenazada " << endl;
 			return true;
 		}
 		else return false;
 	//en el turno de las negras, nos interesa saber si nuestra celda está amenazada por las blancas
-	else if ( !turnos() )
+	else if (!turnos())
 		if (casillas_amenazadas_por_blancas[n]) {
 			cout << "La Casilla " << tablero.getCasilla_Ind(n).getCodigo() << " está siendo amenazada " << endl;
 			return true;
@@ -1257,43 +1384,43 @@ bool Movimientos::checkCasillaAmenazada(int n) {
 //Codigo para activar la bandera de pieza movida, para evaluar enroques
 
 void Movimientos::BanderasMovimiento() {
-	
+
 	for (int i = 0; i < 48; i++) {
 		if ((i == 8) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(0).getPos().x
 			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(0).getPos().y))
-				listapiezas.piezas[i].setMovido();//torreBlancaIzq
+			listapiezas.piezas[i].setMovido();//torreBlancaIzq
 
 		if ((i == 9) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(7).getPos().x
 			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(7).getPos().y))
-				listapiezas.piezas[i].setMovido();//TorreBlancaDer
+			listapiezas.piezas[i].setMovido();//TorreBlancaDer
 
 		if ((i == 14) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(4).getPos().x
 			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(4).getPos().y))
-				listapiezas.piezas[i].setMovido();//ReyBlanco
+			listapiezas.piezas[i].setMovido();//ReyBlanco
 
 		if ((i == 24) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(56).getPos().x
 			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(56).getPos().y))
-				listapiezas.piezas[i].setMovido();//TorreNegraIzq
+			listapiezas.piezas[i].setMovido();//TorreNegraIzq
 
 		if ((i == 25) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(63).getPos().x
 			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(63).getPos().y))
-				listapiezas.piezas[i].setMovido();//TorreNegraDer
+			listapiezas.piezas[i].setMovido();//TorreNegraDer
 
 		if ((i == 30) && (listapiezas.piezas[i].getPos().x != tablero.getCasilla_Ind(60).getPos().x
 			|| listapiezas.piezas[i].getPos().y != tablero.getCasilla_Ind(60).getPos().y))
-				listapiezas.piezas[i].setMovido();//ReyNegro
+			listapiezas.piezas[i].setMovido();//ReyNegro
 
 	}
 }
 
 void Movimientos::ResetDobles() {
 	if (turnos()) { //Resetea la bandera del último movivimiento de salida doble de peón BLANCO
-		for (int i = 0; i < 8; i++) { 
+		for (int i = 0; i < 8; i++) {
 			listapiezas.piezas[i].resetDoble();
 		}
 	}
 	else { //Resetea la bandera del último movivimiento de salida doble de peón NEGRO
-		for (int i = 16; i < 24; i++) { 
+		for (int i = 16; i < 24; i++) {
 			listapiezas.piezas[i].resetDoble();
 		}
 	}
@@ -1305,15 +1432,15 @@ void Movimientos::ResetDobles() {
 
 void Movimientos::enroqueCorto(int i) {
 	if (i == 14) { //Rey Blanco
-		if (listapiezas.piezas[i].checkMovido()==false && listapiezas.piezas[9].checkMovido() == false //si no se han movido
-		&& checkCasillaAmenazada(4) == checkCasillaAmenazada(5) == checkCasillaAmenazada(6) == false) { //ni el rey se pone en peligro
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[9].checkMovido() == false //si no se han movido
+			&& checkCasillaAmenazada(4) == checkCasillaAmenazada(5) == checkCasillaAmenazada(6) == false) { //ni el rey se pone en peligro
 			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(6).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(5).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 		}
 	}
 	if (i == 30) { //Rey Negro
 		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[25].checkMovido() == false
-		&& checkCasillaAmenazada(60) == checkCasillaAmenazada(61) == checkCasillaAmenazada(62) == false) {
+			&& checkCasillaAmenazada(60) == checkCasillaAmenazada(61) == checkCasillaAmenazada(62) == false) {
 			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(62).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(61).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 		}
@@ -1329,7 +1456,7 @@ void Movimientos::enroqueLargo(int i) {
 	}
 	if (i == 30) { //Rey Negro
 		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[24].checkMovido() == false
-		&& checkCasillaAmenazada(60) == checkCasillaAmenazada(59) == checkCasillaAmenazada(58) == false) {
+			&& checkCasillaAmenazada(60) == checkCasillaAmenazada(59) == checkCasillaAmenazada(58) == false) {
 			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(58).getPos().x, tablero.getCasilla_Ind(58).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(59).getPos().x, tablero.getCasilla_Ind(59).getPos().y);
 		}
@@ -1390,7 +1517,7 @@ void Movimientos::aux_alCementerio(int iv) {
 	else if (iv == 45)		listapiezas.piezas[iv].setPos(-30, -12);
 	else if (iv == 46)		listapiezas.piezas[iv].setPos(-30, -16);
 	else if (iv == 47)		listapiezas.piezas[iv].setPos(-30, -20);
-    
+
 	else if (iv == 14) {
 		cout << "Fin del Juego!" << endl;
 		cout << "Ganan las Negras!" << endl;
@@ -1413,7 +1540,7 @@ void Movimientos::captura(int indice, float destino_x, float destino_y) {
 				aux_alCementerio(victima);
 				cout << "Pieza Negra Eliminada!" << endl;
 			}
-				
+
 		}
 	}
 	if (listapiezas.piezas[indice].getColor() == 2) {
@@ -1428,5 +1555,471 @@ void Movimientos::captura(int indice, float destino_x, float destino_y) {
 
 		}
 	}
-	
+
+}
+
+void Movimientos::comer() {
+
+
+	//**************************************PIEZAS BLANCAS**************************************//
+	//PEONES BLANCOS//
+	// Peones blancos comer peones negros
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().x == listapiezas.peones_negros[i].getPos().x &&
+			listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().y == listapiezas.peones_negros[i].getPos().y)
+			listapiezas.peones_negros[i].setPos(-20, i);
+	}
+
+	// Peones blancos comer torres negras
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().x == listapiezas.torres_negras[i].getPos().x &&
+			listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().y == listapiezas.torres_negras[i].getPos().y && !turnos())
+			listapiezas.torres_negras[i].setPos(-24, i + 4);
+	}
+
+	// Peones blancos comer caballos negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().x == listapiezas.caballos_negros[i].getPos().x &&
+			listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().y == listapiezas.caballos_negros[i].getPos().y)
+			listapiezas.caballos_negros[i].setPos(-28, i + 8);
+	}
+
+	// Peones blancos comer alfiles negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().x == listapiezas.alfiles_negros[i].getPos().x &&
+			listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().y == listapiezas.alfiles_negros[i].getPos().y)
+			listapiezas.alfiles_negros[i].setPos(-32, i + 12);
+	}
+
+	// Peones blancos comer reina negra
+	if (listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().x == listapiezas.reina_negra[0].getPos().x &&
+		listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().y == listapiezas.reina_negra[0].getPos().y)
+		listapiezas.reina_negra[0].setPos(-36, 0);
+
+
+
+	//TORRES BLANCAS//
+
+	// Torres blancas comer peones negros
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.torres_blancas[0].getPos().x == listapiezas.peones_negros[i].getPos().x &&
+			listapiezas.torres_blancas[0].getPos().y == listapiezas.peones_negros[i].getPos().y && !turnos())
+			listapiezas.peones_negros[i].setPos(-20, i);
+
+		if (listapiezas.torres_blancas[1].getPos().x == listapiezas.peones_negros[i].getPos().x &&
+			listapiezas.torres_blancas[1].getPos().y == listapiezas.peones_negros[i].getPos().y && !turnos())
+			listapiezas.peones_negros[i].setPos(-20, i);
+	}
+
+	// Torres blancas comer torres negras
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.torres_blancas[raton.torre_blanca_seleccionada].getPos().x == listapiezas.torres_negras[i].getPos().x &&
+			listapiezas.torres_blancas[raton.torre_blanca_seleccionada].getPos().y == listapiezas.torres_negras[i].getPos().y)
+			listapiezas.torres_negras[i].setPos(-24, i + 4);
+	}
+
+	// Torres blancas comer caballos negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.torres_blancas[raton.torre_blanca_seleccionada].getPos().x == listapiezas.caballos_negros[i].getPos().x &&
+			listapiezas.torres_blancas[raton.torre_blanca_seleccionada].getPos().y == listapiezas.caballos_negros[i].getPos().y)
+			listapiezas.caballos_negros[i].setPos(-28, i + 8);
+	}
+
+	// Torres blancas comer alfiles negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.torres_blancas[raton.torre_blanca_seleccionada].getPos().x == listapiezas.alfiles_negros[i].getPos().x &&
+			listapiezas.torres_blancas[raton.torre_blanca_seleccionada].getPos().y == listapiezas.alfiles_negros[i].getPos().y)
+			listapiezas.alfiles_negros[i].setPos(-32, i + 12);
+	}
+
+	// Torres blancas comer reina negra
+	if (listapiezas.torres_blancas[raton.torre_blanca_seleccionada].getPos().x == listapiezas.reina_negra[0].getPos().x &&
+		listapiezas.torres_blancas[raton.torre_blanca_seleccionada].getPos().y == listapiezas.reina_negra[0].getPos().y && !turnos())
+		listapiezas.reina_negra[0].setPos(-36, 0);
+
+
+	//CABALLOS BLANCOS
+
+	// Caballos blancos comer peones negros
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].getPos().x == listapiezas.peones_negros[i].getPos().x &&
+			listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].getPos().y == listapiezas.peones_negros[i].getPos().y)
+			listapiezas.peones_negros[i].setPos(-20, i);
+	}
+
+	// Caballos blancos comer torres negras
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.caballos_blancos[0].getPos().x == listapiezas.torres_negras[i].getPos().x &&
+			listapiezas.caballos_blancos[0].getPos().y == listapiezas.torres_negras[i].getPos().y)
+			listapiezas.torres_negras[i].setPos(-24, i + 4);
+
+		if (listapiezas.caballos_blancos[1].getPos().x == listapiezas.torres_negras[i].getPos().x &&
+			listapiezas.caballos_blancos[1].getPos().y == listapiezas.torres_negras[i].getPos().y)
+			listapiezas.torres_negras[i].setPos(-24, i + 4);
+	}
+
+	// Caballos blancos comer caballos negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].getPos().x == listapiezas.caballos_negros[i].getPos().x &&
+			listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].getPos().y == listapiezas.caballos_negros[i].getPos().y)
+			listapiezas.caballos_negros[i].setPos(-28, i + 8);
+	}
+
+	// Caballos blancos comer alfiles negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].getPos().x == listapiezas.alfiles_negros[i].getPos().x &&
+			listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].getPos().y == listapiezas.alfiles_negros[i].getPos().y)
+			listapiezas.alfiles_negros[i].setPos(-32, i + 12);
+	}
+
+	// Caballos blancos comer reina negra
+	if (listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].getPos().x == listapiezas.reina_negra[0].getPos().x &&
+		listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].getPos().y == listapiezas.reina_negra[0].getPos().y)
+		listapiezas.reina_negra[0].setPos(-36, 0);
+
+
+
+	//ALFILES BLANCOS
+
+	// Alfiles blancos comer peones negros
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].getPos().x == listapiezas.peones_negros[i].getPos().x &&
+			listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].getPos().y == listapiezas.peones_negros[i].getPos().y)
+			listapiezas.peones_negros[i].setPos(-20, i);
+	}
+
+	// Alfiles blancos comer torres negras
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].getPos().x == listapiezas.torres_negras[i].getPos().x &&
+			listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].getPos().y == listapiezas.torres_negras[i].getPos().y && !turnos())
+			listapiezas.torres_negras[i].setPos(-24, i + 4);
+	}
+
+	// Alfiles blancos comer caballos negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.alfiles_blancos[0].getPos().x == listapiezas.caballos_negros[i].getPos().x &&
+			listapiezas.alfiles_blancos[0].getPos().y == listapiezas.caballos_negros[i].getPos().y && !turnos())
+			listapiezas.caballos_negros[i].setPos(-28, i + 8);
+
+		if (listapiezas.alfiles_blancos[1].getPos().x == listapiezas.caballos_negros[i].getPos().x &&
+			listapiezas.alfiles_blancos[1].getPos().y == listapiezas.caballos_negros[i].getPos().y && !turnos())
+			listapiezas.caballos_negros[i].setPos(-28, i + 8);
+	}
+
+	// Alfiles blancos comer alfiles negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].getPos().x == listapiezas.alfiles_negros[i].getPos().x &&
+			listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].getPos().y == listapiezas.alfiles_negros[i].getPos().y)
+			listapiezas.alfiles_negros[i].setPos(-32, i + 12);
+	}
+
+	// Alfiles blancos comer reina negra
+	if (listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].getPos().x == listapiezas.reina_negra[0].getPos().x &&
+		listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].getPos().y == listapiezas.reina_negra[0].getPos().y)
+		listapiezas.reina_negra[0].setPos(-36, 0);
+
+
+	//REY BLANCO///
+
+	// Rey blanco comer peones negros
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.rey_blanco.getPos().x == listapiezas.peones_negros[i].getPos().x &&
+			listapiezas.rey_blanco.getPos().y == listapiezas.peones_negros[i].getPos().y)
+			listapiezas.peones_negros[i].setPos(-20, i);
+	}
+
+	// Rey blanco comer torres negras
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.rey_blanco.getPos().x == listapiezas.torres_negras[i].getPos().x &&
+			listapiezas.rey_blanco.getPos().y == listapiezas.torres_negras[i].getPos().y)
+			listapiezas.torres_negras[i].setPos(-24, i + 4);
+	}
+
+	// Rey blanco comer caballos negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.rey_blanco.getPos().x == listapiezas.caballos_negros[i].getPos().x &&
+			listapiezas.rey_blanco.getPos().y == listapiezas.caballos_negros[i].getPos().y)
+			listapiezas.caballos_negros[i].setPos(-28, i + 8);
+	}
+
+	// Rey blanco comer alfiles negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.rey_blanco.getPos().x == listapiezas.alfiles_negros[i].getPos().x &&
+			listapiezas.rey_blanco.getPos().y == listapiezas.alfiles_negros[i].getPos().y)
+			listapiezas.alfiles_negros[i].setPos(-32, i + 12);
+	}
+
+	// Rey blanco comer reina negra
+	if (listapiezas.rey_blanco.getPos().x == listapiezas.reina_negra[0].getPos().x &&
+		listapiezas.rey_blanco.getPos().y == listapiezas.reina_negra[0].getPos().y)
+		listapiezas.reina_negra[0].setPos(-36, 0);
+
+	//REINA BLANCA//
+
+	// Reina blanca comer peones negros
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.reina_blanca[0].getPos().x == listapiezas.peones_negros[i].getPos().x &&
+			listapiezas.reina_blanca[0].getPos().y == listapiezas.peones_negros[i].getPos().y && !turnos())
+			listapiezas.peones_negros[i].setPos(-20, i);
+	}
+
+	// Reina blanca comer torres negras
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.reina_blanca[0].getPos().x == listapiezas.torres_negras[i].getPos().x &&
+			listapiezas.reina_blanca[0].getPos().y == listapiezas.torres_negras[i].getPos().y && !turnos())
+			listapiezas.torres_negras[i].setPos(-24, i + 4);
+	}
+
+	// Reina blanca comer caballos negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.reina_blanca[0].getPos().x == listapiezas.caballos_negros[i].getPos().x &&
+			listapiezas.reina_blanca[0].getPos().y == listapiezas.caballos_negros[i].getPos().y && !turnos())
+			listapiezas.caballos_negros[i].setPos(-28, i + 8);
+	}
+
+	// Reina blanca comer alfiles negros
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.reina_blanca[0].getPos().x == listapiezas.alfiles_negros[i].getPos().x &&
+			listapiezas.reina_blanca[0].getPos().y == listapiezas.alfiles_negros[i].getPos().y)
+			listapiezas.alfiles_negros[i].setPos(-32, i + 12);
+	}
+
+	// Reina blanca comer reina negra
+	if (listapiezas.reina_blanca[0].getPos().x == listapiezas.reina_negra[0].getPos().x &&
+		listapiezas.reina_blanca[0].getPos().y == listapiezas.reina_negra[0].getPos().y && !turnos())
+		listapiezas.reina_negra[0].setPos(-36, 0);
+
+
+	//**************************************PIEZAS NEGRAS**************************************//
+
+
+	//PEONES NEGROS
+// Peones negros comer peones blancos
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (listapiezas.peones_negros[i].getPos().x == listapiezas.peones_blancos[j].getPos().x &&
+				listapiezas.peones_negros[i].getPos().y == listapiezas.peones_blancos[j].getPos().y)
+				listapiezas.peones_blancos[j].setPos(20, j);
+		}
+	}
+
+
+	// Peones negros comer torres blancas
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 2; j++) {
+			if (listapiezas.peones_negros[i].getPos().x == listapiezas.torres_blancas[j].getPos().x &&
+				listapiezas.peones_negros[i].getPos().y == listapiezas.torres_blancas[j].getPos().y)
+				listapiezas.torres_blancas[j].setPos(24, i + 4);
+		}
+	}
+
+	// Peones negros comer caballos blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.peones_negros[raton.peon_negro_seleccionado].getPos().x == listapiezas.caballos_blancos[i].getPos().x &&
+			listapiezas.peones_negros[raton.peon_negro_seleccionado].getPos().y == listapiezas.caballos_blancos[i].getPos().y)
+			listapiezas.caballos_blancos[i].setPos(28, i + 8);
+	}
+
+	// Peones negros comer alfiles blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.peones_negros[raton.peon_negro_seleccionado].getPos().x == listapiezas.alfiles_blancos[i].getPos().x &&
+			listapiezas.peones_negros[raton.peon_negro_seleccionado].getPos().y == listapiezas.alfiles_blancos[i].getPos().y)
+			listapiezas.alfiles_blancos[i].setPos(32, i + 12);
+	}
+
+	// Peones negros comer reina blanca
+	if (listapiezas.peones_negros[raton.peon_negro_seleccionado].getPos().x == listapiezas.reina_blanca[0].getPos().x &&
+		listapiezas.peones_negros[raton.peon_negro_seleccionado].getPos().y == listapiezas.reina_blanca[0].getPos().y)
+		listapiezas.reina_blanca[0].setPos(36, 0);
+
+	//TORRES NEGRAS//
+
+	// Torres negras comer peones blancos
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.torres_negras[raton.torre_negra_seleccionada].getPos().x == listapiezas.peones_blancos[i].getPos().x &&
+			listapiezas.torres_negras[raton.torre_negra_seleccionada].getPos().y == listapiezas.peones_blancos[i].getPos().y)
+			listapiezas.peones_blancos[i].setPos(20, i);
+
+
+	}
+
+	// Torres negras comer torres blancas
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.torres_negras[0].getPos().x == listapiezas.torres_blancas[i].getPos().x &&
+			listapiezas.torres_negras[0].getPos().y == listapiezas.torres_blancas[i].getPos().y)
+			listapiezas.torres_blancas[i].setPos(24, i + 4);
+
+		if (listapiezas.torres_negras[1].getPos().x == listapiezas.torres_blancas[i].getPos().x &&
+			listapiezas.torres_negras[1].getPos().y == listapiezas.torres_blancas[i].getPos().y)
+			listapiezas.torres_blancas[i].setPos(24, i + 4);
+	}
+
+	// Torres negras comer caballos blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.torres_negras[raton.torre_negra_seleccionada].getPos().x == listapiezas.caballos_blancos[i].getPos().x &&
+			listapiezas.torres_negras[raton.torre_negra_seleccionada].getPos().y == listapiezas.caballos_blancos[i].getPos().y)
+			listapiezas.caballos_blancos[i].setPos(28, i + 8);
+	}
+
+	// Torres negras comer alfiles blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.torres_negras[raton.torre_negra_seleccionada].getPos().x == listapiezas.alfiles_blancos[i].getPos().x &&
+			listapiezas.torres_negras[raton.torre_negra_seleccionada].getPos().y == listapiezas.alfiles_blancos[i].getPos().y)
+			listapiezas.alfiles_blancos[i].setPos(32, i + 12);
+	}
+
+	// Torres negras comer reina blanca
+	if (listapiezas.torres_negras[raton.torre_negra_seleccionada].getPos().x == listapiezas.reina_blanca[0].getPos().x &&
+		listapiezas.torres_negras[raton.torre_negra_seleccionada].getPos().y == listapiezas.reina_blanca[0].getPos().y)
+		listapiezas.reina_blanca[0].setPos(36, 0);
+
+
+	//CABALLOS NEGROS
+
+	// Caballos negros comer peones blancos
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.caballos_negros[raton.caballo_negro_seleccionado].getPos().x == listapiezas.peones_blancos[i].getPos().x &&
+			listapiezas.caballos_negros[raton.caballo_negro_seleccionado].getPos().y == listapiezas.peones_blancos[i].getPos().y)
+			listapiezas.peones_blancos[i].setPos(20, i);
+	}
+
+	// Caballos negros comer torres blancas
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.caballos_negros[raton.caballo_negro_seleccionado].getPos().x == listapiezas.torres_blancas[i].getPos().x &&
+			listapiezas.caballos_negros[raton.caballo_negro_seleccionado].getPos().y == listapiezas.torres_blancas[i].getPos().y)
+			listapiezas.torres_blancas[i].setPos(24, i + 4);
+	}
+
+	// Caballos negros comer caballos blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.caballos_negros[0].getPos().x == listapiezas.caballos_blancos[i].getPos().x &&
+			listapiezas.caballos_negros[0].getPos().y == listapiezas.caballos_blancos[i].getPos().y)
+			listapiezas.caballos_blancos[i].setPos(28, i + 8);
+
+		if (listapiezas.caballos_negros[1].getPos().x == listapiezas.caballos_blancos[i].getPos().x &&
+			listapiezas.caballos_negros[1].getPos().y == listapiezas.caballos_blancos[i].getPos().y)
+			listapiezas.caballos_blancos[i].setPos(28, i + 8);
+	}
+
+	// Caballos negros comer alfiles blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.caballos_negros[raton.caballo_negro_seleccionado].getPos().x == listapiezas.alfiles_blancos[i].getPos().x &&
+			listapiezas.caballos_negros[raton.caballo_negro_seleccionado].getPos().y == listapiezas.alfiles_blancos[i].getPos().y)
+			listapiezas.alfiles_blancos[i].setPos(32, i + 12);
+	}
+
+	// Caballos negros comer reina blanca
+	if (listapiezas.caballos_negros[raton.caballo_negro_seleccionado].getPos().x == listapiezas.reina_blanca[0].getPos().x &&
+		listapiezas.caballos_negros[raton.caballo_negro_seleccionado].getPos().y == listapiezas.reina_blanca[0].getPos().y)
+		listapiezas.reina_blanca[0].setPos(36, 0);
+
+	//ALFILES NEGROS
+
+	// Alfiles negros comer peones blancos
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].getPos().x == listapiezas.peones_blancos[i].getPos().x &&
+			listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].getPos().y == listapiezas.peones_blancos[i].getPos().y)
+			listapiezas.peones_blancos[i].setPos(20, i);
+	}
+
+	// Alfiles negros comer torres blancas
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].getPos().x == listapiezas.torres_blancas[i].getPos().x &&
+			listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].getPos().y == listapiezas.torres_blancas[i].getPos().y)
+			listapiezas.torres_blancas[i].setPos(24, i + 4);
+	}
+
+	// Alfiles negros comer caballos blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].getPos().x == listapiezas.caballos_blancos[i].getPos().x &&
+			listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].getPos().y == listapiezas.caballos_blancos[i].getPos().y)
+			listapiezas.caballos_blancos[i].setPos(28, i + 8);
+	}
+
+	// Alfiles negros comer alfiles blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.alfiles_negros[0].getPos().x == listapiezas.alfiles_blancos[i].getPos().x &&
+			listapiezas.alfiles_negros[0].getPos().y == listapiezas.alfiles_blancos[i].getPos().y)
+			listapiezas.alfiles_blancos[i].setPos(32, i + 12);
+
+		if (listapiezas.alfiles_negros[1].getPos().x == listapiezas.alfiles_blancos[i].getPos().x &&
+			listapiezas.alfiles_negros[1].getPos().y == listapiezas.alfiles_blancos[i].getPos().y)
+			listapiezas.alfiles_blancos[i].setPos(32, i + 12);
+	}
+
+	// Alfiles negros comer reina blanca
+	if (listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].getPos().x == listapiezas.reina_blanca[0].getPos().x &&
+		listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].getPos().y == listapiezas.reina_blanca[0].getPos().y)
+		listapiezas.reina_blanca[0].setPos(36, 0);
+
+	//REINA NEGRA//
+
+	// Reina negra comer peones blancos
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.reina_negra[0].getPos().x == listapiezas.peones_blancos[i].getPos().x &&
+			listapiezas.reina_negra[0].getPos().y == listapiezas.peones_blancos[i].getPos().y)
+			listapiezas.peones_blancos[i].setPos(20, i);
+	}
+
+	// Reina negra comer torres blancas
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.reina_negra[0].getPos().x == listapiezas.torres_blancas[i].getPos().x &&
+			listapiezas.reina_negra[0].getPos().y == listapiezas.torres_blancas[i].getPos().y)
+			listapiezas.torres_blancas[i].setPos(24, i + 4);
+	}
+
+	// Reina negra comer caballos blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.reina_negra[0].getPos().x == listapiezas.caballos_blancos[i].getPos().x &&
+			listapiezas.reina_negra[0].getPos().y == listapiezas.caballos_blancos[i].getPos().y)
+			listapiezas.caballos_blancos[i].setPos(28, i + 8);
+	}
+
+	// Reina negra comer alfiles blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.reina_negra[0].getPos().x == listapiezas.alfiles_blancos[i].getPos().x &&
+			listapiezas.reina_negra[0].getPos().y == listapiezas.alfiles_blancos[i].getPos().y)
+			listapiezas.alfiles_blancos[i].setPos(32, i + 12);
+	}
+
+	// Reina negra comer reina blanca
+	if (listapiezas.reina_negra[0].getPos().x == listapiezas.reina_blanca[0].getPos().x &&
+		listapiezas.reina_negra[0].getPos().y == listapiezas.reina_blanca[0].getPos().y)
+		listapiezas.reina_blanca[0].setPos(36, 0);
+
+
+	//REY NEGRO//
+
+	// Rey negro comer peones blancos
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.rey_negro.getPos().x == listapiezas.peones_blancos[i].getPos().x &&
+			listapiezas.rey_negro.getPos().y == listapiezas.peones_blancos[i].getPos().y)
+			listapiezas.peones_blancos[i].setPos(20, i);
+	}
+
+	// Rey negro comer torres blancas
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.rey_negro.getPos().x == listapiezas.torres_blancas[i].getPos().x &&
+			listapiezas.rey_negro.getPos().y == listapiezas.torres_blancas[i].getPos().y)
+			listapiezas.torres_blancas[i].setPos(24, i + 4);
+	}
+
+	// Rey negro comer caballos blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.rey_negro.getPos().x == listapiezas.caballos_blancos[i].getPos().x &&
+			listapiezas.rey_negro.getPos().y == listapiezas.caballos_blancos[i].getPos().y)
+			listapiezas.caballos_blancos[i].setPos(28, i + 8);
+	}
+
+	// Rey negro comer alfiles blancos
+	for (int i = 0; i < 2; i++) {
+		if (listapiezas.rey_negro.getPos().x == listapiezas.alfiles_blancos[i].getPos().x &&
+			listapiezas.rey_negro.getPos().y == listapiezas.alfiles_blancos[i].getPos().y)
+			listapiezas.alfiles_blancos[i].setPos(32, i + 12);
+	}
+
+	// Rey negro comer reina blanca
+	if (listapiezas.rey_negro.getPos().x == listapiezas.reina_blanca[0].getPos().x &&
+		listapiezas.rey_negro.getPos().y == listapiezas.reina_blanca[0].getPos().y)
+		listapiezas.reina_blanca[0].setPos(36, 0);
 }
