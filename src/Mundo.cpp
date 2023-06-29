@@ -52,7 +52,7 @@ void Mundo::inicializa()
 
 	movimientos.turnos() == true;
 
-	cout << "PRUEBA" << endl;
+	
 	
 }
 

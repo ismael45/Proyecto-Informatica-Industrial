@@ -45,6 +45,9 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			t = false;
 			opcion[0] = true;
 			opcion[1] = false;
+			ETSIDI::stopMusica();
+			ETSIDI::playMusica("bin/sonidos/flores.mp3", true);
+			
 
 		}
 
@@ -56,6 +59,8 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 			t = false;
 			opcion[0] = false;
 			opcion[1] = true;
+			ETSIDI::stopMusica();
+			ETSIDI::playMusica("bin/sonidos/normal.mp3", true);
 
 		}
 
