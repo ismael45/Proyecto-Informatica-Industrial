@@ -50,3 +50,9 @@ Vector2D Vector2D::operator * (float esc) {  //(8) PRODUCTO POR UN ESCALAR
 	res.y = y * esc;
 	return res;
 }
+
+bool Vector2D::operator==(const Vector2D& rhs) {
+	if (this->x == rhs.x && this->y == rhs.y)
+		return 1;
+	else return 0;
+}

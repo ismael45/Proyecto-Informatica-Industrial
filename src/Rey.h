@@ -17,4 +17,5 @@ public:
     //void setMovido(); //cuando se mueva por primera vez, activarlo
     //bool checkMovido(); //consultar estado, para evaluar si es posible el enroque
 
+    friend class ListaPiezas;
 };

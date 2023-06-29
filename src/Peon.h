@@ -12,4 +12,6 @@ class Peon : public Pieza
     //void setDoble();
     //void resetDoble();
     //bool getDoble();
+
+    friend class ListaPiezas;
 };

@@ -7,4 +7,5 @@ public:
     Reina() : Pieza() { setValor(9.0f); }
     void dibuja();
 
+    friend class ListaPiezas;
 };

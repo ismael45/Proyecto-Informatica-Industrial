@@ -47,4 +47,6 @@ public:
 	void asignar_piezas();
 
 	void reinicia();
+
+	int getIndexPieza(Pieza& p);
 };

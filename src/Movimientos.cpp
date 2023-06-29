@@ -1527,11 +1527,14 @@ void Movimientos::aux_alCementerio(int iv) {
 	else if (iv == 14) {
 		cout << "Fin del Juego!" << endl;
 		cout << "Ganan las Negras!" << endl;
+		fin_de_partida = true;
 	}
 	else if (iv == 30) {
 		cout << "Fin del Juego!" << endl;
 		cout << "Ganan las Blancas!" << endl;
+		fin_de_partida = true;
 	}
+	
 }
 //void Movimientos::captura(Pieza atacante, Pieza victima) {
 //
@@ -1563,6 +1566,34 @@ void Movimientos::captura(int indice, float destino_x, float destino_y) {
 	}
 
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//void Movimientos::captura(Pieza atacante, float destino_x, float destino_y) {
+//	if (atacante.getColor() == 1) {
+//		for (int victima = 0; victima < 48; victima++) {
+//			if ((listapiezas.piezas[victima].getPos().x == tablero.getCasilla_Pos(destino_x, destino_y).getPos().x)
+//				&& (listapiezas.piezas[victima].getPos().y == tablero.getCasilla_Pos(destino_x, destino_y).getPos().y)
+//				&& listapiezas.piezas[victima].getColor() == 2)
+//			{
+//				aux_alCementerio(victima);
+//				cout << "Pieza Negra Eliminada!" << endl;
+//			}
+//		}
+//	}
+//	else if (atacante.getColor() == 2) {
+//		for (int victima = 0; victima < 48; victima++) {
+//			if ((listapiezas.piezas[victima].getPos().x == tablero.getCasilla_Pos(destino_x, destino_y).getPos().x)
+//				&& (listapiezas.piezas[victima].getPos().y == tablero.getCasilla_Pos(destino_x, destino_y).getPos().y)
+//				&& listapiezas.piezas[victima].getColor() == 1) {
+//
+//				aux_alCementerio(victima);
+//				cout << "Pieza Blanca Eliminada!" << endl;
+//			}
+//
+//		}
+//	}
+//}
+
 
 void Movimientos::comer() {
 
@@ -1574,6 +1605,8 @@ void Movimientos::comer() {
 		if (listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().x == listapiezas.peones_negros[i].getPos().x &&
 			listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().y == listapiezas.peones_negros[i].getPos().y)
 			listapiezas.peones_negros[i].setPos(-20, i);
+			//captura((listapiezas.peones_blancos[raton.peon_blanco_seleccionado]), listapiezas.peones_negros[i].getPos().x, listapiezas.peones_negros[i].getPos().y);
+			//captura((listapiezas.getIndexPieza(listapiezas.piezas[16 + i])),     (listapiezas.peones_negros[i].getPos().x), (listapiezas.peones_negros[i].getPos().y));
 	}
 
 	// Peones blancos comer torres negras
@@ -1806,6 +1839,8 @@ void Movimientos::comer() {
 			if (listapiezas.peones_negros[i].getPos().x == listapiezas.peones_blancos[j].getPos().x &&
 				listapiezas.peones_negros[i].getPos().y == listapiezas.peones_blancos[j].getPos().y)
 				listapiezas.peones_blancos[j].setPos(20, j);
+				//captura((listapiezas.getIndexPieza(listapiezas.piezas[16 + i])), (listapiezas.peones_blancos[j].getPos().x), (listapiezas.peones_blancos[j].getPos().y));
+			
 		}
 	}
 

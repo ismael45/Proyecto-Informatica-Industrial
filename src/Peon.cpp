@@ -17,11 +17,12 @@ void Peon::dibuja() {
 		if (tipo == CLASICAS)
 			sprite = { "bin/imagenes/Peon_negro.png", posicion.x + 0.07f, posicion.y - 0.1f, 3, 3.5 };
 	}
-
+	
 	glPushMatrix();
 	glTranslatef(0, 0, 2);
 	sprite.draw();
 	glPopMatrix();
+	
 }
 
 

@@ -383,3 +383,25 @@ void ListaPiezas::reinicia() {
 		reina_negra[i].resetViviente(); //estas piezas no son jugables hasta que no entren al tablero
 	}
 }
+
+//int find_index(Pieza piezas[], Pieza p) {
+//	// Iterate over the array of Pieces, looking for the given Piece.
+//	for (int i = 0; i < sizeof(piezas) / sizeof(piezas); i++) {
+//		if (piezas[i] == p) {
+//			// The Piece was found at index i.
+//			return i;
+//		}
+//	}
+//	// The Piece was not found in the array.
+//	return -1;
+//}
+
+
+int ListaPiezas::getIndexPieza(Pieza& p) {
+	for (int i = 0; i < 48; i++) {
+		if (piezas[i] == p) {
+			return i;
+		}
+	}
+	return -1;
+}

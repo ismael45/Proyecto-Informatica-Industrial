@@ -117,3 +117,13 @@ void Pieza::setMovido() {
     movido = true;
 }
 
+bool Pieza::operator==(Pieza& rhs) {
+    if ((this->getColor() == rhs.getColor()) && (this->getPos() == rhs.getPos()))
+        return 1;
+    else return 0;
+}
+
+//bool operator==(const Pieza& lhs, const Pieza& rhs) {
+//  return lhs.getColor() == rhs.getColor() &&
+//         lhs.getPos() == rhs.getPos();
+//}

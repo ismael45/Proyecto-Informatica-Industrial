@@ -56,6 +56,9 @@ public:
     void setMovido(); //cuando se mueva por primera vez, activarlo
     bool checkMovido(); //consultar estado, para evaluar si es posible el enroque
 
+   
+    bool operator==(Pieza& rhs); 
+
 protected:
 
     bool SalidaDobleReciente = false; //se activará cuando el peón haga un salto doble al salir, solo debe durar el primer turno del oponente.
