@@ -14,7 +14,7 @@ void Menu::dibuja_Fondo() {
 
 
 void Menu::dibuja_opcion_1() {
-    sprite = { "bin/imagenes/1v1.png", posicion.x + 0.07f, posicion.y - 0.03f, 10, 10 };
+    sprite = { "bin/imagenes/1v1_flores.png", posicion.x + 0.07f, posicion.y - 0.03f, 10, 10 };
 
     glPushMatrix();
     glTranslatef(-25, 17, -1);
@@ -23,7 +23,7 @@ void Menu::dibuja_opcion_1() {
 }
 
 void Menu::dibuja_opcion_2() {
-    sprite = { "bin/imagenes/1vpc.png", posicion.x + 0.07f, posicion.y - 0.03f, 10, 10 };
+    sprite = { "bin/imagenes/1v1.png", posicion.x + 0.07f, posicion.y - 0.03f, 10, 10 };
 
     glPushMatrix();
     glTranslatef(25, 17, -1);

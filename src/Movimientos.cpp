@@ -941,16 +941,16 @@ void Movimientos::jaque()
 	{
 		cout << "EQUIPO NEGRO: JAQUE MAL " << endl;
 	}*/
-	piezaAmenazaACasillas(28);
-	piezaAmenazaACasillas(29);
+	/*piezaAmenazaACasillas(28);
+	piezaAmenazaACasillas(29);*/
 
 	//Jaque del alfil blanco al rey negro
 	/*if (diffFilaB == diffColumnaB)
 	{
 		cout << "EQUIPO BLANCO: JAQUE MAL " << endl;
 	}*/
-	piezaAmenazaACasillas(12);
-	piezaAmenazaACasillas(13);
+	/*piezaAmenazaACasillas(12);
+	piezaAmenazaACasillas(13);*/
 
 
 }
