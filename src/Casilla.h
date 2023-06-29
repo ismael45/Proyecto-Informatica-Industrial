@@ -18,6 +18,8 @@ public:
     Vector2D getPos();
     void dibuja();
     string getCodigo();
+    bool operator==(Casilla& rhs);
+
 
 private:
     ColorRGB color;

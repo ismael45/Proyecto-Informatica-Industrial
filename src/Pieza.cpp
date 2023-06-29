@@ -122,8 +122,3 @@ bool Pieza::operator==(Pieza& rhs) {
         return 1;
     else return 0;
 }
-
-//bool operator==(const Pieza& lhs, const Pieza& rhs) {
-//  return lhs.getColor() == rhs.getColor() &&
-//         lhs.getPos() == rhs.getPos();
-//}

@@ -384,17 +384,6 @@ void ListaPiezas::reinicia() {
 	}
 }
 
-//int find_index(Pieza piezas[], Pieza p) {
-//	// Iterate over the array of Pieces, looking for the given Piece.
-//	for (int i = 0; i < sizeof(piezas) / sizeof(piezas); i++) {
-//		if (piezas[i] == p) {
-//			// The Piece was found at index i.
-//			return i;
-//		}
-//	}
-//	// The Piece was not found in the array.
-//	return -1;
-//}
 
 
 int ListaPiezas::getIndexPieza(Pieza& p) {

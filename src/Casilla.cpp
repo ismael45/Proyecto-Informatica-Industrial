@@ -47,3 +47,9 @@ void Casilla::dibuja() {
 		//glPopMatrix();
 	}
 }
+
+bool Casilla::operator==(Casilla& rhs) {
+	if ((this->getPos() == rhs.getPos()))
+		return true;
+	else return false;
+}

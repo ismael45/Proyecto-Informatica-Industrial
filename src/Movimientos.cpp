@@ -150,6 +150,9 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					//PIEZAS BLANCAS//
 
 
+					Casilla casilla_destino = tablero.getCasilla_Pos(raton.destino.x, raton.destino.y);
+					int casilla_ind = tablero.getIndexCasilla(casilla_destino);
+
 					// Realizar el movimiento del peón si la casilla no está ocupada
 					if (!casilla_blanca_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon_blanco()) {
 						//if (!casilla_ocupada && raton.peon_blanco_seleccionado != -1 && movimiento_peon_blanco()&& turnos()) {
@@ -209,12 +212,14 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento del rey blanco si la casilla no está ocupada
-					if (!casilla_blanca_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey()) {
+					if (!casilla_blanca_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey() && !checkCasillaAmenazada(casilla_ind)) {
 						//if (!casilla_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey() && turnos()) {
 						pos_reyBlanco = { raton.destino };
 						t = true;
 						sonido();
 						ResetDobles();
+						
+						
 
 						if (quiero_enrocar) {
 							if (enroqueCortoPosible(14) && (raton.destino.x - raton.origen.x) == 8) {
@@ -306,7 +311,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 					}
 
 					// Realizar el movimiento del rey negro si la casilla no está ocupada
-					if (!casilla_negra_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey()) {
+					if (!casilla_negra_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey() && !checkCasillaAmenazada(casilla_ind)) {
 						//if (!casilla_ocupada && raton.rey_negro_seleccionado != -1 && movimiento_rey() && !turnos()) {
 						pos_reyNegro = { raton.destino };
 						t = false;

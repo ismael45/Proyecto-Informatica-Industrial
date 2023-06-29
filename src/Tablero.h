@@ -37,4 +37,6 @@ public:
 	Casilla getCasilla_Ind(int i);
 
 	bool estaDentroTablero(float x, float y);
+
+	int getIndexCasilla(Casilla& C);
 };

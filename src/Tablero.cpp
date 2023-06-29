@@ -91,3 +91,12 @@ Casilla Tablero::getCasilla_Pos(float x, float y) {
 Casilla Tablero::getCasilla_Ind(int i) {
 	return casilla[i];
 }
+
+int Tablero::getIndexCasilla(Casilla& C) {
+	for (int i = 0; i < 64; i++) {
+		if (casilla[i] == C) {
+			return i;
+		}
+	}
+	return -1;
+}
