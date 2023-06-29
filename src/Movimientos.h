@@ -21,6 +21,7 @@ private:
 
 	bool t;
 	bool fin_de_partida=false;
+	bool quiero_enrocar = false;
 
 	bool casillas_amenazadas_por_blancas[63] = { false };// vectores de booleanos para indicar qué casillas se encuentran bajo amenaza inminente
 	bool casillas_amenazadas_por_negras[63] = { false };
@@ -58,6 +59,9 @@ public:
 
 	void ResetDobles();
 	void BanderasMovimiento();
+	bool enroqueCortoPosible(int i);
+	bool enroqueLargoPosible(int i);
+
 	void enroqueCorto(int i);
 	void enroqueLargo(int i);
 

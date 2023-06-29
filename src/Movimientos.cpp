@@ -215,6 +215,19 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						t = true;
 						sonido();
 						ResetDobles();
+
+						if (quiero_enrocar) {
+							if (enroqueCortoPosible(14) && (raton.destino.x - raton.origen.x) == 8) {
+								enroqueCorto(14);
+							}
+							if (enroqueLargoPosible(14) && (raton.destino.x - raton.origen.x) == -8) {
+								enroqueLargo(14);
+							}
+							quiero_enrocar = false;
+						}
+						else if (!quiero_enrocar)
+							listapiezas.rey_blanco.setPos(raton.destino.x, raton.destino.y);
+
 						listapiezas.rey_blanco.setPos(raton.destino.x, raton.destino.y);
 						comer();
 						cout << "Movimiento realizado: Rey blanco a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
@@ -299,7 +312,19 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						t = false;
 						ResetDobles();
 						sonido();
-						listapiezas.rey_negro.setPos(raton.destino.x, raton.destino.y);
+
+						if (quiero_enrocar) {
+							if (enroqueCortoPosible(30) && (raton.destino.x - raton.origen.x) == 8) {
+								enroqueCorto(30);
+							}
+							if (enroqueLargoPosible(30) && (raton.destino.x - raton.origen.x) == -8) {
+								enroqueLargo(30);
+							}
+							quiero_enrocar = false;
+						}
+						else if (!quiero_enrocar)
+							listapiezas.rey_negro.setPos(raton.destino.x, raton.destino.y);
+
 						comer();
 						cout << "Movimiento realizado: Rey negro a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
@@ -828,6 +853,13 @@ bool Movimientos::movimiento_rey()
 		(diferencia_x == 4 && diferencia_y == 4)) {
 		return true;
 	}
+	//Implementación del Enroque
+	if (((raton.destino.x - raton.origen.x) == 8 && diferencia_y == 0))//solo aplicable en la primera y última fila
+	{
+		quiero_enrocar = true;
+		return true;
+	}
+
 
 	return false;
 }
@@ -1469,38 +1501,122 @@ void Movimientos::ResetDobles() {
 
 
 
+//void Movimientos::enroqueCorto(int i) {
+//	if (i == 14) { //Rey Blanco
+//		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[9].checkMovido() == false //si no se han movido
+//			&& checkCasillaAmenazada(4) == checkCasillaAmenazada(5) == checkCasillaAmenazada(6) == false) { //ni el rey se pone en peligro
+//			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(6).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
+//			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(5).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
+//		}
+//	}
+//	if (i == 30) { //Rey Negro
+//		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[25].checkMovido() == false
+//			&& checkCasillaAmenazada(60) == checkCasillaAmenazada(61) == checkCasillaAmenazada(62) == false) {
+//			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(62).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
+//			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(61).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
+//		}
+//	}
+//}
+//void Movimientos::enroqueLargo(int i) {
+//	if (i == 14) { //Rey Blanco
+//		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[8].checkMovido() == false
+//			&& checkCasillaAmenazada(4) == checkCasillaAmenazada(3) == checkCasillaAmenazada(2) == false) {
+//			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(2).getPos().x, tablero.getCasilla_Ind(2).getPos().y);
+//			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(3).getPos().x, tablero.getCasilla_Ind(3).getPos().y);
+//		}
+//	}
+//	if (i == 30) { //Rey Negro
+//		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[24].checkMovido() == false
+//			&& checkCasillaAmenazada(60) == checkCasillaAmenazada(59) == checkCasillaAmenazada(58) == false) {
+//			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(58).getPos().x, tablero.getCasilla_Ind(58).getPos().y);
+//			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(59).getPos().x, tablero.getCasilla_Ind(59).getPos().y);
+//		}
+//	}
+//}
+bool Movimientos::enroqueCortoPosible(int i)
+{
+	if (i == 14)
+	{
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[9].checkMovido() == false //si no se han movido
+			&& checkCasillaAmenazada(4) == checkCasillaAmenazada(5) == checkCasillaAmenazada(6) == false) //ni el rey se pone en peligro
+		{
+			return true;
+		}
+		else return false;
+	}
+	if (i == 30)
+	{
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[25].checkMovido() == false
+			&& checkCasillaAmenazada(60) == checkCasillaAmenazada(61) == checkCasillaAmenazada(62) == false)
+		{
+			return true;
+		}
+		else return false;
+	}
+
+}
+
+
+
+bool Movimientos::enroqueLargoPosible(int i) {
+	if (i == 14) { //Rey Blanco
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[8].checkMovido() == false
+			&& checkCasillaAmenazada(4) == checkCasillaAmenazada(3) == checkCasillaAmenazada(2) == false)
+		{
+			return true;
+		}
+		else return false;
+	}
+	if (i == 30) { //Rey Negro
+		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[24].checkMovido() == false
+			&& checkCasillaAmenazada(60) == checkCasillaAmenazada(59) == checkCasillaAmenazada(58) == false)
+		{
+			return true;
+		}
+		else return false;
+	}
+
+}
+
+
+
 void Movimientos::enroqueCorto(int i) {
 	if (i == 14) { //Rey Blanco
-		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[9].checkMovido() == false //si no se han movido
-			&& checkCasillaAmenazada(4) == checkCasillaAmenazada(5) == checkCasillaAmenazada(6) == false) { //ni el rey se pone en peligro
+		if (enroqueCortoPosible(14))
+		{
 			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(6).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(5).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 		}
 	}
 	if (i == 30) { //Rey Negro
-		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[25].checkMovido() == false
-			&& checkCasillaAmenazada(60) == checkCasillaAmenazada(61) == checkCasillaAmenazada(62) == false) {
+		if (enroqueCortoPosible(30))
+		{
 			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(62).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(61).getPos().x, tablero.getCasilla_Ind(6).getPos().y);
 		}
 	}
 }
+
+
+
 void Movimientos::enroqueLargo(int i) {
 	if (i == 14) { //Rey Blanco
-		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[8].checkMovido() == false
-			&& checkCasillaAmenazada(4) == checkCasillaAmenazada(3) == checkCasillaAmenazada(2) == false) {
+		if (enroqueLargoPosible(i))
+		{
 			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(2).getPos().x, tablero.getCasilla_Ind(2).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(3).getPos().x, tablero.getCasilla_Ind(3).getPos().y);
 		}
 	}
 	if (i == 30) { //Rey Negro
-		if (listapiezas.piezas[i].checkMovido() == false && listapiezas.piezas[24].checkMovido() == false
-			&& checkCasillaAmenazada(60) == checkCasillaAmenazada(59) == checkCasillaAmenazada(58) == false) {
+		if (enroqueLargoPosible(i))
+		{
 			listapiezas.piezas[i].setPos(tablero.getCasilla_Ind(58).getPos().x, tablero.getCasilla_Ind(58).getPos().y);
 			listapiezas.piezas[9].setPos(tablero.getCasilla_Ind(59).getPos().x, tablero.getCasilla_Ind(59).getPos().y);
 		}
 	}
 }
+
+
 
 
 void Movimientos::aux_alCementerio(int iv) {
