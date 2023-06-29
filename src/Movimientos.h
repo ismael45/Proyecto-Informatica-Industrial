@@ -70,5 +70,6 @@ public:
 	void promocionAReina();
 
 	void comer();
+	void sonido();
 
 };

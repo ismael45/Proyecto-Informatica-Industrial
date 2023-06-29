@@ -151,6 +151,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_peonB = { raton.destino };
 						jaque();
 						t = true;
+						sonido();
 						ResetDobles();
 						listapiezas.peones_blancos[raton.peon_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						comer();
@@ -165,6 +166,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_torreB = { raton.destino };
 						jaque();
 						t = true;
+						sonido();
 						ResetDobles();
 						listapiezas.torres_blancas[raton.torre_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						comer();
@@ -179,6 +181,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_caballoB = { raton.destino };
 						jaque();
 						t = true;
+						sonido();
 						ResetDobles();
 						listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						comer();
@@ -191,6 +194,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						//if (!casilla_ocupada && raton.alfil_blanco_seleccionado != -1 && movimiento_alfil() && turnos()) {
 						pos_alfilB = { raton.destino };
 						jaque();
+						sonido();
 						t = true;
 						ResetDobles();
 						listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
@@ -204,6 +208,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						//if (!casilla_ocupada && raton.rey_blanco_seleccionado != -1 && movimiento_rey() && turnos()) {
 						pos_reyBlanco = { raton.destino };
 						t = true;
+						sonido();
 						ResetDobles();
 						listapiezas.rey_blanco.setPos(raton.destino.x, raton.destino.y);
 						comer();
@@ -216,6 +221,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						//if (!casilla_ocupada && raton.reina_blanca_seleccionada != -1 && (movimiento_alfil() || movimiento_torre()) && turnos()) {
 						t = true;
 						ResetDobles();
+						sonido();
 						listapiezas.reina_blanca[raton.reina_blanca_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						comer();
 						cout << "Movimiento realizado: Reina blanca a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
@@ -233,6 +239,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						ResetDobles();
 						listapiezas.peones_negros[raton.peon_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						comer();
+						sonido();
 						promocionAReina();
 						cout << "Movimiento realizado: Peón negro " << raton.peon_negro_seleccionado << " a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
@@ -244,6 +251,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_torreN = { raton.destino };
 						jaque();
 						t = false;
+						sonido();
 						ResetDobles();
 						listapiezas.torres_negras[raton.torre_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						comer();
@@ -257,6 +265,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_caballoN = { raton.destino };
 						jaque();
 						t = false;
+						sonido();
 						ResetDobles();
 						listapiezas.caballos_negros[raton.caballo_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						comer();
@@ -269,6 +278,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						//if (!casilla_ocupada && raton.alfil_negro_seleccionado != -1 && movimiento_alfil()&&!turnos()) {
 						pos_alfilN = { raton.destino };
 						jaque();
+						sonido();
 						t = false;
 						ResetDobles();
 						listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
@@ -283,6 +293,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						pos_reyNegro = { raton.destino };
 						t = false;
 						ResetDobles();
+						sonido();
 						listapiezas.rey_negro.setPos(raton.destino.x, raton.destino.y);
 						comer();
 						cout << "Movimiento realizado: Rey negro a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
@@ -294,6 +305,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						//if (!casilla_ocupada && raton.reina_negra_seleccionada != -1 && ( movimiento_alfil()|| movimiento_torre() ) && !turnos()) {
 						t = false;
 						ResetDobles();
+						sonido();
 						listapiezas.reina_negra[raton.reina_negra_seleccionada].setPos(raton.destino.x, raton.destino.y);
 						comer();
 						cout << "Movimiento realizado: Reina negra a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
@@ -2343,6 +2355,8 @@ void Movimientos::comer() {
 	//Rey no puede comer a Rey
 }
 
+
+
 //*****************************************************************************************************
 
 void Movimientos::promocionAReina() {
@@ -2401,4 +2415,10 @@ bool Movimientos::tablas() {
 	}
 	if (aux1 = aux2 = aux3 = 0)  //si todas las piezas, excepto los reyes, están muertas:
 		return true;
+}
+
+
+void Movimientos::sonido()
+{
+	ETSIDI::play("bin/sonidos/movimiento.wav");
 }
