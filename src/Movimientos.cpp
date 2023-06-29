@@ -41,6 +41,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 		if (posX >= -25.7677 - 5 && posX <= -16.1491 - 5 && posY <= 21.5664 && posY >= 14.5947) {
 			cout << "Opcion 1" << endl;
 			listapiezas.reinicia();
+			fin_de_partida = false;
 			t = false;
 			opcion[0] = true;
 			opcion[1] = false;
@@ -51,6 +52,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 		if (posX >= 16.8984 + 5 && posX <= 24.1805 + 5 && posY <= 21.5664 && posY >= 14.5947) {
 			cout << "Opcion 2" << endl;
 			listapiezas.reinicia();
+			fin_de_partida = false;
 			t = false;
 			opcion[0] = false;
 			opcion[1] = true;
@@ -897,8 +899,12 @@ void Movimientos::jaque()
 
 bool Movimientos::turnos()
 {
-	if (t == true) { return false; }  //turno() == false -> turno de negras
-	else { return true; }  //turno() == true  -> turno de blancas
+	if (!fin_de_partida)
+	{
+		if (t == true) { return false; }  //turno() == false -> turno de negras
+		else { return true; }  //turno() == true  -> turno de blancas
+	}
+	
 }
 
 

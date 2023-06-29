@@ -20,6 +20,7 @@ private:
 	Vector2D pos_alfilN, pos_alfilB;
 
 	bool t;
+	bool fin_de_partida=false;
 
 	bool casillas_amenazadas_por_blancas[63] = { false };// vectores de booleanos para indicar qué casillas se encuentran bajo amenaza inminente
 	bool casillas_amenazadas_por_negras[63] = { false };

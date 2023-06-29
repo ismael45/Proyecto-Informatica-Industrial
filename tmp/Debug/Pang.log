@@ -1,134 +1,91 @@
-﻿  00Pruebas.cpp
-  Ajedrez.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-  Alfil.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-  Caballo.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-  Casilla.cpp
-  ListaPiezas.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(8,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(23,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(29,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(44,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(346,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(361,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(367,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\ListaPiezas.cpp(382,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Menu.cpp
+﻿  Ajedrez.cpp
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
   Movimientos.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(62,39): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(62,33): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(729,9): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(748,9): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(770,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(771,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(778,9): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(779,9): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(802,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(803,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(816,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(817,21): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(828,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(829,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(831,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(832,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(835,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(836,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(838,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(839,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(948,13): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(989,13): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1570,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1577,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1584,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1591,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1607,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1611,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1618,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1625,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1632,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1647,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1654,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1658,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1665,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1672,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1688,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1695,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1702,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1706,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1713,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1728,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1735,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1742,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1749,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1763,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1770,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1777,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1784,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1802,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1812,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1820,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1827,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1841,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1850,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1854,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1861,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1868,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1883,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1890,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1897,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1901,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1908,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1922,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1929,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1936,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1943,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1947,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1961,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1968,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1975,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1982,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1997,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(2004,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(2011,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(2018,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(64,39): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(64,33): warning C4244: 'argumento': conversión de 'GLdouble' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(731,9): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(750,9): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(772,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(773,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(780,9): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(781,9): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(804,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(805,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(818,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(819,21): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(830,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(831,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(833,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(834,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(837,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(838,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(840,16): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(841,19): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(954,13): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(995,13): warning C4804: '<=': uso no seguro del tipo 'bool' en la operación
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1576,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1583,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1590,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1597,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1613,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1617,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1624,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1631,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1638,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1653,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1660,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1664,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1671,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1678,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1694,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1701,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1708,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1712,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1719,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1734,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1741,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1748,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1755,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1769,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1776,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1783,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1790,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1808,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1818,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1826,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1833,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1847,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1856,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1860,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1867,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1874,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1889,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1896,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1903,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1907,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1914,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1928,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1935,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1942,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1949,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1953,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1967,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1974,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1981,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1988,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(2003,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(2010,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(2017,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(2024,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Mundo.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Mundo.cpp(53,23): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
-  Peon.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-  Pieza.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-  Reina.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-  Rey.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-  Tablero.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(22,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(22,25): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(37,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Tablero.cpp(37,25): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Torre.cpp
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
-  Vector2D.cpp
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Pieza.h(8,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Color' cuando no hay ninguna variable declarada
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Pieza.h(9,44): warning C4091: 'typedef ': se ha omitido a la izquierda de 'Tipo' cuando no hay ninguna variable declarada
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Mundo.cpp(53,23): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
   Generando código...
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.cpp(103): warning C4715: 'Pieza::checkJaque': no todas las rutas de acceso de control devuelven un valor
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.cpp(97): warning C4715: 'Pieza::getDoble': no todas las rutas de acceso de control devuelven un valor
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Pieza.cpp(114): warning C4715: 'Pieza::checkMovido': no todas las rutas de acceso de control devuelven un valor
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(911): warning C4715: 'Movimientos::aux_ExisteCeldaSinAliado': no todas las rutas de acceso de control devuelven un valor
-C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\src\Movimientos.cpp(1382): warning C4715: 'Movimientos::checkCasillaAmenazada': no todas las rutas de acceso de control devuelven un valor
-  Pang.vcxproj -> C:\Users\andre\source\repos\Proyecto-Informatica-Industrial\bin\Ajedrez.exe
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(908): warning C4715: 'Movimientos::turnos': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(917): warning C4715: 'Movimientos::aux_ExisteCeldaSinAliado': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\src\Movimientos.cpp(1388): warning C4715: 'Movimientos::checkCasillaAmenazada': no todas las rutas de acceso de control devuelven un valor
+  Pang.vcxproj -> C:\Users\Realorth\Desktop\2023 - Informática Industrial y Comunic\Trabajo, material grupo\ultimorepo\bin\Ajedrez.exe
