@@ -154,6 +154,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						ResetDobles();
 						listapiezas.peones_blancos[raton.peon_blanco_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						comer();
+						promocionAReina();
 						cout << "Movimiento realizado: Peón blanco " << raton.peon_blanco_seleccionado << " a la casilla " << (tablero.getCasilla_Ind(i)).getCodigo() << endl;
 						cout << "****Turno Negras****" << endl;
 					}
@@ -232,6 +233,7 @@ void Movimientos::MouseButton(int x, int y, int button, bool down) {
 						ResetDobles();
 						listapiezas.peones_negros[raton.peon_negro_seleccionado].setPos(raton.destino.x, raton.destino.y);
 						comer();
+						promocionAReina();
 						cout << "Movimiento realizado: Peón negro " << raton.peon_negro_seleccionado << " a la casilla " << tablero.getCasilla_Ind(i).getCodigo() << endl;
 						cout << "***Turno Blancas****" << endl;
 					}
@@ -2271,4 +2273,62 @@ void Movimientos::comer() {
 	}
 
 	//Rey no puede comer a Rey
+}
+
+//*****************************************************************************************************
+
+void Movimientos::promocionAReina() {
+	// Peones blancos promocionan a reinas blancas
+	for (int i = 0; i < 8; i++) {
+		if (listapiezas.peones_blancos[i].getPos().y > 12 && listapiezas.peones_blancos[i].getPos().y < 16) //cuando un peón negro llega a la casilla de abajo
+		{
+			Pieza aux;
+			aux.setPos(listapiezas.peones_blancos[i].getPos().x, listapiezas.peones_blancos[i].getPos().y);//se guardan las coordenadas del peón
+			listapiezas.peones_blancos[i].setPos(20, i);
+			listapiezas.peones_blancos[i].resetViviente();
+			listapiezas.reina_blanca[i + 1].setPos(aux.getPos().x, aux.getPos().y);
+			listapiezas.reina_blanca[i + 1].setViviente();
+		}
+
+	}
+
+	// Peones negros Promocionan a reinas negras
+	for (int i = 0; i < 8; i++) {
+			if (listapiezas.peones_negros[i].getPos().y <- 12 && listapiezas.peones_negros[i].getPos().y > -16 ) //cuando un peón negro llega a la casilla de abajo
+			{
+				Pieza aux;
+				aux.setPos(listapiezas.peones_negros[i].getPos().x, listapiezas.peones_negros[i].getPos().y);//se guardan las coordenadas del peón
+				listapiezas.peones_negros[i].setPos(20, i);
+				listapiezas.peones_blancos[i].resetViviente();
+				listapiezas.reina_negra[i + 1].setPos(aux.getPos().x,aux.getPos().y);
+				listapiezas.reina_negra[i + 1].setViviente();
+			}
+				
+	}
+
+
+
+}
+
+void Movimientos::setFinDePartida() {
+	if (listapiezas.rey_blanco.checkViviente() == false || listapiezas.rey_negro.checkViviente() == false || tablas())
+		fin_de_partida == 1;
+}
+
+bool Movimientos::tablas() {
+	bool aux1, aux2, aux3;
+	for (int i = 0; i < 14; i++) {
+		if (listapiezas.piezas[i].checkViviente())
+			aux1 = true;
+	}
+	for (int i = 15; i < 30; i++) {
+		if (listapiezas.piezas[i].checkViviente())
+			aux2 = true;
+	}
+	for (int i = 31; i < 48; i++) {
+		if (listapiezas.piezas[i].checkViviente())
+			aux3 = true;
+	}
+	if (aux1 = aux2 = aux3 = 0)  //si todas las piezas, excepto los reyes, están muertas:
+		return true;
 }

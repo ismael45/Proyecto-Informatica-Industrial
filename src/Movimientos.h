@@ -64,7 +64,10 @@ public:
 	void aux_alCementerio(int indice_victima);
 	void captura(Pieza atacante, Pieza victima);
 	void captura(int indice, float destino_x, float destino_y);
-	//void captura(Pieza atacante, float destino_x, float destino_y);
+
+	void setFinDePartida();
+	bool tablas();
+	void promocionAReina();
 
 	void comer();
 
