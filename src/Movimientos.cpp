@@ -1616,7 +1616,7 @@ void Movimientos::comer() {
 	for (int i = 0; i < 9; i++) {
 		if (listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().x == listapiezas.reina_negra[i].getPos().x &&
 			listapiezas.peones_blancos[raton.peon_blanco_seleccionado].getPos().y == listapiezas.reina_negra[i].getPos().y) {
-			listapiezas.reina_negra[i].setPos(-30, 0);
+			listapiezas.reina_negra[i].setPos(-30, i);
 			listapiezas.reina_negra[i].resetViviente();
 		}
 	}
@@ -1678,7 +1678,7 @@ void Movimientos::comer() {
 	for (int i = 0; i < 9; i++) {
 		if (listapiezas.torres_blancas[raton.torre_blanca_seleccionada].getPos().x == listapiezas.reina_negra[i].getPos().x &&
 			listapiezas.torres_blancas[raton.torre_blanca_seleccionada].getPos().y == listapiezas.reina_negra[i].getPos().y) {
-			listapiezas.reina_negra[i].setPos(-30, 0);
+			listapiezas.reina_negra[i].setPos(-30, i);
 			listapiezas.reina_negra[i].resetViviente();
 		}
 	}
@@ -1739,7 +1739,7 @@ void Movimientos::comer() {
 	for (int i = 0; i < 9; i++) {
 		if (listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].getPos().x == listapiezas.reina_negra[i].getPos().x &&
 			listapiezas.caballos_blancos[raton.caballo_blanco_seleccionado].getPos().y == listapiezas.reina_negra[i].getPos().y) {
-			listapiezas.reina_negra[i].setPos(-30, 0);
+			listapiezas.reina_negra[i].setPos(-30, i);
 			listapiezas.reina_negra[i].resetViviente();
 		}
 	}
@@ -1801,7 +1801,7 @@ void Movimientos::comer() {
 	for (int i = 0; i < 9; i++) {
 		if (listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].getPos().x == listapiezas.reina_negra[i].getPos().x &&
 			listapiezas.alfiles_blancos[raton.alfil_blanco_seleccionado].getPos().y == listapiezas.reina_negra[i].getPos().y) {
-			listapiezas.reina_negra[i].setPos(-30, 0);
+			listapiezas.reina_negra[i].setPos(-30, i);
 			listapiezas.reina_negra[i].resetViviente();
 		}
 	}
@@ -1855,7 +1855,7 @@ void Movimientos::comer() {
 	for (int i = 0; i < 9; i++) {
 		if (listapiezas.rey_blanco.getPos().x == listapiezas.reina_negra[i].getPos().x &&
 			listapiezas.rey_blanco.getPos().y == listapiezas.reina_negra[i].getPos().y) {
-			listapiezas.reina_negra[i].setPos(-30, 0);
+			listapiezas.reina_negra[i].setPos(-30, i);
 			listapiezas.reina_negra[i].resetViviente();
 		}
 	}
@@ -1915,7 +1915,7 @@ void Movimientos::comer() {
 		for (int i = 0; i < 9; i++) {
 			if (listapiezas.reina_blanca[j].getPos().x == listapiezas.reina_negra[i].getPos().x &&
 				listapiezas.reina_blanca[j].getPos().y == listapiezas.reina_negra[i].getPos().y && !turnos()) {
-				listapiezas.reina_negra[i].setPos(-30, 0);
+				listapiezas.reina_negra[i].setPos(-30, i);
 				listapiezas.reina_negra[i].resetViviente();
 			}
 		}
@@ -1979,7 +1979,7 @@ void Movimientos::comer() {
 	for (int i = 0; i < 9; i++) {
 		if (listapiezas.peones_negros[raton.peon_negro_seleccionado].getPos().x == listapiezas.reina_blanca[i].getPos().x &&
 			listapiezas.peones_negros[raton.peon_negro_seleccionado].getPos().y == listapiezas.reina_blanca[i].getPos().y) {
-			listapiezas.reina_blanca[i].setPos(30, 0);
+			listapiezas.reina_blanca[i].setPos(30, i);
 			listapiezas.reina_blanca[i].resetViviente();
 		}
 	}
@@ -2045,7 +2045,7 @@ void Movimientos::comer() {
 	for (int i = 0; i < 9; i++) {
 		if (listapiezas.torres_negras[raton.torre_negra_seleccionada].getPos().x == listapiezas.reina_blanca[i].getPos().x &&
 			listapiezas.torres_negras[raton.torre_negra_seleccionada].getPos().y == listapiezas.reina_blanca[i].getPos().y) {
-			listapiezas.reina_blanca[i].setPos(30, 0);
+			listapiezas.reina_blanca[i].setPos(30, i);
 			listapiezas.reina_blanca[i].resetViviente();
 		}
 	}
@@ -2109,7 +2109,7 @@ void Movimientos::comer() {
 	for (int i = 0; i < 9; i++) {
 		if (listapiezas.caballos_negros[raton.caballo_negro_seleccionado].getPos().x == listapiezas.reina_blanca[i].getPos().x &&
 			listapiezas.caballos_negros[raton.caballo_negro_seleccionado].getPos().y == listapiezas.reina_blanca[i].getPos().y) {
-			listapiezas.reina_blanca[i].setPos(30, 0);
+			listapiezas.reina_blanca[i].setPos(30, i);
 			listapiezas.reina_blanca[i].resetViviente();
 		}
 	}
@@ -2169,7 +2169,7 @@ void Movimientos::comer() {
 	for (int i = 0; i < 9; i++) {
 		if (listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].getPos().x == listapiezas.reina_blanca[i].getPos().x &&
 			listapiezas.alfiles_negros[raton.alfil_negro_seleccionado].getPos().y == listapiezas.reina_blanca[i].getPos().y) {
-			listapiezas.reina_blanca[i].setPos(30, 0);
+			listapiezas.reina_blanca[i].setPos(30, i);
 			listapiezas.reina_blanca[i].resetViviente();
 		}
 	}
@@ -2231,7 +2231,7 @@ void Movimientos::comer() {
 		for (int i = 1; i < 9; i++) {
 			if (listapiezas.reina_negra[j].getPos().x == listapiezas.reina_blanca[i].getPos().x &&
 				listapiezas.reina_negra[j].getPos().y == listapiezas.reina_blanca[i].getPos().y) {
-				listapiezas.reina_blanca[i].setPos(30, 0);
+				listapiezas.reina_blanca[i].setPos(30, i);
 				listapiezas.reina_blanca[i].resetViviente();
 			}
 		}
@@ -2290,7 +2290,7 @@ void Movimientos::comer() {
 	for (int i = 0; i < 9; i++) {
 		if (listapiezas.rey_negro.getPos().x == listapiezas.reina_blanca[i].getPos().x &&
 			listapiezas.rey_negro.getPos().y == listapiezas.reina_blanca[i].getPos().y) {
-			listapiezas.reina_blanca[i].setPos(30, 0);
+			listapiezas.reina_blanca[i].setPos(30, i);
 			listapiezas.reina_blanca[i].resetViviente();
 		}
 	}
